@@ -1,0 +1,70 @@
+/*Modified for h2 tabs 08/02/2014*/
+
+* {
+margin:0;
+padding:0
+}
+
+h2 {
+background:none repeat scroll 0 0 #ccc;
+border:1px solid #aaa;
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+float:left;
+padding:5px;
+font-size:20px;
+font-weight:400;
+cursor:pointer
+}
+
+h2.tab-selected {
+background:#888;
+border:1px solid #000
+}
+
+.map {
+position: absolute;
+z-index: 0;
+left: 0;
+top: 35px;
+/*display: none;/*/
+}
+/*end of modification*/
+
+.jvectormap-label {
+position:absolute;
+display:none;
+border:solid 1px #CDCDCD;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+background:#292929;
+color:#fff;
+font-family:sans-serif,Verdana;
+font-size:smaller;
+padding:3px
+}
+
+.jvectormap-zoomin,.jvectormap-zoomout {
+position:absolute;
+left:10px;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+background:#292929;
+padding:3px;
+color:#fff;
+width:10px;
+height:10px;
+cursor:pointer;
+line-height:10px;
+text-align:center
+}
+
+.jvectormap-zoomin {
+top:10px
+}
+
+.jvectormap-zoomout {
+top:30px
+}

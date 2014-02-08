@@ -1,0 +1,18 @@
+.single-country{
+	border: 1px solid black;
+	width: 50px;
+	height: 100px;
+	float: inherit;
+	/*position: relative;*/
+	padding: 2px;
+	margin: 5px;
+}
+
+.four.columns{
+
+	/*display: none;*/
+}
+
+#single-country-template{
+	display: none;
+}
