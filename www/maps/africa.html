@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>JQVMap - World Map</title>
+
+        <link href="../jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="../jqvmap/jquery.min.js" type="text/javascript"></script>
+        <script src="../jqvmap/vmap.js" type="text/javascript"></script>
+        <!-- // <script src="../jqvmap/jquery.vmap2.js" type="text/javascript"></script> -->
+        <script src="../jqvmap/maps/continents/jquery.vmap.africa_west.js" type="text/javascript"></script>
+        <script src="../jqvmap/maps/continents/jquery.vmap.africa_east.js" type="text/javascript"></script>
+        <script src="../jqvmap/maps/continents/jquery.vmap.africa_south.js" type="text/javascript"></script>
+        <script src="../jqvmap/maps/continents/jquery.vmap.africa_north.js" type="text/javascript"></script>
+        <script src="../jqvmap/maps/continents/jquery.vmap.africa_middle.js" type="text/javascript"></script>
+        <script src="../jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+   
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                $('h2').each(function(){
+                    console.log(this.id);
+                    $(this).click(function(){
+                        console.log(this.id);
+                        $('.tab-selected').removeClass('tab-selected');
+                        $(this).addClass('tab-selected');
+                        $('.map').css('z-index', '0');
+                        $('#vmap-'+this.id).parent().css('z-index', '1');
+                    });
+                });
+                $('h2:first').addClass('tab-selected');
+                $('.map:first').css('z-index', '1');
+                
+                jQuery('#vmap-africa_west').vectorMap({
+                    map: 'africa_en_west',
+                    backgroundColor: '#333333',
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#666666',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#C8EEFF', '#006491'],
+                    normalizeFunction: 'polynomial',
+    //                 onRegionClick: function(element, code, region)
+    // {
+    //     var message = 'You clicked "'
+    //         + region 
+    //         + '" which has the code: '
+    //         + code.toUpperCase();
+             
+    //     alert(message);
+    // }, 
+      onLabelShow: function(e, el, code){
+    el.html(el.html()+' (GDP - '+sample_data[code]+')');
+    // label.text('Bears, vodka, balalaika');
+  }
+                });
+                jQuery('#vmap-africa_south').vectorMap({
+                    map: 'africa_en_south',
+                    backgroundColor: '#333333',
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#666666',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#C8EEFF', '#006491'],
+                    normalizeFunction: 'polynomial'
+                });
+                jQuery('#vmap-africa_east').vectorMap({
+                    map: 'africa_en_east',
+                    backgroundColor: '#333333',
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#666666',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#C8EEFF', '#006491'],
+                    normalizeFunction: 'polynomial'
+                });
+                jQuery('#vmap-africa_north').vectorMap({
+                    map: 'africa_en_north',
+                    backgroundColor: '#333333',
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#666666',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#C8EEFF', '#006491'],
+                    normalizeFunction: 'polynomial'
+                });                                                
+                jQuery('#vmap-africa_middle').vectorMap({
+                    map: 'africa_en_middle',
+                    backgroundColor: '#333333',
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#666666',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#C8EEFF', '#006491'],
+                    normalizeFunction: 'polynomial'
+                });                                                
+            });
+        </script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            h2 {
+                background: none repeat scroll 0 0 #cccccc;
+                border: 1px solid #aaaaaa;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                float: left;
+                padding: 5px;
+                font-size: 20px;
+                font-weight: normal;
+                cursor: pointer;
+            }
+            h2.tab-selected {
+                background: #888888;
+                border: 1px solid #000000;
+            }
+            .map {
+                position: absolute;
+                z-index: 0;
+                left: 0;
+                top: 35px;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="africa_west">West Africa</h2>
+        <div class="map">
+            <div id="vmap-africa_west" style="width: 600px; height: 400px;"></div>
+        </div>
+        <h2 id="africa_south">South Africa</h2>
+        <div class="map">
+            <div id="vmap-africa_south" style="width: 600px; height: 400px;"></div>
+        </div>
+        <h2 id="africa_east">Eastern Africa</h2>
+        <div class="map">
+            <div id="vmap-africa_east" style="width: 600px; height: 400px;"></div>
+        </div>
+        <h2 id="africa_north">Northern Africa</h2>
+        <div class="map">
+            <div id="vmap-africa_north" style="width: 600px; height: 400px;"></div>
+        </div>        
+        <h2 id="africa_middle">Middle Africa</h2>
+        <div class="map">
+            <div id="vmap-africa_middle" style="width: 600px; height: 400px;"></div>
+        </div>
+    </body>
+</html>
