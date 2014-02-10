@@ -129,6 +129,9 @@ jvm.WorldMap = function(params) {
   if (this.params.zoomButtons) {
     this.bindZoomButtons();
   }
+  if (!this.params.keyButtons) {
+    this.bindKeyButtons();
+  }
   this.createRegions();
   this.createMarkers(this.params.markers || {});
 
@@ -473,6 +476,14 @@ jvm.WorldMap.prototype = {
     this.container.find('.jvectormap-zoomout').click(function(){
       map.setScale(map.scale / map.params.zoomStep, map.width / 2, map.height / 2);
     });
+  },
+
+  bindKeyButtons: function() {
+    var map = this;
+    jvm.$('<div/>').addClass('make-key-button').text('Key').appendTo(this.container).click(function(){
+      makekey(); // this is genereated at runtime
+    });
+    jvm.$('<div/>').attr('id',"key").addClass("invisible").appendTo(this.container);
   },
 
   createCustomLabel: function(){

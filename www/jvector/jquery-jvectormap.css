@@ -1,36 +1,3 @@
-/*Modified for h2 tabs 08/02/2014*/
-
-* {
-margin:0;
-padding:0
-}
-
-h2 {
-background:none repeat scroll 0 0 #ccc;
-border:1px solid #aaa;
-border-top-left-radius:5px;
-border-top-right-radius:5px;
-float:left;
-padding:5px;
-font-size:20px;
-font-weight:400;
-cursor:pointer
-}
-
-h2.tab-selected {
-background:#888;
-border:1px solid #000
-}
-
-.map {
-position: absolute;
-z-index: 0;
-left: 0;
-top: 35px;
-/*display: none;/*/
-}
-/*end of modification*/
-
 .jvectormap-label {
 position:absolute;
 display:none;
@@ -68,3 +35,98 @@ top:10px
 .jvectormap-zoomout {
 top:30px
 }
+
+.left-float-text{
+	float: left;
+}
+
+
+.right-float-text{
+	float: right;
+}
+
+/*Modified for h2 tabs 08/02/2014*/
+* {
+margin:0;
+padding:0
+}
+
+h2 {
+background:none repeat scroll 0 0 #ccc;
+border:1px solid #aaa;
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+float:left;
+padding:5px;
+font-size:20px;
+font-weight:400;
+cursor:pointer
+}
+
+h2.tab-selected {
+background:#888;
+border:1px solid #000
+}
+
+#menu {
+	height: 40px;
+}
+
+html, body {
+	height: 100%;
+}
+
+#wrapper{
+	height: 100%;
+	width: 100%;
+}
+
+.clear-fix {
+    clear: both;
+}
+
+#map1 {
+	height: 50% !important; /* ie6 ignores !important, so this will be overridden below */
+	width: 100%;
+}
+
+#key {
+	position: absolute;
+	top: 20px;
+	right: 10px;
+	border: 2px solid black;
+}
+
+
+.make-key-button {
+	position:absolute;
+	bottom: 20px;
+	left : 10px;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+background:#292929;
+padding:3px;
+color:#fff;
+width:33px;
+height:23px;
+cursor:pointer;
+line-height:23px;
+text-align:center;
+vertical-align: bottom;
+}
+
+.invisible {
+	display: none;
+}
+
+#make-key-button {
+  position: absolute;
+  left: 5px;
+  top: 3px;
+}
+#make-key-button img {
+  border: 0;
+}
+/*end of modification*/
+
