@@ -161,7 +161,7 @@
               }]
           },
           onRegionLabelShow: function(e, l, c){
-            l.html(l.html() + " GDP = " + dataset[current_map_id][c]);
+            l.html("<img src='../country_flag_png/"+c+".png' alt='"+c+"' width='18' height='12'> " + l.html() + " GDP = " + dataset[current_map_id][c]);
           }
       });
 
