@@ -74,6 +74,8 @@ border:1px solid #000
 
 html, body {
 	height: 100%;
+font-family: 'Montserrat Alternates', sans-serif;
+	/*font-size: 15px;*/
 }
 
 #wrapper{
@@ -86,7 +88,7 @@ html, body {
 }
 
 #map1 {
-	height: 50% !important; /* ie6 ignores !important, so this will be overridden below */
+	height: 90% !important; /* ie6 ignores !important, so this will be overridden below */
 	width: 100%;
 }
 
@@ -130,3 +132,11 @@ vertical-align: bottom;
 }
 /*end of modification*/
 
+.quick-info {
+	position:absolute;
+	bottom: 20px;
+	right : 10px;
+	width: 100px;
+	height: 300px;
+	background-color: black;
+}

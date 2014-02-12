@@ -1,11 +1,16 @@
 .single-country{
 	border: 1px solid black;
-	width: 50px;
-	height: 100px;
+	/*width: 50px;*/
+	/*height: 100px;*/
 	float: inherit;
-	/*position: relative;*/
-	padding: 2px;
-	margin: 5px;
+	position: absolute;
+	/*padding: 2px;*/
+	/*margin: 5px;*/
+	top:0;
+	left:0;
+	background-color: #989898;
+	/*border: 1px solid black;*/
+
 }
 
 .four.columns{
@@ -15,4 +20,19 @@
 
 #single-country-template{
 	display: none;
+}
+
+.ui-tooltip {
+position:absolute;
+/*display:none;*/
+border:solid 1px #CDCDCD;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+background:#292929;
+color:#fff;
+font-family:sans-serif,Verdana;
+font-size:smaller;
+padding:3px;
+z-index: 100;
 }

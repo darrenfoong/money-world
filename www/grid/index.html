@@ -87,7 +87,9 @@ arr = arr.sort(function(a,b){
 		var temp = node.clone();
 		var country = arr[i]['key'];
 		temp.attr('id', "gdp-" + country );
-		temp.append(document.createTextNode( "Country: "+ country + " GDP: " + gdp_sample[country] ));
+		temp.append('<img src="images/manwoman.png" alt="AF" width="100%">');
+		temp.append('<img src="../country_flag_png/'+country+'.png" alt="AF" width="36" height="24" >');
+		// temp.append(document.createTextNode( "Country: "+ country + " GDP: " + gdp_sample[country] ));
 		container.append(temp);
 		};
 	container.append(document.createElement('hr'));

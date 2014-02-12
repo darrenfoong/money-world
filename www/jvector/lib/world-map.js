@@ -125,13 +125,17 @@ jvm.WorldMap = function(params) {
   }
   this.bindElementEvents();
   this.createLabel();
-  this.createCustomLabel();
+  // this.createCustomLabel();
   if (this.params.zoomButtons) {
     this.bindZoomButtons();
   }
   if (!this.params.keyButtons) {
     this.bindKeyButtons();
   }
+  if (!this.params.infoButtons) {
+    this.bindInfoButtons();
+  }
+
   this.createRegions();
   this.createMarkers(this.params.markers || {});
 
@@ -419,7 +423,7 @@ jvm.WorldMap.prototype = {
           element.setHovered(true);
         }
 
-        map.customLabel.text(labelText);
+        // map.customLabel.text(labelText);
         map.label.text(labelText);
         map.container.trigger(labelShowEvent, [map.label, code]);
         if (!labelShowEvent.isDefaultPrevented()) {
@@ -484,6 +488,12 @@ jvm.WorldMap.prototype = {
       makekey(); // this is genereated at runtime
     });
     jvm.$('<div/>').attr('id',"key").addClass("invisible").appendTo(this.container);
+  },
+
+  bindInfoButtons: function() {
+    var map = this;
+    var fact = jvm.$('<div/>').addClass('quick-info-text').html("<img src='images/population_icon.png>");
+    jvm.$('<div/>').addClass('quick-info').appendTo(this.container).append(fact);
   },
 
   createCustomLabel: function(){
@@ -979,7 +989,7 @@ jvm.WorldMap.prototype = {
 jvm.WorldMap.maps = {};
 jvm.WorldMap.defaultParams = {
   map: 'africa_en_south',
-  backgroundColor: '#505050',
+  backgroundColor: '#EEEEEE',
   zoomButtons: true,
   zoomOnScroll: true,
   zoomMax: 8,
