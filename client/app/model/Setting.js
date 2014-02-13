@@ -9,7 +9,9 @@ Ext.define('moneyworld.model.Setting', {
 
 		fields: [
 			{ name: 'username', type: 'auto' },
-			{ name: 'country', type: 'auto' }
+			{ name: 'countryCode', type: 'auto' },
+			{ name: 'countryName', type: 'auto' },
+			{ name: 'region', type: 'auto' }
 		],
 
 		validations: [

@@ -16,9 +16,10 @@ Ext.define('moneyworld.view.MainTileView', {
 			wrap: true
 		},
 
+		store: {},
+
 		itemCls: 'tileview-item',
 
-		itemTpl: '{dataset} - {value}'
-		// itemTpl: '<div><h1>{dataset}</h1><div class="tileview-item-{dataset}"></div><span>{value}</span></div>',
+		itemTpl: ''
 	}
 });

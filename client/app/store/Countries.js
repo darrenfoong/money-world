@@ -1,15 +1,20 @@
 Ext.define('moneyworld.store.Countries', {
 	extend: 'Ext.data.Store',
 	requires: [
-		'moneyworld.model.Setting'
+		'moneyworld.model.Country'
 	],
 	config: {
 		model: 'moneyworld.model.Country',
-		autoLoad: true,
+		autoLoad: false,
 
-		data: [
-			{ name: 'Rwanda', code2: 'RW', code3: 'RWA', region: 'Southern Africa' },
-			{ name: 'Burundi', code2: 'BI', code3: 'BDI', region: 'Southern Africa' }
-		]
+		proxy: {
+			type: 'ajax',
+			url: 'data/countries.json',
+
+			reader: {
+				type: 'json',
+				rootProperty: 'countries'
+			}
+		}
 	}
 });

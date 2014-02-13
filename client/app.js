@@ -19,7 +19,9 @@ Ext.application({
 
 	models: [
 		'Setting',
-		'Country'
+		'Country',
+		'DataSet',
+		'DataPoint'
 	],
 
 	views: [
@@ -44,7 +46,8 @@ Ext.application({
 
 	stores: [
 		'Settings',
-		'Countries'
+		'Countries',
+		'DataSets'
 	],
 
 	icon: {

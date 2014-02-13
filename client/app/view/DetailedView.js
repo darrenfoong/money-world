@@ -6,6 +6,8 @@ Ext.define('moneyworld.view.DetailedView', {
 	config: {
 		tabBarPosition: 'top',
 
+		title: null,
+
 		items: [
 			{
 				title: 'Visualisation',
@@ -32,7 +34,7 @@ Ext.define('moneyworld.view.DetailedView', {
 						xtype: 'list',
 						flex: 1,
 
-						store: {
+						store: 	{
 							fields: ['dataset'],
 							data: [
 								{dataset: 'GDP'},
@@ -41,7 +43,7 @@ Ext.define('moneyworld.view.DetailedView', {
 							]
 						},
 
-						itemTpl: '{dataset}'
+						itemTpl: ''
 					}
 				]
 			},

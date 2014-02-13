@@ -5,6 +5,6 @@ Ext.define('moneyworld.store.Settings', {
 	],
 	config: {
 		model: 'moneyworld.model.Setting',
-		autoLoad: true
+		autoLoad: false
 	}
 });

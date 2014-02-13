@@ -14,11 +14,14 @@ Ext.define('moneyworld.controller.MapView', {
 	},
 
 	loadTitle: function() {
+		console.log("Loading MapView");
 		var settingsStore = Ext.getStore('Settings');
-		var countriesStore = Ext.getStore('Countries');
-		var country = settingsStore.getAt(0).get('country');
-		var regionName = countriesStore.findRecord('code2', country).get('region');
+		settingsStore.load({ callback: setTitle, scope: this });
 
-		this.getMapView().setTitle(regionName);
+		function setTitle(records, operation, success) {
+			var regionName = records[0].get('region');
+			this.getMapView().setTitle(regionName);
+			console.log("Setting title to " + regionName);
+		}
 	},
 });

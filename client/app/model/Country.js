@@ -11,7 +11,7 @@ Ext.define('moneyworld.model.Country', {
 			{ name: 'name', type: 'auto' },
 			{ name: 'code2', type: 'auto' },
 			{ name: 'code3', type: 'auto' },
-			{ name: 'region', type: 'auto' },
+			{ name: 'region', type: 'auto' }
 		]
 	}
 });

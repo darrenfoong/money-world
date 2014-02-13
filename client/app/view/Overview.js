@@ -22,17 +22,7 @@ Ext.define('moneyworld.view.Overview', {
 				flex: 2,
 
 				styleHtmlContent: true,
-
-				store: {
-					fields: ['dataset', 'value'],
-					data: [
-						{dataset: 'GDP', value: 100},
-						{dataset: 'Gini', value: 21},
-						{dataset: 'HDI', value: 24},
-						{dataset: 'Population', value: 24},
-						{dataset: 'Inflation', value: 26}
-					]
-				}
+				scrollable: true
 			}
 		]
 	}

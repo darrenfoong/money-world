@@ -7,7 +7,6 @@ Ext.define('moneyworld.view.Init', {
 	config: {
 		fullscreen: true,
 		styleHtmlContent: true,
-		scrollable: true,
 		layout: 'fit',
 
 		items: [
@@ -17,7 +16,7 @@ Ext.define('moneyworld.view.Init', {
 				title: 'Getting Started'
 			},
 			{
-				xtype: 'settings',
+				xtype: 'settings'
 			}
 		]
 	}

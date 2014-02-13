@@ -9,11 +9,28 @@ Ext.define('moneyworld.controller.Init', {
 	},
 
 	launch: function(app) {
-		console.log("Init");
-		var record = Ext.getStore('Settings').getAt(0);
-		if ( record != null ) {
-			Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
-			Ext.Viewport.add(Ext.create('moneyworld.view.Main'));
+		console.log("Starting Init");
+		var settingsStore = Ext.getStore('Settings');
+		settingsStore.load({ callback: checkSettings });
+
+		function checkSettings(records, operation, success) {
+			var record = records[0];
+			if ( record != null ) {
+				// TODO
+				// Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true) will, for some reason, fire the show event on mainView
+				// Hence, there will be two show events fired for Overview and loadTitle() will execute twice
+				// The following workaround creates a view but does not destroy the init view
+
+				// Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
+				// Ext.Viewport.getActiveItem().destroy();
+
+				console.log("Breakpoint 1");
+				var mainView = Ext.create('moneyworld.view.Main');
+				console.log("Breakpoint 2");
+				Ext.Viewport.setActiveItem(mainView);
+				console.log("Loaded Main");
+			}
 		}
+
 	}
 });

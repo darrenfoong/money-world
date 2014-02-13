@@ -13,7 +13,7 @@ Ext.define('moneyworld.controller.Main', {
 		},
 		control: {
 			'mainView': {
-				activeitemchange: 'printStack'
+				activeitemchange: 'printStack',
 			},
 			'btnSettings': {
 				tap: 'onSettingsBtnTap'
@@ -37,7 +37,7 @@ Ext.define('moneyworld.controller.Main', {
 	},
 
 	printStack: function() {
-		console.log(this.getMainView().getNavigationBar().backButtonStack);
+		console.log("Navigation stack: " + this.getMainView().getNavigationBar().backButtonStack);
 	},
 
 	onSettingsBtnTap: function() {

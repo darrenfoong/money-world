@@ -8,26 +8,30 @@ Ext.define('moneyworld.controller.Overview', {
 		},
 		control: {
 			'overView': {
-				activate: 'loadTitle'
+				show: 'loadTitle'
 			}
 		}
 	},
 
 	loadTitle: function() {
+		console.log("Loading Overview");
 		var settingsStore = Ext.getStore('Settings');
-		var countriesStore = Ext.getStore('Countries');
-		var country = settingsStore.getAt(0).get('country');
-		var countryName = countriesStore.findRecord('code2', country).get('name');
+		settingsStore.load({ callback: setTitle, scope: this });
 
-		var innerItems = this.getMainView().getInnerItems();
-		for ( var i = 0; i < innerItems.length; i++ ) {
-			if ( innerItems[i] === this.getOverView() ) {
-				break;
+		function setTitle(records, operation, success) {
+			var countryName = records[0].get('countryName');
+
+			var innerItems = this.getMainView().getInnerItems();
+			for ( var i = 0; i < innerItems.length; i++ ) {
+				if ( innerItems[i] === this.getOverView() ) {
+					break;
+				}
 			}
-		}
 
-		this.getOverView().setTitle(countryName);
-		this.getMainView().getNavigationBar().backButtonStack[i] = countryName;
-		this.getMainView().getNavigationBar().setTitle(countryName);
+			this.getOverView().setTitle(countryName);
+			this.getMainView().getNavigationBar().backButtonStack[i] = countryName;
+			this.getMainView().getNavigationBar().setTitle(countryName);
+			console.log("Setting title to " + countryName);
+		}
 	},
 });

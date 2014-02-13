@@ -19,11 +19,12 @@ Ext.define('moneyworld.view.Settings', {
 						label: 'Name'
 					},
 					{
-						name: 'country',
+						name: 'countryCode',
 						xtype: 'selectfield',
 						label: 'Country',
+						itemID: 'countryCode',
 
-						options: [
+						/*options: [
 							{
 								text: 'Rwanda',
 								value: 'RW'
@@ -32,7 +33,7 @@ Ext.define('moneyworld.view.Settings', {
 								text: 'Burundi',
 								value: 'BI'
 							}
-						]
+						]*/
 					},
 					{
 						xtype: 'button',
