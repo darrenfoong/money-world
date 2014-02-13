@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper,twoside]{article}
+
+\input{preamble}
+
+\begin{document}
+
+\input{titlepage_progressreport}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\newpage
+
+\section{Summary}
+
+Two weeks since the inception of the start of the project, our group has:
+
+\begin{itemize}
+	\item Implemented most of the backend.
+	\item Implemented a basic user interface for the frontend and developed visualisations for use.
+\end{itemize}
+
+These will be elaborated in the following sections.
+
+\section{Components}
+
+\subsection{Data retrieval component}
+This server-side component has been implemented in Java using the Jersey RESTful Web Services framework with a MySQL database. It is currently running on Google App Engine at \texttt{http://money-world.appspot.com} with a simple API to obtain data in JSON format.
+
+The component executes SQL queries on the MySQL database to obtain Java objects, which are further marshalled into JSON output according to a schema.
+
+The aggregator has not been implemented; currently the database contains only data from the World Bank. Event data for countries will be added to enhance visualisations.
+
+The database schema is as follows:
+
+\begin{itemize}
+	\item \textbf{Country} CountryCode, CountryName, Region, IncomeGroup, CountryNotes
+	\item \textbf{DataSet} DataSetCode, DataSetName, DataSetNotes, Source
+	\item \textbf{DataPoint} DataSetCode, CountryCode, Year, Value,
+	\item \textbf{Visualisation} VisualisationID, Type, ExtraData
+	\item \textbf{VisualisationCountry} VisualisationID, CountryCode
+	\item \textbf{VisualisationDataSet} VisualisationID, DataSetCode
+	\item \textbf{Comment} CommentID, CommentBody, CommentUser, VisualisationID, Created, ExtraData
+	\item \textbf{CountryCode} CountryCode2, CountryCode3
+\end{itemize}
+
+\subsection{Data explanation component}
+Not implemented yet (as per project plan).
+
+\subsection{Data visualisation component}
+
+\subsection{Comment display and input component}
+Not implemented yet (as per project plan).
+
+\subsection{Comment storage component}
+Not implemented yet (as per project plan).
+
+\subsection{Sharing component}
+Not implemented yet (as per project plan).
+
+\subsection{UI and UX component}
+The frontend runs on the Sencha Touch framework and Cordova to run on Android phones. A basic user interface has been implemented that can easily incorporate visualisations. Basic user details can be stored and retrieved for the application's purposes (country, region).
+
+Further improvements required are styling and theming of the interface, with extra graphics and icons to enhance the apperance.
+
+The frontend is build according to the Model-View-Controller (MVC framework). As of writing, the components are:
+
+\begin{itemize}
+	\item \textbf{Models} Setting, Country
+	\item \textbf{Views} Init, Main, Settings, Overview, DetailedView, ComparisonView, MainTileView, MapView
+	\item \textbf{Controllers} Init, Main, Settings, Overview, MainTileView, MapView
+	\item \textbf{Stores} Settings, Countries
+\end{itemize}
+
+\end{document}
