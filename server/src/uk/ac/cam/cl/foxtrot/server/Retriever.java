@@ -49,11 +49,15 @@ public class Retriever {
 		String yearCondition = "Year = '" + year + "'";
 		String countryCondition = "CountryCode2 = '" + country + "'";
 
-		if ( dataset.equals("all") && !year.equals("all") && !country.equals("all") ) {
+		if ( dataset.equals("all") ) {
 			dataSetCondition = "DataSetCode LIKE '%'";
-		} else if ( !dataset.equals("all") && year.equals("all") && !country.equals("all") ) {
+		}
+
+		if ( year.equals("all") ) {
 			yearCondition = "Year LIKE '%'";
-		} else if ( !dataset.equals("all") && !year.equals("all") && country.equals("all") ) {
+		}
+
+		if ( country.equals("all") ) {
 			countryCondition = "CountryCode2 LIKE '%'";
 		}
 
