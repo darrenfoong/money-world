@@ -1,0 +1,10 @@
+Ext.define('moneyworld.view.MapView', {
+	extend: 'Ext.Panel',
+	xtype: 'mapview',
+	requires: [
+	],
+	config: {
+		title: "MapView",
+		html: '<iframe style="position: absolute; height: 100%;" src="app/viz/map_view"/>'
+	}
+});

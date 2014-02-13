@@ -1,0 +1,13 @@
+Ext.define('moneyworld.model.Visualisation', {
+	extend: 'Ext.data.model',
+
+	config: {
+		fields: [
+			'id',
+			'type',
+			'dataset',
+			'year',
+			'country'
+		]
+	}
+});
