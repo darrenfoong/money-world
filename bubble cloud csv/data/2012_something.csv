@@ -1,0 +1,246 @@
+name,longname,count
+MDA,Moldova,731
+PAK,Pakistan,714
+MUS,Mauritius,705
+COL,Colombia,696
+MYS,Malaysia,685
+UKR,Ukraine,684
+HND,Honduras,681
+PAN,Panama,681
+THA,Thailand,678
+TUR,Turkey,677
+GEO,Georgia,676
+NPL,Nepal,676
+KAZ,Kazakhstan,669
+JOR,Jordan,666
+MEX,Mexico,666
+MNG,Mongolia,666
+BIH,"Bosnia and Herzegovina",665
+PHL,Philippines,661
+MAR,Morocco,660
+TZA,Tanzania,658
+ARM,Armenia,657
+AZE,Azerbaijan,657
+ZAF,"South Africa",654
+VEN,"Venezuela, RB",654
+ECU,Ecuador,651
+GHA,Ghana,650
+BGR,Bulgaria,648
+BLR,Belarus,647
+LBN,Lebanon,646
+LSO,Lesotho,644
+BDI,Burundi,643
+ROU,Romania,643
+IND,India,639
+VNM,Vietnam,637
+MOZ,Mozambique,636
+MKD,"Macedonia, FYR",634
+SLV,"El Salvador",631
+CRI,"Costa Rica",628
+MNE,Montenegro,628
+ETH,Ethiopia,627
+KGZ,"Kyrgyz Republic",625
+LAO,"Lao PDR",624
+PRY,Paraguay,624
+TJK,Tajikistan,622
+RWA,Rwanda,621
+BOL,Bolivia,619
+CMR,Cameroon,617
+LKA,"Sri Lanka",616
+PER,Peru,615
+EGY,"Egypt, Arab Rep.",613
+CHN,China,612
+IDN,Indonesia,611
+BRA,Brazil,610
+ALB,Albania,608
+KEN,Kenya,606
+NGA,Nigeria,606
+MRT,Mauritania,605
+GTM,Guatemala,604
+BGD,Bangladesh,601
+BWA,Botswana,599
+SEN,Senegal,598
+TUN,Tunisia,598
+COD,"Congo, Dem. Rep.",595
+DOM,"Dominican Republic",583
+NIC,Nicaragua,582
+LCA,"St. Lucia",577
+ARG,Argentina,574
+JAM,Jamaica,574
+BTN,Bhutan,569
+KHM,Cambodia,568
+NER,Niger,559
+DZA,Algeria,558
+ECA,"Europe & Central Asia",558
+AGO,Angola,550
+HUN,Hungary,549
+CPV,"Cape Verde",547
+SAS,"South Asia",547
+VCT,"St. Vincent and the Grenadines",547
+SRB,Serbia,545
+LAC,"Latin America & Caribbean",539
+GUY,Guyana,538
+GIN,Guinea,534
+MIC,"Middle income",533
+LMY,"Low & middle income",532
+SDN,Sudan,532
+AFG,Afghanistan,531
+LBR,Liberia,530
+UMC,"Upper middle income",530
+LMC,"Lower middle income",527
+SLE,"Sierra Leone",527
+WSM,Samoa,526
+TCD,Chad,524
+HTI,Haiti,523
+CAF,"Central African Republic",522
+DMA,Dominica,521
+EAP,"East Asia & Pacific",521
+SLB,"Solomon Islands",520
+ZMB,Zambia,519
+SSA,"Sub-Saharan Africa",518
+MWI,Malawi,514
+GAB,Gabon,508
+STP,"São Tomé and Principe",504
+BLZ,Belize,503
+MDV,Maldives,503
+UGA,Uganda,502
+GRD,Grenada,501
+TON,Tonga,501
+UZB,Uzbekistan,491
+GMB,"Gambia, The",486
+ZWE,Zimbabwe,485
+BFA,"Burkina Faso",479
+KSV,Kosovo,478
+LIC,"Low income",478
+SYC,Seychelles,476
+COG,"Congo, Rep.",475
+VUT,Vanuatu,471
+MDG,Madagascar,470
+CIV,"Côte d'Ivoire",463
+DJI,Djibouti,458
+MLI,Mali,458
+YEM,"Yemen, Rep.",458
+FJI,Fiji,448
+GNB,Guinea-Bissau,447
+TGO,Togo,447
+HRV,Croatia,437
+SWZ,Swaziland,437
+BEN,Benin,436
+CZE,"Czech Republic",435
+HKG,"Hong Kong SAR, China",433
+CHL,Chile,431
+CHE,Switzerland,431
+ERI,Eritrea,429
+COM,Comoros,428
+SWE,Sweden,428
+KOR,"Korea, Rep.",427
+PRT,Portugal,427
+GBR,"United Kingdom",427
+BEL,Belgium,425
+FIN,Finland,425
+FRA,France,424
+IRL,Ireland,424
+ESP,Spain,424
+EST,Estonia,423
+DEU,Germany,423
+GRC,Greece,423
+RUS,"Russian Federation",423
+NLD,Netherlands,421
+SGP,Singapore,418
+ITA,Italy,417
+POL,Poland,416
+LUX,Luxembourg,415
+MNA,"Middle East & North Africa",415
+AUT,Austria,412
+PNG,"Papua New Guinea",412
+AUS,Australia,408
+ISL,Iceland,402
+DNK,Denmark,397
+USA,"United States",397
+NAM,Namibia,396
+URY,Uruguay,396
+IRN,"Iran, Islamic Rep.",393
+SYR,"Syrian Arab Republic",390
+NOR,Norway,384
+JPN,Japan,383
+CAN,Canada,374
+TKM,Turkmenistan,366
+SAU,"Saudi Arabia",362
+ISR,Israel,353
+MMR,Myanmar,351
+BHS,"Bahamas, The",344
+NZL,"New Zealand",338
+ECS,"Europe & Central Asia (all income levels)",322
+BRN,"Brunei Darussalam",320
+SVN,Slovenia,317
+KNA,"St. Kitts and Nevis",311
+LCN,"Latin America & Caribbean (all income levels)",308
+LVA,Latvia,307
+WLD,World,304
+EMU,"Euro area",301
+EUU,"European Union",300
+LTU,Lithuania,299
+HIC,"High income",297
+OEC,"High income: OECD",295
+MAC,"Macao SAR, China",294
+SVK,"Slovak Republic",293
+OED,"OECD members",292
+MLT,Malta,291
+OMN,Oman,288
+SSF,"Sub-Saharan Africa (all income levels)",281
+ARE,"United Arab Emirates",281
+CYP,Cyprus,279
+SOM,Somalia,277
+EAS,"East Asia & Pacific (all income levels)",271
+ATG,"Antigua and Barbuda",268
+BHR,Bahrain,268
+NAC,"North America",268
+QAT,Qatar,268
+SUR,Suriname,254
+BRB,Barbados,250
+NOC,"High income: nonOECD",230
+LDC,"Least developed countries: UN classification",230
+KWT,Kuwait,224
+TLS,Timor-Leste,224
+OSS,"Other small states",221
+TTO,"Trinidad and Tobago",217
+IRQ,Iraq,215
+ARB,"Arab World",214
+GNQ,"Equatorial Guinea",206
+HPC,"Heavily indebted poor countries (HIPC)",205
+MEA,"Middle East & North Africa (all income levels)",204
+CSS,"Caribbean small states",203
+SST,"Small states",197
+PSE,"West Bank and Gaza",197
+PSS,"Pacific island small states",187
+LBY,Libya,169
+FSM,"Micronesia, Fed. Sts.",164
+KIR,Kiribati,163
+SSD,"South Sudan",159
+CUB,Cuba,157
+PLW,Palau,149
+BMU,Bermuda,145
+PRI,"Puerto Rico",132
+MHL,"Marshall Islands",113
+TUV,Tuvalu,113
+ABW,Aruba,109
+SMR,"San Marino",94
+PRK,"Korea, Dem. Rep.",78
+AND,Andorra,72
+NCL,"New Caledonia",63
+PYF,"French Polynesia",58
+MCO,Monaco,54
+GUM,Guam,50
+VIR,"Virgin Islands (U.S.)",39
+TCA,"Turks and Caicos Islands",29
+CYM,"Cayman Islands",27
+GRL,Greenland,26
+LIE,Liechtenstein,26
+ASM,"American Samoa",24
+CUW,Curaçao,20
+FRO,"Faeroe Islands",20
+MNP,"Northern Mariana Islands",20
+CHI,"Channel Islands",17
+IMN,"Isle of Man",9
+SXM,"Sint Maarten (Dutch part)",9
+MAF,"St. Martin (French part)",4
