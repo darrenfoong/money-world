@@ -1,61 +1,36 @@
 Ext.define('moneyworld.view.DetailedView', {
-	extend: 'Ext.tab.Panel',
+	extend: 'Ext.Panel',
 	xtype: 'detailedview',
 	requires: [
 	],
 	config: {
-		tabBarPosition: 'top',
-
 		title: null,
+
+		dataSet: null,
+		country: null,
+
+		styleHtmlContent: true,
+		fullscreen: true,
+		layout: 'vbox',
 
 		items: [
 			{
-				title: 'Visualisation',
-
-				styleHtmlContent: true,
-				fullscreen: true,
-				layout: 'vbox',
+				xtype: 'carousel',
+				flex: 1,
 
 				items: [
 					{
-						xtype: 'carousel',
-						flex: 1,
-
-						items: [
-							{
-								html: 'Visualisation 1'
-							},
-							{
-								html: 'Visualisation 2'
-							}
-						]
+						html: 'Visualisation 1'
 					},
 					{
-						xtype: 'list',
-						flex: 1,
-
-						store: 	{
-							fields: ['dataset'],
-							data: [
-								{dataset: 'GDP'},
-								{dataset: 'Population'},
-								{dataset: 'Gini coefficient'}
-							]
-						},
-
-						itemTpl: ''
+						html: 'Visualisation 2'
 					}
 				]
 			},
 			{
-				title: 'Comments',
+				flex: 1,
 
-				styleHtmlContent: true,
-				scrollable: true,
-
-				html: [
-					"Comments here"
-				].join("")
+				html: 'DetailedView information here'
 			}
 		]
 	}

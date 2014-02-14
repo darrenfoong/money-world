@@ -1,28 +1,40 @@
 Ext.define('moneyworld.view.Overview', {
-	extend: 'Ext.Panel',
+	extend: 'Ext.Carousel',
 	xtype: 'overview',
 	requires: [
 	],
 	config: {
-		title: "Overview",
+		xtype: 'carousel',
 
-		fullscreen: true,
-		layout: 'vbox',
+		title: null,
+
+		styleHtmlContent: true,
 
 		items: [
 			{
-				xtype: 'container',
-				flex: 1,
-
-				styleHtmlContent: true,
-				scrollable: true,
+				xtype: 'summaryview',
+				dataSet: 'NY.GDP.MKTP.CD',
+				html: '<h1>1</h1>'
 			},
 			{
-				xtype: 'maintileview',
-				flex: 2,
-
-				styleHtmlContent: true,
-				scrollable: true
+				xtype: 'summaryview',
+				dataSet: 'NY.GDP.MKTP.KD.ZG',
+				html: '<h1>2</h1>'
+			},
+			{
+				xtype: 'summaryview',
+				dataSet: 'NY.GDP.PCAP.CD',
+				html: '<h1>3</h1>'
+			},
+			{
+				xtype: 'summaryview',
+				dataSet: 'SI.POV.GINI',
+				html: '<h1>4</h1>'
+			},
+			{
+				xtype: 'summaryview',
+				dataSet: 'SL.UEM.TOTL.ZS',
+				html: '<h1>5</h1>'
 			}
 		]
 	}

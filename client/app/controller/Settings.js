@@ -59,11 +59,12 @@ Ext.define('moneyworld.controller.Settings', {
 				settingsStore.sync();
 
 				if ( this.getMainView() == null ) {
-					console.log("Going through");
 					var mainView = Ext.create('moneyworld.view.Main');
 					Ext.Viewport.setActiveItem(mainView);
+					console.log("Loaded Main");
 				} else {
 					console.log("Settings saved");
+					console.log("Resetting Main");
 					this.getMainView().reset();
 				}
 			} else {
@@ -103,7 +104,6 @@ Ext.define('moneyworld.controller.Settings', {
 			// TODO
 			var countryCodeSelectField = Ext.ComponentQuery.query('selectfield')[Ext.ComponentQuery.query('selectfield').length-1];
 			// END
-			console.log(countryCodeSelectField.getOptions());
 
 			var optionsArray = [];
 

@@ -21,7 +21,7 @@ Ext.define('moneyworld.controller.MapView', {
 		function setTitle(records, operation, success) {
 			var regionName = records[0].get('region');
 			this.getMapView().setTitle(regionName);
-			console.log("Setting title to " + regionName);
+			console.log("Setting MapView title to " + regionName);
 		}
-	},
+	}
 });

@@ -22,18 +22,7 @@ Ext.define('moneyworld.view.Settings', {
 						name: 'countryCode',
 						xtype: 'selectfield',
 						label: 'Country',
-						itemID: 'countryCode',
-
-						/*options: [
-							{
-								text: 'Rwanda',
-								value: 'RW'
-							},
-							{
-								text: 'Burundi',
-								value: 'BI'
-							}
-						]*/
+						itemID: 'countryCode'
 					},
 					{
 						xtype: 'button',

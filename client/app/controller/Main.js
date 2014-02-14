@@ -4,10 +4,9 @@ Ext.define('moneyworld.controller.Main', {
 	config: {
 		refs: {
 			mainView: 'main',
+			overView: 'overview',
 
 			btnSettings: 'main button[action=settings]',
-			btnDetailedView: 'main button[action=detailedview]',
-			btnComparisonView: 'main button[action=comparisonview]',
 			btnCountryMode: 'main button[action=countrymode]',
 			btnRegionMode: 'main button[action=regionmode]'
 		},
@@ -17,12 +16,6 @@ Ext.define('moneyworld.controller.Main', {
 			},
 			'btnSettings': {
 				tap: 'onSettingsBtnTap'
-			},
-			'btnDetailedView': {
-				tap: 'onDetailedViewBtnTap'
-			},
-			'btnComparisonView': {
-				tap: 'onComparisonViewBtnTap'
 			},
 			'btnCountryMode': {
 				tap: 'onCountryModeBtnTap'
@@ -37,38 +30,42 @@ Ext.define('moneyworld.controller.Main', {
 	},
 
 	printStack: function() {
-		console.log("Navigation stack: " + this.getMainView().getNavigationBar().backButtonStack);
+		console.log("Navigation view changed: stack is [" + this.getMainView().getNavigationBar().backButtonStack + "]");
 	},
 
 	onSettingsBtnTap: function() {
+		console.log("Settings button tapped");
 		if ( !this.getMainView().getActiveItem().isXType("settings") ) {
+			console.log("Pushing Settings to Main");
 			var settingsView = Ext.create('moneyworld.view.Settings');
 			this.getMainView().push(settingsView);
+		} else {
+			console.log("View unchanged");
 		}
-	},
-
-	onDetailedViewBtnTap: function() {
-		if ( !this.getMainView().getActiveItem().isXType("detailedview") ) {
-			var detailedView = Ext.create('moneyworld.view.DetailedView');
-			this.getMainView().push(detailedView);
-		}
-	},
-
-	onComparisonViewBtnTap: function() {
-		var comparisonView = Ext.create('moneyworld.view.ComparisonView');
-		this.getMainView().push(comparisonView);
 	},
 
 	onCountryModeBtnTap: function() {
+		console.log("Country mode button tapped");
 		if ( !this.getMainView().getActiveItem().isXType("overview") ) {
+			console.log("Resetting Main");
 			this.getMainView().reset();
+		} else {
+			console.log("View unchanged");
 		}
 	},
 
 	onRegionModeBtnTap: function() {
+		console.log("Region mode button tapped");
 		if ( !this.getMainView().getActiveItem().isXType("mapview") ) {
+			var currentSummaryView = this.getOverView().getActiveItem();
+			var currentDataSet = currentSummaryView.getDataSet();
+
 			var mapView = Ext.create('moneyworld.view.MapView');
+			mapView.setHtml('<iframe style="position: absolute; width: 100%; height: 100%;" src="app/viz/map_view?' + currentDataSet + '"/>');
+			console.log("Pushing MapView[" + currentDataSet + "] to Main");
 			this.getMainView().push(mapView);
+		} else {
+			console.log("View unchanged");
 		}
 	}
 });
