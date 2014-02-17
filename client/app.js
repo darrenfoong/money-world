@@ -85,3 +85,7 @@ Ext.application({
 		);
 	}
 });
+
+function test2(){
+	alert(3);
+}
