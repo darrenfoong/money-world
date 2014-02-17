@@ -31,7 +31,11 @@ Ext.application({
 		'Overview',
 		'SummaryView',
 		'DetailedView',
-		'MapView'
+		'MapView',
+		'SummaryViewUnemp',
+		'DetailedViewUnemp',
+		'SummaryViewGini',
+		'DetailedViewGini'
 	],
 
 	controllers: [
@@ -41,7 +45,11 @@ Ext.application({
 		'Overview',
 		'SummaryView',
 		'DetailedView',
-		'MapView'
+		'MapView',
+		'SummaryViewUnemp',
+		'DetailedViewUnemp',
+		'SummaryViewGini',
+		'DetailedViewGini'
 	],
 
 	stores: [
