@@ -1,12 +1,11 @@
 package uk.ac.cam.cl.foxtrot.server;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 public class Visualisation {
+	/*
 	private String dataset;
 	private String year;
 	private String country;
@@ -46,5 +45,17 @@ public class Visualisation {
 	@XmlElement(name="data")
 	public Map<String, YearMap> getDataSetMap() {
 		return dataSetMap;
+	}
+	 */
+
+	private ArrayList<FullDataPoint> dataPointList = new ArrayList<FullDataPoint>();
+
+	public void setDataPointList(ArrayList<FullDataPoint> dataPointList) {
+		this.dataPointList = dataPointList;
+	}
+
+	@XmlElement(name="datapoints")
+	public ArrayList<FullDataPoint> getDataPointList() {
+		return dataPointList;
 	}
 }
