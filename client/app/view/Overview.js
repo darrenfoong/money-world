@@ -12,29 +12,10 @@ Ext.define('moneyworld.view.Overview', {
 
 		items: [
 			{
-				xtype: 'summaryview',
-				dataSet: 'NY.GDP.MKTP.CD',
-				html: '<h1>1</h1>'
+				xtype: 'summaryview_unemp'
 			},
 			{
-				xtype: 'summaryview',
-				dataSet: 'NY.GDP.MKTP.KD.ZG',
-				html: '<h1>2</h1>'
-			},
-			{
-				xtype: 'summaryview',
-				dataSet: 'NY.GDP.PCAP.CD',
-				html: '<h1>3</h1>'
-			},
-			{
-				xtype: 'summaryview',
-				dataSet: 'SI.POV.GINI',
-				html: '<h1>4</h1>'
-			},
-			{
-				xtype: 'summaryview',
-				dataSet: 'SL.UEM.TOTL.ZS',
-				html: '<h1>5</h1>'
+				xtype: 'summaryview_gini'
 			}
 		]
 	}

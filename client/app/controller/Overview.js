@@ -47,11 +47,13 @@ Ext.define('moneyworld.controller.Overview', {
 
 		function redirect(records, operations, success) {
 			var currentSummaryView = Ext.ComponentQuery.query('overview')[0].getActiveItem();
+			var currentDataSetInternal = currentSummaryView.getDataSetInternal();
 			var currentDataSet = dataSetsStore.findRecord('id', currentSummaryView.getDataSet()).get('name');
 
-			var detailedView = Ext.create('moneyworld.view.DetailedView');
+			var detailedView = Ext.create('moneyworld.view.DetailedView' + currentDataSetInternal);
 			detailedView.setTitle(currentDataSet);
-			console.log("Pushing DetailedView[" + currentDataSet + "] to Main");
+			detailedView.setDataSet(currentSummaryView.getDataSet());
+			console.log("Pushing DetailedView" + currentDataSetInternal + "[" + currentDataSet + "] to Main");
 			// this.getMainView() not used because it is out of scope
 			Ext.ComponentQuery.query('main')[0].push(detailedView);
 		}
