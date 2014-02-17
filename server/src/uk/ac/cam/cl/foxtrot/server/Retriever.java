@@ -13,7 +13,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+
+import org.glassfish.jersey.server.JSONP;
 
 import com.google.appengine.api.utils.SystemProperty;
 
@@ -21,7 +22,8 @@ import com.google.appengine.api.utils.SystemProperty;
 public class Retriever {
 
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@JSONP(queryParam = "callback")
+	@Produces({"application/javascript"})
 	public Visualisation getVisualisation(
 			@PathParam("dataset") String dataset,
 			@PathParam("year") String year,
