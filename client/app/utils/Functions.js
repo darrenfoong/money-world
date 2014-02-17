@@ -18,5 +18,25 @@ Ext.define('moneyworld.utils.Functions', {
 			}
 		});
 		return dataPointsStore;
+	},
+
+	prettify: function(value, precision, prefix, suffix) {
+		var output = prefix;
+		var counter = 0;
+
+		var units = ['', 'thousand', 'million', 'billion'];
+
+		var pvalue = parseFloat(value);
+
+		while ( pvalue >= 1000 && counter < 3 ) {
+			counter++;
+			pvalue /= 1000;
+		}
+
+		pvalue = Number(pvalue).toFixed(precision);
+
+		output += pvalue + " " + units[counter] + " " + suffix;
+
+		return output;
 	}
 });
