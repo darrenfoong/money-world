@@ -5,7 +5,6 @@ Ext.define('moneyworld.view.MapView', {
 	],
 	config: {
 		title: "MapView",
-		html: '<iframe style="position: absolute; width: 100%; height: 100%;" src="app/viz/map_view/index.html"/>',
-		title: null
+		html: '<iframe style="position: absolute; width: 100%; height: 100%;" src="app/viz/map_view/index.html"/>'
 	}
 });

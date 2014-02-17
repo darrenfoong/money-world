@@ -13,7 +13,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+
+import org.glassfish.jersey.server.JSONP;
 
 import com.google.appengine.api.utils.SystemProperty;
 
@@ -21,7 +22,8 @@ import com.google.appengine.api.utils.SystemProperty;
 public class Retriever {
 
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@JSONP(queryParam = "callback")
+	@Produces({"application/javascript"})
 	public Visualisation getVisualisation(
 			@PathParam("dataset") String dataset,
 			@PathParam("year") String year,
@@ -70,18 +72,23 @@ public class Retriever {
 
 		ResultSet rs = null;
 		Visualisation viz = new Visualisation();
+
+		/*
 		viz.setDataSet(dataset);
 		viz.setYear(year);
 		viz.setCountry(country);
+		 */
 
 		String currentDataSetCode = "";
 		String currentYear = "";
 		String currentCountryCode = "";
 		String currentValue = "";
 
+		/*
 		YearMap currentYearMap = null;
 		CountryMap currentCountryMap = null;
 		String currentStoredValue = null;
+		 */
 
 		try {
 			rs = selectStmt.executeQuery();
@@ -91,7 +98,14 @@ public class Retriever {
 				currentCountryCode = rs.getString(3);
 				currentValue = rs.getString(4);
 
-				currentYearMap = viz.getDataSetMap().get(currentDataSetCode);
+				FullDataPoint currentDataPoint = new FullDataPoint();
+				currentDataPoint.setDataSetCode(currentDataSetCode);
+				currentDataPoint.setYear(currentYear);
+				currentDataPoint.setCountryCode(currentCountryCode);
+				currentDataPoint.setValue(currentValue);
+				viz.getDataPointList().add(currentDataPoint);
+
+				/* currentYearMap = viz.getDataSetMap().get(currentDataSetCode);
 				if ( currentYearMap == null ) {
 					currentYearMap = new YearMap();
 					viz.getDataSetMap().put(currentDataSetCode, currentYearMap);
@@ -107,7 +121,7 @@ public class Retriever {
 				if ( currentStoredValue == null ) {
 					currentStoredValue = currentValue;
 					currentCountryMap.getDataPointMap().put(currentCountryCode, currentStoredValue);
-				}
+				} */
 			}
 		} finally {
 			selectStmt.close();

@@ -14,7 +14,8 @@ Ext.application({
 	name: 'moneyworld',
 
 	requires: [
-		'Ext.MessageBox'
+		'Ext.MessageBox',
+		'moneyworld.utils.Functions'
 	],
 
 	models: [

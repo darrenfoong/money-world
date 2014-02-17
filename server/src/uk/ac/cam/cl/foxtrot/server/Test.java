@@ -30,7 +30,7 @@ public class Test {
 		return "<html> " + "<title>" + "Hello Jersey" + "</title>"
 				+ "<body><h1>" + "Hello Jersey" + "</body></h1>" + "</html> ";
 	}
-	*/
+	 */
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -60,7 +60,7 @@ public class Test {
 		dpm.getDataPointMap().put("X1", dp1);
 		dpm.getDataPointMap().put("X2", dp2);
 		return dpm;
-		*/
+		 */
 
 		/*
 		Address billingAddress = new Address();
@@ -73,6 +73,6 @@ public class Test {
 		customer.getAddressMap().put("billing", billingAddress);
 		customer.getAddressMap().put("shipping", shippingAddress);
 		return customer;
-		*/
+		 */
 	}
 }
