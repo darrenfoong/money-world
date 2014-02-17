@@ -29,9 +29,8 @@ Ext.application({
 		'Main',
 		'Settings',
 		'Overview',
+		'SummaryView',
 		'DetailedView',
-		'ComparisonView',
-		'MainTileView',
 		'MapView'
 	],
 
@@ -40,7 +39,8 @@ Ext.application({
 		'Main',
 		'Settings',
 		'Overview',
-		'MainTileView',
+		'SummaryView',
+		'DetailedView',
 		'MapView'
 	],
 

@@ -24,13 +24,12 @@ Ext.define('moneyworld.controller.Init', {
 				// Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);
 				// Ext.Viewport.getActiveItem().destroy();
 
-				console.log("Breakpoint 1");
+				console.log("Init Breakpoint 1");
 				var mainView = Ext.create('moneyworld.view.Main');
-				console.log("Breakpoint 2");
+				console.log("Init Breakpoint 2");
 				Ext.Viewport.setActiveItem(mainView);
 				console.log("Loaded Main");
 			}
 		}
-
 	}
 });

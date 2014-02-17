@@ -8,6 +8,11 @@ Ext.define('moneyworld.controller.Overview', {
 		},
 		control: {
 			'overView': {
+				initialize: function() {
+					this.getOverView().element.on({
+						tap: this.getApplication().getController('moneyworld.controller.Overview').loadDetailedView
+					});
+				},
 				show: 'loadTitle'
 			}
 		}
@@ -31,7 +36,24 @@ Ext.define('moneyworld.controller.Overview', {
 			this.getOverView().setTitle(countryName);
 			this.getMainView().getNavigationBar().backButtonStack[i] = countryName;
 			this.getMainView().getNavigationBar().setTitle(countryName);
-			console.log("Setting title to " + countryName);
+			console.log("Setting Main title to " + countryName);
 		}
 	},
+
+	loadDetailedView: function() {
+		console.log("SummaryView tapped");
+		var dataSetsStore = Ext.getStore('DataSets');
+		dataSetsStore.load({ callback: redirect, scope: this });
+
+		function redirect(records, operations, success) {
+			var currentSummaryView = Ext.ComponentQuery.query('overview')[0].getActiveItem();
+			var currentDataSet = dataSetsStore.findRecord('id', currentSummaryView.getDataSet()).get('name');
+
+			var detailedView = Ext.create('moneyworld.view.DetailedView');
+			detailedView.setTitle(currentDataSet);
+			console.log("Pushing DetailedView[" + currentDataSet + "] to Main");
+			// this.getMainView() not used because it is out of scope
+			Ext.ComponentQuery.query('main')[0].push(detailedView);
+		}
+	}
 });

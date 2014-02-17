@@ -1,5 +1,4 @@
 Ext.define('moneyworld.view.MainTileView', {
-	// extend: 'Ext.dataview.DataView',
 	extend: 'Ext.List',
 	xtype: 'maintileview',
 	requires: [

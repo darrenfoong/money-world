@@ -1,6 +1,6 @@
 Ext.define('moneyworld.controller.MainTileView', {
 	extend: 'Ext.app.Controller',
-	
+
 	config: {
 		refs: {
 			mainView: 'main',
