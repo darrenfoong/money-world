@@ -11,8 +11,6 @@ Ext.define('moneyworld.view.Overview', {
 
 		title: null,
 
-		styleHtmlContent: true,
-
 		items: [
 			{
 				xtype: 'summaryview_unemp'
