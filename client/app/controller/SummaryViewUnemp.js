@@ -50,7 +50,6 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: this.getSummaryViewUnemp().getDataSet() })
 			]);
 			var currentUnemp = dataPointsStore.last().get('value');
-			console.log(currentUnemp);
 
 			if ( currentUnemp == "" ) {
 				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";

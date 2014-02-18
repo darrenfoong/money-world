@@ -4,9 +4,9 @@ Ext.define('moneyworld.view.SummaryViewMortality', {
 	requires: [
 	],
 	config: {
-		// dataSet: 'SL.UEM.TOTL.ZS', //TODO: Fix with correct value
-		// dataSetInternal: 'Mortality',
-		html: '<iframe style="position: absolute; width: 100%; height: 100%;" src="app/viz/mortality_view/index.html"/>',
-		
+		dataSet: 'SP.DYN.CDRT.IN',
+		dataSetInternal: 'Mortality',
+
+		html: '<iframe style="position: absolute; width: 100%; height: 100%;" src="app/viz/mortality_view/index.html"/>'
 	}
 });

@@ -12,17 +12,17 @@ Ext.define('moneyworld.view.Overview', {
 
 		title: null,
 
+		padding: 0,
+
 		items: [
 			{
 				xtype: 'summaryview_unemp'
 			},
 			{
-				xtype: 'summaryview_gini',
-				height: '95%'
+				xtype: 'summaryview_gini'
 			},
 			{
-				xtype: 'summaryview_mortality',
-				height: '95%'
+				xtype: 'summaryview_mortality'
 			}
 		]
 	}

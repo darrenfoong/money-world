@@ -10,6 +10,8 @@ Ext.define('moneyworld.view.SummaryView', {
 
 		dataSetInternal: null,
 
+		height: '95%',
+
 		html: ''
 	}
 });
