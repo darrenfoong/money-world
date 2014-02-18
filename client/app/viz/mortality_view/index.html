@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<canvas id="tomb" style="height:95%;width:100%" width="400" height="260"></canvas>
+
+<script>
+
+var canvas = document.getElementById("tomb");
+var ctx = canvas.getContext('2d');
+var width = canvas.width;
+var height = canvas.height;
+var prop = 0.20;
+var adult_prop = 0.05;
+var image2 = new Image();
+	image2.src = 'halloween_rounded_tombstone.png';
+	image2.onload = function() {
+	// draw for infant
+	ctx.drawImage(image2,0,image2.height/2,image2.width,image2.height/2);
+	// draw for adult
+	ctx.drawImage(image2,image2.width,0,image2.width,image2.height);
+}
+ctx.save();
+var image = new Image();
+	image.src = 'halloween_rounded_tombstone_coloured.png';
+	image.onload = function() {
+	//draw for infant
+	clipT = (1-prop)*image.height/2;
+	ctx.rect(0,image.height/2+clipT,image.width,prop*image.height/2);
+	ctx.clip();
+	ctx.drawImage(image,0,image.height/2,image.width,image.height/2);
+ctx.restore();
+	// draw for adult
+	clipT = (1-adult_prop)*image.height;
+	ctx.rect(image.width,clipT,image.width,adult_prop*image.height);
+	ctx.clip();
+	ctx.drawImage(image,image.width,0,image.width,image.height);
+ctx.restore();
+}
+
+
+// }
+
+</script>
+</body>
+</html>

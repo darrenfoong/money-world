@@ -44,17 +44,20 @@ Ext.application({
 		'DetailedView',
 		'DetailedViewUnemp',
 		'DetailedViewGini',
+		'DetailedViewMortality',
 		'MapView',
 		'Settings',
 		'SummaryView',
 		'SummaryViewUnemp',
-		'SummaryViewGini'
+		'SummaryViewGini',
+		'SummaryViewMortality'
 	],
 
 	stores: [
 		'Settings',
 		'Countries',
-		'DataSets'
+		'DataSets',
+		'BarLabel'
 	],
 
 	icon: {
@@ -92,7 +95,3 @@ Ext.application({
 		);
 	}
 });
-
-function test2(){
-	alert(3);
-}

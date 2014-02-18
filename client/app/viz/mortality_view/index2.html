@@ -1,0 +1,41 @@
+<html>
+<head>
+	<script type="text/javascript" src="jquery-latest.js"></script>
+</head>
+<body>
+<div id="wrapper" style="width:100%; height:100%; background:blue;">
+	<div id='adult_tomb'  style="position:relative; width:50%;height:100%; float:left">
+		<div class="tomb_value" style=" position:absolute;top:0; height:40; width:100%; margin: 0 auto; text-align:center "></div>
+		<div class="tomb_picture" style=" position:absolute; bottom:0; width:100%; margin: 0 auto;"></div>
+	</div>
+	<div id='child_tomb' style="position:relative; width:50%;height:100%;  float:left">
+		<div class="tomb_value" style=" position:absolute;top:0; height:40; width:100%; margin: 0 auto; text-align:center "></div>
+		<div class="tomb_picture" style=" position:absolute; bottom:0; width:100%; margin: 0 auto;"></div>
+	</div>
+</div>
+
+<!-- templates -->
+<img id="tomb_img" src='halloween_rounded_tombstone.png' style="display:none; margin: 0 auto;">
+
+<script type="text/javascript">
+data = {'adult':'10', 'infant':"80"};
+child_tomb_img = $("#tomb_img").clone();
+child_tomb_img.css('display','block').height(data['infant']+'%');
+child_tomb = $("#child_tomb .tomb_picture");
+child_tomb_value = $("#child_tomb .tomb_value");
+
+adult_tomb_img = $("#tomb_img").clone();
+adult_tomb_img.css('display','block').height(data['adult']+'%');
+adult_tomb = $("#adult_tomb .tomb_picture");
+adult_tomb_value = $("#adult_tomb .tomb_value");
+$.ready(
+	function(){
+adult_tomb.append(adult_tomb_img);
+adult_tomb_value.html(data['adult']);
+child_tomb.append(child_tomb_img);
+child_tomb_value.html(data['infant']);
+}()
+	);
+</script>
+</body>
+</html>
