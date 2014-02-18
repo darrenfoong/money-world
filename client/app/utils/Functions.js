@@ -41,6 +41,8 @@ Ext.define('moneyworld.utils.Functions', {
 	},
 
 	floatToRatio: function(value) {
+		// Input: a floating point number between 0 and 1
+		// Output: an object with numerator and denominator fields
 		var denominator = 20;
 		var numerator = parseInt(value * denominator);
 		
@@ -53,7 +55,36 @@ Ext.define('moneyworld.utils.Functions', {
 		}
 
 		var factor = gcd(numerator, denominator);
-		console.log(value + " becomes " + numerator/factor + "/" + denominator/factor);
 		return { numerator: numerator/factor, denominator: denominator/factor }
+	},
+
+	floatToGrid: function(value) {
+		// Input: a floating point number between 0 and 1
+		// Output: an object with numerator, denominator, width of grid, and height of grid fields
+		// Algorithm tries to create a grid that is as square as possible.
+		var ratio = moneyworld.utils.Functions.floatToRatio(value);
+		var numerator = ratio.numerator;
+		var denominator = ratio.denominator;
+
+		var i = 0;
+		var primes = [2,3,5,7,9,13,17,19];
+
+		var width = 1;
+		var limit = Math.floor(Math.sqrt(denominator));
+
+		while ( width < limit ) {
+			if ( denominator % primes[i] == 0 ) {
+				denominator /= primes[i];
+				width *= primes[i];
+			} else {
+				i++;
+			}
+		}
+
+		var height = denominator;
+
+		ratio.width = width;
+		ratio.height = height;
+		return ratio;
 	}
 });
