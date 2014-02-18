@@ -21,7 +21,6 @@ Ext.define('moneyworld.view.DetailedViewUnemp', {
 								yField: 'value',
 								title: 'Line',
 								style: {
-									smooth: true,
 									stroke: '#115fa6',
 									lineWidth: 3,
 									shadowColor: 'rgba(0,0,0,0.7)',
@@ -42,14 +41,20 @@ Ext.define('moneyworld.view.DetailedViewUnemp', {
 									fx: {duration: 300}
 								}
 							}
+						],
+						interactions: [
+							{
+							type: 'iteminfo',
+							gesture: 'itemtap',
+							listeners: {
+								show: function (me, item, panel) {
+									panel.setHtml(item.record.data.year + ": " + item.record.data.value);
+								}
+							}
+							}
 						]
 					}
 				]
-			},
-			{
-				flex: 1,
-
-				html: 'DetailedView information here'
 			}
 		]
 	}
