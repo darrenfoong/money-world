@@ -25,32 +25,30 @@ Ext.application({
 		'DataPoint'
 	],
 
+	/*
+	[http://docs.sencha.com/touch/2.3.1/#!/guide/mvc_dependencies-section-where-each-dependency-belongs]
+	SummaryView views are declared in Overview
+	DetailedView views are declared in Main
+	Unfortunately, controllers cannot be loaded dynamically and have to be all declared here
+	*/
+
 	views: [
 		'Init',
-		'Main',
-		'Settings',
-		'Overview',
-		'SummaryView',
-		'DetailedView',
-		'MapView',
-		'SummaryViewUnemp',
-		'DetailedViewUnemp',
-		'SummaryViewGini',
-		'DetailedViewGini'
+		'Main'
 	],
 
 	controllers: [
 		'Init',
 		'Main',
-		'Settings',
 		'Overview',
-		'SummaryView',
 		'DetailedView',
-		'MapView',
-		'SummaryViewUnemp',
 		'DetailedViewUnemp',
-		'SummaryViewGini',
-		'DetailedViewGini'
+		'DetailedViewGini',
+		'MapView',
+		'Settings',
+		'SummaryView',
+		'SummaryViewUnemp',
+		'SummaryViewGini'
 	],
 
 	stores: [

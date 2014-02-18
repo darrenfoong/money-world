@@ -2,6 +2,12 @@ Ext.define('moneyworld.view.Main', {
 	extend: 'Ext.navigation.View',
 	xtype: 'main',
 	requires: [
+		'moneyworld.view.Overview',
+		'moneyworld.view.DetailedView',
+		'moneyworld.view.DetailedViewUnemp',
+		'moneyworld.view.DetailedViewGini',
+		'moneyworld.view.MapView',
+		'moneyworld.view.Settings'
 	],
 	config: {
 		navigationBar: {
