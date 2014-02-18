@@ -50,7 +50,46 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: this.getSummaryViewUnemp().getDataSet() })
 			]);
 			var currentUnemp = dataPointsStore.last().get('value');
-			this.getSummaryViewUnemp().setHtml(currentUnemp);
+			console.log(currentUnemp);
+
+			if ( currentUnemp == "" ) {
+				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
+				this.getSummaryViewUnemp().setHtml(htmlString);
+				return;
+			}
+
+			var gridParameters = moneyworld.utils.Functions.floatToGrid(currentUnemp/100);
+			var numerator = gridParameters.numerator;
+			var denominator = gridParameters.denominator;
+			var width = gridParameters.width;
+			var height = gridParameters.height;
+
+			var htmlString = "";
+
+			htmlString += "<div class='summaryview_unemp-container'>";
+			htmlString += "<div class='summaryview_unemp-description'>";
+			htmlString += "<h1 class='summaryview_unemp-big'>" + numerator + " out of " + denominator + "</h1>";
+			htmlString += "<h2 class='summaryview_unemp-small'>people are unemployed</h2>";
+			htmlString += "</div>";
+			htmlString += "<div class='summaryview_unemp-grid'>";
+			for ( var i = 0; i < height; i++ ) {
+				htmlString += "<div class='summaryview_unemp-row'>";
+				for ( var j = 0; j < width; j++ ) {
+					htmlString += "<span class='summaryview_unemp-cell'>";
+					if ( numerator > 0 ) {
+						htmlString += "X";
+						numerator--;
+					} else {
+						htmlString += "O";
+					}
+					htmlString += "</span>";
+				}
+				htmlString += "</div>";
+			}
+			htmlString += "</div>";
+			htmlString += "</div>";
+
+			this.getSummaryViewUnemp().setHtml(htmlString);
 			// Visualisation code ends here
 		}
 	}

@@ -1,0 +1,30 @@
+.summaryview_unemp-container {
+	margin: 20px;
+	text-align: center;
+}
+
+.summaryview_unemp-description {
+	margin: 20px;
+}
+
+.summaryview_unemp-big {
+	font-size: 2.0em;
+}
+
+-summaryview_unemp-small {
+	font-size: 1.0em;
+}
+
+.summaryview_unemp-grid {
+	margin: 0 auto;
+	display: table;
+}
+
+.summaryview_unemp-row {
+	display: table-row;
+}
+
+.summaryview_unemp-cell {
+	padding: 10px;
+	display: table-cell;
+}
