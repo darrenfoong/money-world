@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Infant Mortality</title>
+<style>
+img {
+	padding:0;
+	margin:0;
+}
+body {
+	font-family:Arial;
+}
+</style>
+</head>
+<body>
+<h1>Infant Mortality Demo</h1>
+<div id="output" style="width:150px;font-size:1px;line-height:1px;float:left;"></div>
+<div style="text-align:center; width:400px;width:150px;font-size:1px;line-height:1px;float:left;padding-top:20px;">
+	<span style="color:#f00; font-size:90px; line-height:90px;">5%</span>
+	<br />
+	<span style="color:#000; font-size:20px; line-height:20px;">infant mortaility</span>
+</div>
+<div style="clear:both;"></div>
+
+<script>
+
+function infographic(target, source_black, source_highlight, num_highlight, num_total) {
+	var black = document.createElement("img");
+	black.src = source_black;
+	var highlight = document.createElement("img");
+	highlight.src = source_highlight;
+	
+	for (i = 0; i < num_total - num_highlight; i++) {
+		target.appendChild(black.cloneNode());
+	}
+	
+	for (i = 0; i < num_highlight; i++) {
+		target.appendChild(highlight.cloneNode());
+	}
+}
+
+infographic(document.getElementById("output"), "icons/baby-black.png", "icons/baby-red.png", 5, 100);
+</script>
+
+</body>
+</html>

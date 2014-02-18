@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tree Map</title>
+<!---<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+$(function() {
+	
+});
+</script>--->
+</head>
+<body>
+<h1>Tree Map</h1>
+
+<canvas id="treemap" style="border:1px solid #000;width:100%;height:100%;" width="1280" height="720"></canvas>
+
+<script>
+
+var canvas = document.getElementById("treemap");
+var context = canvas.getContext('2d');
+
+function Rect(x,y,w,h,c,bg) {
+	this.x = x;
+	this.y = y;
+	this.w = w;
+	this.h = h;
+	this.c = c;
+	this.a = h * w;
+	this.bg = bg;
+	return this;
+}
+
+function yrScale(current, total) {
+	return "rgb(255," + Math.floor((255 - current*255/(total-1))) + ",0)";
+}
+
+function gyScale(current, total) {
+	return "rgb(" + Math.floor((current*255/(total-1))) + ",255,0)";
+}
+
+function gyrScale(current, total) {
+	var out = "";
+	if (current * 2 < total) {
+		// First Half: Green to Yellow
+		out = gyScale(current, total / 2);
+	} else {
+		// Second Half: Yellow to Red
+		out = yrScale(current - total / 2, total / 2);
+	}
+	console.log(out);
+	return out;
+}
+
+var rects = new Array();
+rects[0] = new Rect(0,0,40,50,"red", "flags/Mali.png");
+rects[1] = new Rect(0,50,25,30,"blue", "flags/South_Africa.png");
+rects[2] = new Rect(25,50,15,30,"green", "flags/Kenya.png");
+rects[3] = new Rect(0,80,15,20,"yellow", "flags/Liberia.png");
+rects[4] = new Rect(15,80,25,20,"purple", "flags/Libya.png");
+
+rects[5] = new Rect(55,0,32,16,"orange", "flags/Zimbabwe.png");
+rects[6] = new Rect(55,16,32,22,"red", "flags/Zambia.png");
+rects[7] = new Rect(55,38,32,28,"blue", "flags/Mauritius.png");
+rects[8] = new Rect(55,66,32,34,"green", "flags/Mauritania.png");
+
+rects[9] = new Rect(40,0,9,20,"yellow", "flags/Mozambique.png");
+rects[10] = new Rect(49,0,6,20,"purple", "flags/Namibia.png");
+
+rects[11] = new Rect(40,20,15,40,"cyan", "flags/Niger.png");
+rects[12] = new Rect(40,60,15,22,"orange", "flags/Nigeria.png");
+rects[13] = new Rect(40,82,15,18,"yellow", "flags/Mali.png");
+
+rects[14] = new Rect(87,0,13,34,"purple", "flags/Rwanda.png");
+rects[15] = new Rect(87,34,13,28,"orange", "flags/Djibouti.png");
+rects[16] = new Rect(87,62,13,22,"brown", "flags/Democratic_Republic_of_the_Congo.png");
+rects[17] = new Rect(87,84,13,16,"red", "flags/Ethiopia.png");
+
+rects.sort(function(a,b){return b.a - a.a});
+
+var width = canvas.width;
+var height = canvas.height;
+
+var images = new Array();
+var imagesLoadedCounter = 0;
+for (i = 0; i < rects.length; i++) {
+	images[i] = new Image();
+	images[i].src = rects[i].bg;
+	images[i].index = i;
+	images[i].onload = function() {
+		var i = this.index;
+		context.beginPath();
+		context.rect((rects[i].x * width / 100), (rects[i].y * height / 100), (rects[i].w * width / 100), (rects[i].h * height / 100));
+		context.fillStyle = gyrScale(i,rects.length);
+		context.fill();
+		context.beginPath();
+		context.rect((rects[i].x * width / 100), (rects[i].y * height / 100), (rects[i].w * width / 100), (rects[i].h * height / 100));
+		context.lineWidth = 1;
+		context.strokeStyle = 'black';
+		context.stroke();
+		
+		
+		imgW = images[i].width;
+		imgH = images[i].height;
+		
+		
+		outX = rects[i].x  / 100 * width;
+		outY = rects[i].y / 100 * height;
+		outW = rects[i].w / 100 * width;
+		outH = rects[i].h / 100 * height;
+		
+		clipX = 0;
+		clipY = 0;
+		clipW = imgW;
+		clipH = imgH;
+		
+		clipH = imgW * outH / outW;
+		
+		if (clipH > imgH) {
+			
+		}
+		
+		outW = 60;
+		outH = outW * imgH / imgW;
+		outX += 5;
+		outY += 5;
+		
+		context.drawImage(images[i],clipX,clipY,clipW,clipH,outX,outY,outW,outH);
+		
+		
+	};
+}
+
+</script>
+
+</body>
+</html>
