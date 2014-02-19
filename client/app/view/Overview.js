@@ -5,6 +5,7 @@ Ext.define('moneyworld.view.Overview', {
 		'moneyworld.view.SummaryView',
 		'moneyworld.view.SummaryViewUnemp',
 		'moneyworld.view.SummaryViewMortality',
+		'moneyworld.view.SummaryViewLifeExpectancy',
 		'moneyworld.view.SummaryViewGini'
 	],
 	config: {
@@ -16,13 +17,16 @@ Ext.define('moneyworld.view.Overview', {
 
 		items: [
 			{
-				xtype: 'summaryview_unemp'
+				xtype: 'summaryview_lifeExpectancy'
 			},
 			{
 				xtype: 'summaryview_gini'
 			},
 			{
 				xtype: 'summaryview_mortality'
+			},
+			{
+				xtype: 'summaryview_unemp'
 			}
 		]
 	}
