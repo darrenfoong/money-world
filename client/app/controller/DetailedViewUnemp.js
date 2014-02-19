@@ -46,6 +46,21 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 		function setData(records, operation, success) {
 			// Visualisation code starts here
 			this.getDetailedViewUnempChart().setStore(dataPointsStore);
+
+			var yaxis = Ext.create('Ext.chart.axis.Axis', {
+					type: 'numeric',
+					position: 'left',
+					grid: true
+			});
+
+			var xaxis = Ext.create('Ext.chart.axis.Axis', {
+					type: 'time',
+					position: 'bottom',
+					title: 'Year',
+					grid: true
+			});
+
+			this.getDetailedViewUnempChart().setAxes([yaxis, xaxis]);
 			// Visualisation code ends here
 		}
 	}
