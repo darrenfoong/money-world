@@ -62,29 +62,33 @@ Ext.define('moneyworld.utils.Functions', {
 		// Input: a floating point number between 0 and 1
 		// Output: an object with numerator, denominator, width of grid, and height of grid fields
 		// Algorithm tries to create a grid that is as square as possible.
-		// TODO Improve to include factorisation of arbitrary denominator; pair of factors with the smallest difference is the solution
 		var ratio = moneyworld.utils.Functions.floatToRatio(value);
 		var numerator = ratio.numerator;
 		var denominator = ratio.denominator;
 
-		var i = 0;
-		var primes = [2,3,5,7,9];
-
-		var width = 1;
-
-		while ( width < denominator ) {
-			if ( denominator % primes[i] == 0 ) {
-				denominator /= primes[i];
-				width *= primes[i];
-			} else {
-				i++;
+		function findClosestFactors(value) {
+			var currentDelta = 0;
+			var minDelta = value;
+			var minFactor1 = 1;
+			var minFactor2 = value;
+			for ( var i = 1; i <= Math.sqrt(value); i++ ) {
+				if ( value % i == 0 ) {
+					currentDelta = value/i - i;
+					if ( currentDelta < minDelta ) {
+						minDelta = currentDelta;
+						minFactor1 = i;
+						minFactor2 = value/i;
+					}
+				}
 			}
+
+			return { factor1: minFactor1, factor2: minFactor2 };
 		}
 
-		var height = denominator;
+		var factors = findClosestFactors(denominator);
 
-		ratio.width = width;
-		ratio.height = height;
+		ratio.width = factors.factor1;
+		ratio.height = factors.factor2;
 		return ratio;
 	}
 });
