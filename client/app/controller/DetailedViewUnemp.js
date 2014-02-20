@@ -50,14 +50,19 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 			var yaxis = Ext.create('Ext.chart.axis.Axis', {
 					type: 'numeric',
 					position: 'left',
-					grid: true
+					grid: true,
+					minimum: Number(dataPointsStore.min('value')),
+					maximum: Number(dataPointsStore.max('value'))
 			});
 
 			var xaxis = Ext.create('Ext.chart.axis.Axis', {
 					type: 'time',
 					position: 'bottom',
 					title: 'Year',
-					grid: true
+					grid: true,
+					minimum: Number(dataPointsStore.min('year')),
+					maximum: Number(dataPointsStore.max('year')),
+					renderer: function(v) { return v.toFixed(0); }
 			});
 
 			this.getDetailedViewUnempChart().setAxes([yaxis, xaxis]);
