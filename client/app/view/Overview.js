@@ -3,6 +3,7 @@ Ext.define('moneyworld.view.Overview', {
 	xtype: 'overview',
 	requires: [
 		'moneyworld.view.SummaryView',
+		'moneyworld.view.SummaryViewInflation',
 		'moneyworld.view.SummaryViewUnemp',
 		'moneyworld.view.SummaryViewMortality',
 		'moneyworld.view.SummaryViewGini'
@@ -15,6 +16,9 @@ Ext.define('moneyworld.view.Overview', {
 		padding: 0,
 
 		items: [
+			{
+				xtype: 'summaryview_inflation'
+			},
 			{
 				xtype: 'summaryview_unemp'
 			},
