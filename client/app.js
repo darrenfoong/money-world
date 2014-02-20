@@ -34,7 +34,7 @@ Ext.application({
 
 	views: [
 		'Init',
-		'Main'
+		'Main',
 	],
 
 	controllers: [
@@ -45,12 +45,14 @@ Ext.application({
 		'DetailedViewUnemp',
 		'DetailedViewGini',
 		'DetailedViewMortality',
+		'DetailedViewLifeExpectancy',
 		'MapView',
 		'Settings',
 		'SummaryView',
 		'SummaryViewUnemp',
 		'SummaryViewGini',
-		'SummaryViewMortality'
+		'SummaryViewMortality',
+		'SummaryViewLifeExpectancy',
 	],
 
 	stores: [

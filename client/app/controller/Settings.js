@@ -65,6 +65,18 @@ Ext.define('moneyworld.controller.Settings', {
 				} else {
 					console.log("Settings saved");
 					console.log("Resetting Main");
+
+					Ext.Array.each(Ext.ComponentQuery.query('summaryview'), refreshSummaryView, this);
+
+					function refreshSummaryView(summaryView) {
+						// This is a very bad hack
+						var xtypes = summaryView.getXTypes().split('/');
+						var xtype = xtypes[xtypes.length-1].split('_')[1];
+						xtype = xtype.charAt(0).toUpperCase() + xtype.slice(1);
+						this.getApplication().getController('moneyworld.controller.SummaryView' + xtype).renderView();
+						console.log("Refreshing SummaryView" + xtype);
+					}
+
 					this.getMainView().reset();
 				}
 			} else {
