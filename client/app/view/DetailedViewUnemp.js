@@ -2,6 +2,8 @@ Ext.define('moneyworld.view.DetailedViewUnemp', {
 	extend: 'moneyworld.view.DetailedView',
 	xtype: 'detailedview_unemp',
 	requires: [
+		'Ext.chart.series.Line',
+		'Ext.chart.interactions.ItemInfo'
 	],
 	config: {
 		items: [
@@ -44,13 +46,13 @@ Ext.define('moneyworld.view.DetailedViewUnemp', {
 						],
 						interactions: [
 							{
-							type: 'iteminfo',
-							gesture: 'itemtap',
-							listeners: {
-								show: function (me, item, panel) {
-									panel.setHtml(item.record.data.year + ": " + item.record.data.value);
+								type: 'iteminfo',
+								gesture: 'itemtap',
+								listeners: {
+									show: function (me, item, panel) {
+										panel.setHtml(item.record.data.year + ": " + item.record.data.value);
+									}
 								}
-							}
 							}
 						]
 					}
