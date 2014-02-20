@@ -44,13 +44,13 @@ Ext.define('moneyworld.view.DetailedViewUnemp', {
 						],
 						interactions: [
 							{
-							type: 'iteminfo',
-							gesture: 'itemtap',
-							listeners: {
-								show: function (me, item, panel) {
-									panel.setHtml(item.record.data.year + ": " + item.record.data.value);
+								type: 'iteminfo',
+								gesture: 'itemtap',
+								listeners: {
+									show: function (me, item, panel) {
+										panel.setHtml(item.record.data.year + ": " + item.record.data.value);
+									}
 								}
-							}
 							}
 						]
 					}
