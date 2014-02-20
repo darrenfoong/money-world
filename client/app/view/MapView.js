@@ -7,6 +7,8 @@ Ext.define('moneyworld.view.MapView', {
 	config: {
 		title: 'MapView',
 
+		dataSet: null,
+
 		fullscreen: true,
 		tabBarPosition: 'top',
 

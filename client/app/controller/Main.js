@@ -61,6 +61,7 @@ Ext.define('moneyworld.controller.Main', {
 			var currentDataSet = currentSummaryView.getDataSet();
 
 			var mapView = Ext.create('moneyworld.view.MapView');
+			mapView.setDataSet(currentDataSet);
 			
 			Ext.ComponentQuery.query('geomapview')[0].setHtml('<iframe style="position: absolute; width: 100%; height: 100%;" src="app/viz/map_view?' + currentDataSet + '"/>');
 			console.log("Pushing MapView[" + currentDataSet + "] to Main");
