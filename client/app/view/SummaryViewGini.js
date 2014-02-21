@@ -7,27 +7,31 @@ Ext.define('moneyworld.view.SummaryViewGini', {
 	config: {
 		dataSet: 'SI.POV.GINI',
 		dataSetInternal: 'Gini',
-
-		cls: 'card1',
+		cls: 'chartpanel',
 		layout: 'fit',
+		iconCls: 'line',
 		items: [{
+			flex: 1,
+			xtype: 'label',
+		},
+
+		{
+			flex: 1,
 			xtype: 'chart',
+			config:{title: 'Life EXPECTANCY'},
 			store: 'BarLabel',
-			title: "total",
 			colors: ['#55C5FC', '#2E9A9C', '#FCD70D', '#B76E20', "#A13E27"],
 			legend: {
+				label: "hi",
 				xtype: 'legend',
 				docked: 'left',
 				scrollable: false,
 			},
-			interactions: [{
-				type: 'panzoom'
-			}],
 			series: [{
 				type: 'bar',
 				xField: 'year',
 				yField: ["top100", "top80", "top60", "top40", "top20"],
-				title: ["0-20th Percentile", "20-40th Percentile", "40-60th Percentile", "60-80th Percentile", "80-100th Percentile"],
+				title: ["Top 20%", "Next 20%", "Third 20%", "Fourth 20%", "Last 20%"],
 				stacked: true,
 				// style: {
 				// 	stroke: 'rgb(40,40,40)'

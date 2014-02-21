@@ -32,27 +32,24 @@
      *                                      //  - "delta" to enable over-the-air delta update for this file
      *                                      //  - "full" means full update will be made when this file changes
      *          "x-bootstrap": true         // (Optional)
-     *                                      // Indicates a development mode only dependency.  
+     *                                      // Indicates a development mode only dependency.
      *                                      // These files will not be copied into the build directory or referenced
      *                                      // in the generate app.json manifest for the micro loader.
      *
      *      }
      */
-    "js": [
-        {
-            "path": "touch/sencha-touch.js",
-            "x-bootstrap": true
-        },
-        {
-            "path": "bootstrap.js",
-            "x-bootstrap": true
-        },
-        {
-            "path": "app.js",
-            "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
+    "js": [{
+        "path": "touch/sencha-touch.js",
+        "x-bootstrap": true
+    }, {
+        "path": "bootstrap.js",
+        "x-bootstrap": true
+    }, {
+        "path": "app.js",
+        "bundle": true,
+        /* Indicates that all class dependencies are concatenated into this file when build */
             "update": "delta"
-        }
-    ],
+    }],
 
     /**
      * List of all CSS assets in the right inclusion order.
@@ -70,16 +67,13 @@
      *
      *      }
      */
-    "css": [
-        {
-            "path": "resources/css/app.css",
-            "update": "delta"
-        },
-        {
-            "path": "resources/css/summaryview_unemp.css",
-            "update": "delta"
-        }
-    ],
+    "css": [{
+        "path": "resources/css/app.css",
+        "update": "delta"
+    }, {
+        "path": "resources/css/summaryview_unemp.css",
+        "update": "delta"
+    }],
 
     /**
      * Used to automatically generate cache.manifest (HTML 5 application cache manifest) file when you build
@@ -108,9 +102,10 @@
      */
     "resources": [
         "resources/images",
+        "resources/js",
         "resources/icons",
         "resources/startup",
-	"data"
+        "data"
     ],
 
     /**
@@ -129,8 +124,7 @@
     /**
      * List of package names to require for the cmd build process
      */
-    "requires": [
-    ],
+    "requires": [],
 
     /**
      * Uniquely generated id for this application, used as prefix for localStorage keys.
