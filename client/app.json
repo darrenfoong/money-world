@@ -48,7 +48,19 @@
         "path": "app.js",
         "bundle": true,
         /* Indicates that all class dependencies are concatenated into this file when build */
-            "update": "delta"
+        "update": "delta"
+    }, {
+        "path": "resources/js/jquery-latest.js",
+        "x-bootstrap": true
+    }, {
+        "path": "resources/js/RGraph.common.core.js",
+        "x-bootstrap": true
+    }, {
+        "path": "resources/js/RGraph.common.key.js",
+        "x-bootstrap": true
+    }, {
+        "path": "resources/js/RGraph.bar.js",
+        "x-bootstrap": true
     }],
 
     /**
