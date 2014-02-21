@@ -8,12 +8,18 @@ Ext.define('moneyworld.view.DetailedViewUnemp', {
 	config: {
 		items: [
 			{
-				xtype: 'carousel',
+				xtype: 'panel',
 				flex: 1,
+				html: 'Sample text'
+			},
+			{
+				xtype: 'carousel',
+				flex: 9,
 
 				items: [
 					{
 						xtype: 'chart',
+						flex: 4,
 						background: 'none',
 						store: null,
 						series: [
