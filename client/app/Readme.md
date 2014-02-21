@@ -17,3 +17,11 @@ This folder contains the stores
 # ./form
 
 This folder contains the forms
+
+# ./utils
+
+This folder contains utility functions
+
+# ./viz
+
+This folder contains custom visualisations not built with Sencha
