@@ -21,7 +21,7 @@ Ext.define('moneyworld.view.Main', {
 					align: 'left'
 				},
 				{
-					iconCls: 'maps',
+					iconCls: 'browser',
 					action: 'regionmode',
 					align: 'left'
 				},

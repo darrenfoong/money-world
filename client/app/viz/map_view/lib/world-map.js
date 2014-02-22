@@ -990,7 +990,7 @@ jvm.WorldMap.prototype = {
 
 jvm.WorldMap.maps = {};
 jvm.WorldMap.defaultParams = {
-  map: 'africa_en_south',
+  map: 'africa_en',
   backgroundColor: '#EEEEEE',
   zoomButtons: true,
   zoomOnScroll: true,

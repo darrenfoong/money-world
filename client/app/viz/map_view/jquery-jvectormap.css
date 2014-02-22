@@ -176,7 +176,12 @@ vertical-align: bottom;
 	float: left;
 	width: 10%;
 	height: inherit;
-	background-color: black;
+	text-align: center;
+	display:table;
+}
+.adjust-year-button span{
+	vertical-align: middle;
+	display:table-cell;
 }
 
 #slider-container {

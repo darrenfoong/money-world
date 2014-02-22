@@ -90,5 +90,19 @@ Ext.define('moneyworld.utils.Functions', {
 		ratio.width = factors.factor1;
 		ratio.height = factors.factor2;
 		return ratio;
+	},
+
+	storeToJson: function (recordsArray) {
+
+		// this is for formatting into jvectorMap format
+		var finalResult = {};
+		for (var i = recordsArray.length - 1; i >= 0; i--) {
+			var tempObj = recordsArray[i].getData();
+			if (typeof finalResult[tempObj['year']] == 'undefined') {
+				finalResult[tempObj['year']] = {}
+			}
+			finalResult[tempObj['year']][tempObj['countryCode']]=[tempObj['value']];
+		};
+		return finalResult;
 	}
 });

@@ -1,6 +1,7 @@
     function generateMap(map_id, dataset) {
         //recreate another map
-        if (typeof dataset == "undefined") dataset = gdp_sample;
+        if (typeof dataset == "undefined") dataset = sample2[2000];
+        console.log(dataset);
         jQuery('.jvectormap-container').remove();
         jQuery('#map1').vectorMap({
             map: map_id,
@@ -11,14 +12,35 @@
             },
             series: {
                 regions: [{
-                    scale: ['#C8EEFF', '#0071A4'],
-                    normalizeFunction: 'polynomial',
-                    values: dataset[map_id]
+                    // scale: ['#C8EEFF', '#0071A4'],
+                    scale: ['#FF0033', '#FF9900', '#33FF00'], //red amber green
+                    normalizeFunction: 'linear',
+                    values: dataset
                 }]
             },
+            regionStyle: {
+                initial: {
+                    fill: 'white',
+                    "fill-opacity": 1,
+                    stroke: 'none',
+                    "stroke-width": 0,
+                    "stroke-opacity": 1
+                },
+                hover: {
+                    fill: '#333333',
+                    "fill-opacity": 0.8
+                },
+                selected: {
+                    fill: 'yellow'
+                },
+                selectedHover: {}
+            },
             onRegionLabelShow: function(e, l, c) {
-                l.html("<img src='country_flag_png/" + c + ".png' alt='" + c + "' width='18' height='12'> " + l.html() + " GDP = " + dataset[current_map_id][c]);
-
+                if (dataset[c] == undefined) {
+                    $('#country-population-value').html("");
+                    return
+                }
+                l.html("<img src='country_flag_png/" + c + ".png' alt='" + c + "' width='18' height='12'> " + l.html() + " GDP = " + dataset[c]);
                 // $('#country-population-value').empty();
                 $('#country-population-value').html(lazyround(population_2000_all[c]));
             }

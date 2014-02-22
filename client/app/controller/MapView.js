@@ -40,15 +40,16 @@ Ext.define('moneyworld.controller.MapView', {
 			dataPointsStore = moneyworld.utils.Functions.getServerStore(
 				this.getMapView().getDataSet(),
 				"all",
-				currentCountry);
+				"all");
 			dataPointsStore.load({ callback: setData, scope: this });
 		}
 
 		function setData(records, operation, success) {
 			// Visualisation code starts here
+			myInj = this.getMapView();
 			this.getMapView().setTitle(currentRegion);
 			console.log("Setting MapView title to " + currentRegion);
-			localStorage["moneyworld"] = dataPointsStore;
+			localStorage["moneyworld"] = JSON.stringify(moneyworld.utils.Functions.storeToJson(records));
 			console.log("Setting local storage");
 			// Visualisation code ends here
 		}

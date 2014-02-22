@@ -2,89 +2,54 @@
 <html>
 
 <head>
-    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39">
     <title>
         Map view
     </title>
     <link rel="stylesheet" media="all" href="jquery-jvectormap.css">
     <link rel="stylesheet" media="all" href="themes/base/jquery.ui.all.css">
-    <script src="assets/jquery-latest.js">
-    </script>
-    <!-- // <script src="assets/jquery-1.8.2.js"></script> -->
-
-    <script src="jquery-jvectormap.js">
-    </script>
-    <script src="jquery-mousewheel.js">
-    </script>
-    <script src="lib/jvectormap.js">
-    </script>
-    <script src="lib/abstract-element.js">
-    </script>
-    <script src="lib/abstract-canvas-element.js">
-    </script>
-    <script src="lib/abstract-shape-element.js">
-    </script>
-    <script src="lib/svg-element.js">
-    </script>
-    <script src="lib/svg-group-element.js">
-    </script>
-    <script src="lib/svg-canvas-element.js">
-    </script>
-    <script src="lib/svg-shape-element.js">
-    </script>
-    <script src="lib/svg-path-element.js">
-    </script>
-    <script src="lib/svg-circle-element.js">
-    </script>
-    <script src="lib/vml-element.js">
-    </script>
-    <script src="lib/vml-group-element.js">
-    </script>
-    <script src="lib/vml-canvas-element.js">
-    </script>
-    <script src="lib/vml-shape-element.js">
-    </script>
-    <script src="lib/vml-path-element.js">
-    </script>
-    <script src="lib/vml-circle-element.js">
-    </script>
-    <script src="lib/vector-canvas.js">
-    </script>
-    <script src="lib/simple-scale.js">
-    </script>
-    <script src="lib/numeric-scale.js">
-    </script>
-    <script src="lib/ordinal-scale.js">
-    </script>
-    <script src="lib/color-scale.js">
-    </script>
-    <script src="lib/data-series.js">
-    </script>
-    <script src="lib/proj.js">
-    </script>
-    <script src="lib/world-map.js">
-    </script>
-    <!-- // <script src="assets/jquery-jvectormap-world-mill-en.js"></script> -->
+    <script src="assets/jquery-latest.js"></script>
+    <script src="jquery-jvectormap.js"></script>
+    <script src="jquery-mousewheel.js"></script>
+    <script src="lib/jvectormap.js"></script>
+    <script src="lib/abstract-element.js"></script>
+    <script src="lib/abstract-canvas-element.js"></script>
+    <script src="lib/abstract-shape-element.js"></script>
+    <script src="lib/svg-element.js"></script>
+    <script src="lib/svg-group-element.js"></script>
+    <script src="lib/svg-canvas-element.js"></script>
+    <script src="lib/svg-shape-element.js"></script>
+    <script src="lib/svg-path-element.js"></script>
+    <script src="lib/svg-circle-element.js"></script>
+    <script src="lib/vml-element.js"></script>
+    <script src="lib/vml-group-element.js"></script>
+    <script src="lib/vml-canvas-element.js"></script>
+    <script src="lib/vml-shape-element.js"></script>
+    <script src="lib/vml-path-element.js"></script>
+    <script src="lib/vml-circle-element.js"></script>
+    <script src="lib/vector-canvas.js"></script>
+    <script src="lib/simple-scale.js"></script>
+    <script src="lib/numeric-scale.js"></script>
+    <script src="lib/ordinal-scale.js"></script>
+    <script src="lib/color-scale.js"></script>
+    <script src="lib/data-series.js"></script>
+    <script src="lib/proj.js"></script>
+    <script src="lib/world-map.js"></script>
+    
     <!-- Load map and data -->
+    <!-- disabled 
 
-    <script src="assets/jquery.vmap.africa_west.js">
-    </script>
-    <script src="assets/jquery.vmap.africa_south.js">
-    </script>
-    <script src="assets/gdp_sample_by_region.js">
-    </script>
-    <script src="assets/population_2000_all.js">
-    </script>
-    <script src="assets/jquery.ui.widget.js">
-    </script>
-    <script src="assets/jquery.ui.core.js">
-    </script>
-    <script src="assets/jquery.ui.mouse.js">
-    </script>
-    <script src="assets/jquery.ui.slider.js">
-    </script>
-    <script src="libraries.js">
-    </script>
+    <script src="assets/jquery.vmap.africa_south.js"></script>
+    <script src="assets/jquery.vmap.africa_west.js"></script>
+
+-->
+    <script src="assets/jquery.vmap.africa.js"></script>
+    <script src="assets/gdp_sample_by_region.js"></script>
+    <script src="assets/population_2000_all.js"></script>
+    <script src="assets/jquery.ui.widget.js"></script>
+    <script src="assets/jquery.ui.core.js"></script>
+    <script src="assets/jquery.ui.mouse.js"></script>
+    <script src="assets/jquery.ui.slider.js"></script>
+    <script src="libraries.js"></script>
 
     <link href='font.css' rel='stylesheet' type='text/css'>
 
@@ -94,7 +59,7 @@
     <div id="wrapper">
         <div id="map1"></div>
         <div id='slider-container'>
-            <div class="adjust-year-button left"></div>
+            <div class="adjust-year-button left"><span>Prev</span></div>
             <div id='slider-with-label'>
                 <div id="slider" style="margin:10px;"></div>
                 <div id="yearLabel" style="width: 96%">
@@ -102,7 +67,7 @@
                     <span class="right-float-text"></span>
                 </div>
             </div>
-            <div class="adjust-year-button right"></div>
+            <div class="adjust-year-button right"><span>Next</span></div>
         </div>
     </div>
 
@@ -114,23 +79,19 @@
     var map;
 
 
-    jQuery.noConflict();
-    jQuery(function() {
-        var $ = jQuery;
-    })
+    // jQuery.noConflict();
+    // jQuery(function() {
+    //     var $ = jQuery;
+    // })
 
     var $ = jQuery;
     jQuery(document).ready(function() {
-        generateMap('africa_en_south');
-        // jQuery('h2').each(function() {
-        //     // change map
-        //     jQuery(this).click(function() {
-        //         jQuery('.tab-selected').removeClass('tab-selected');
-        //         jQuery(this).addClass('tab-selected');
-        //         generateMap(this.id);
-        //     });
-        // });
-        // jQuery('h2:first').addClass('tab-selected');
+        // get data from localstorage if available
+        // console.log("this is working",localStorage['moneyworld']);
+        if (localStorage['moneyworld'] != undefined) {
+            sample2 = JSON.parse(localStorage['moneyworld']);
+        }
+        generateMap('africa_en');
     });
     // var mapObject = $('#map1').vectorMap('get', 'mapObject');
 
@@ -141,9 +102,9 @@
         step: 1,
         slide: function(event, ui) {
             val = ui.value;
-            console.log(ui, event);
+            // console.log(ui, event);
             //TODO: change this hacker way
-            generateMap(current_map_id, sample2);
+            generateMap(current_map_id, sample2[ui.value]);
             // map.series.regions[0].setValues(sample2[current_map_id]);
             // map.series.markers[0].setValues(data.metro.unemployment[ui.value]);
             // map.series.markers[1].setValues(data.metro.population[ui.value]);
@@ -155,14 +116,14 @@
         sliderObj.slider('value', sliderObj.slider('value') + sliderObj.slider("option", "step"));
 
         //TODO: change this hacker way
-        generateMap(current_map_id, sample2);
+        generateMap(current_map_id, sample2[ sliderObj.slider('value') ]);
 
     });
     $('.adjust-year-button.left').click(function() {
         sliderObj.slider('value', sliderObj.slider('value') - sliderObj.slider("option", "step"));
 
         //TODO: change this hacker way
-        generateMap(current_map_id, sample2);
+        generateMap(current_map_id, sample2[ sliderObj.slider('value') ]);
 
     });
 
