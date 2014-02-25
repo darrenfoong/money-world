@@ -18,7 +18,7 @@ Ext.define('moneyworld.view.Main', {
 			docked: 'top',
 			items: [
 				{
-					iconCls: 'maps',
+					iconCls: 'browser',
 					action: 'mapview',
 					align: 'left'
 				},
