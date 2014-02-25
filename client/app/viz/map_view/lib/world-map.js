@@ -494,8 +494,10 @@ jvm.WorldMap.prototype = {
     var map = this;
     // var fact = jvm.$('<div/>').attr('id','country-code').addClass('quick-info-text').append("Country");
     var fact2 = jvm.$('<div/>').attr('id','country-population').addClass('quick-info-text').append("<img src='images/population_icon.png'><div id='country-population-value'></div>");
+    var fact3 = jvm.$('<div/>').attr('id','value-box').addClass('value-info-text');
     // var fact3 = jvm.$('<div/>').addClass('quick-info-text').append("<img src='images/population_icon.png'>");
     jvm.$('<div/>').addClass('quick-info').appendTo(this.container).append(fact2);
+    jvm.$('<div/>').addClass('value-info').appendTo(this.container).append(fact3);
   },
 
   createCustomLabel: function(){

@@ -48,7 +48,7 @@ Ext.define('moneyworld.utils.Functions', {
 
 		pvalue = Number(pvalue).toFixed(precision);
 
-		output += pvalue + " " + units[counter] + " " + suffix;
+		output += pvalue + units[counter] + suffix;
 
 		return output;
 	},
@@ -114,6 +114,18 @@ Ext.define('moneyworld.utils.Functions', {
 				finalResult[tempObj['year']] = {}
 			}
 			finalResult[tempObj['year']][tempObj['countryCode']]=[tempObj['value']];
+		};
+		return finalResult;
+	},
+
+	storeDataSetToJson: function (recordsArray, id) {
+		// this is for formatting into jvectorMap format
+		var finalResult = {};
+		for (var i = recordsArray.length - 1; i >= 0; i--) {
+			var tempObj = recordsArray[i].getData();
+			if (tempObj['id'] == id) {
+				return tempObj;
+			}
 		};
 		return finalResult;
 	}

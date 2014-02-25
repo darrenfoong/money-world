@@ -52,11 +52,15 @@ Ext.define('moneyworld.controller.SummaryViewInflation', {
 		function setData(records, operation, success) {
 			// Visualisation code starts here
 			dataPointsStore.sort([{ property: 'year', direction: 'ASC'}]);
+			var dataSetID = this.getSummaryViewInflation().getDataSet();
 			dataPointsStore.filter([
 				Ext.create('Ext.util.Filter', { property: 'countryCode', value: currentCountry }),
-				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: this.getSummaryViewInflation().getDataSet() })
+				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: dataSetID })
 			]);
-			var currentInflation = '3%' // dataPointsStore.last().get('value');
+			var currentInflation = dataPointsStore.last().get('value'); 
+			var dataStoreRecord = dataSetsStore.findRecord('id', dataSetID);
+			
+			var currentInflationFormatted = moneyworld.utils.Functions.prettify(currentInflation,dataStoreRecord.get('precision'),dataStoreRecord.get('prefix'),dataStoreRecord.get('suffix'));
 
 			if ( currentInflation == "" ) {
 				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
@@ -70,7 +74,7 @@ Ext.define('moneyworld.controller.SummaryViewInflation', {
 			htmlString += "<div class='summaryview_inflation-container'>";
 			htmlString += "<div class='summaryview_inflation-description'>";
 			htmlString += preHtmlString;
-			htmlString += "<div class='summaryview_inflation-big'><font color = '" + colourString + "'>" + currentInflation + "</font></div>";
+			htmlString += "<div class='summaryview_inflation-big'><font color = '" + colourString + "'>" + currentInflationFormatted + "</font></div>";
 			htmlString += postHtmlString;
 			
 			htmlString += "</div>";
