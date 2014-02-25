@@ -13,8 +13,8 @@ Ext.define('moneyworld.controller.SummaryViewInflation', {
 		}
 	},
 
-	preHtmlString : '',
-	postHtmlString : '',
+	preHtmlString : 'Inflation is currently at',
+	postHtmlString : 'in ',
 
 	renderView: function() {
 		var settingsStore = Ext.getStore('Settings');
@@ -23,6 +23,9 @@ Ext.define('moneyworld.controller.SummaryViewInflation', {
 
 		var currentCountry;
 		var currentRegion;
+		
+		var preHtmlString = this.preHtmlString;
+		var postHtmlString = this.postHtmlString;
 
 		var settingsRecords = [];
 		var dataPointsRecords = [];
@@ -32,6 +35,7 @@ Ext.define('moneyworld.controller.SummaryViewInflation', {
 		function loadDataSetsStore(records, operations, success) {
 			settingsRecords = records;
 			currentCountry = records[0].get('countryCode');
+			postHtmlString += records[0].get('countryName');
 			currentRegion = records[0].get('region');
 			dataSetsStore.load({ callback: loadDataPointsStore, scope: this });
 		}
@@ -54,18 +58,20 @@ Ext.define('moneyworld.controller.SummaryViewInflation', {
 			]);
 			var currentInflation = '3%' // dataPointsStore.last().get('value');
 
-			if (false) {//if ( currentInflation == "" ) {
+			if ( currentInflation == "" ) {
 				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
 				this.getSummaryViewInflation().setHtml(htmlString);
 				return;
 			}
 			
+			var colourString = '#79BB3F'; //NEED TO GET COLOUR FUNCTION
+			
 			var htmlString = '';
-			htmlString += "<div class='summaryview_unemp-container'>";
-			htmlString += "<div class='summaryview_unemp-description'>";
-			htmlString += this.preHtmlString;
-			htmlString += "<h1 class='summaryview-nodata'>" + currentInflation + "</h1>";
-			htmlString += this.postHtmlString;
+			htmlString += "<div class='summaryview_inflation-container'>";
+			htmlString += "<div class='summaryview_inflation-description'>";
+			htmlString += preHtmlString;
+			htmlString += "<div class='summaryview_inflation-big'><font color = '" + colourString + "'>" + currentInflation + "</font></div>";
+			htmlString += postHtmlString;
 			
 			htmlString += "</div>";
 			htmlString += "</div>";
