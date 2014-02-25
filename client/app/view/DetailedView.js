@@ -11,6 +11,6 @@ Ext.define('moneyworld.view.DetailedView', {
 
 		styleHtmlContent: true,
 		fullscreen: true,
-		layout: 'vbox',
+		layout: 'vbox'
 	}
 });

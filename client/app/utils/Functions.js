@@ -4,6 +4,19 @@ Ext.define('moneyworld.utils.Functions', {
 	],
 	singleton: true,
 
+	changeTitle: function(actualView, navigationView, name) {
+		var innerItems = navigationView.getInnerItems();
+		for ( var i = 0; i < innerItems.length; i++ ) {
+			if ( innerItems[i] === actualView ) {
+				break;
+			}
+		}
+
+		actualView.setTitle(name);
+		navigationView.getNavigationBar().backButtonStack[i] = name;
+		navigationView.getNavigationBar().setTitle(name);
+	},
+
 	getServerStore: function(dataSet, year, country) {
 		var url = "http://money-world.appspot.com/api/" + dataSet + "/" + year + "/" + country;
 		var dataPointsStore = Ext.create('Ext.data.Store', {
@@ -93,7 +106,6 @@ Ext.define('moneyworld.utils.Functions', {
 	},
 
 	storeToJson: function (recordsArray) {
-
 		// this is for formatting into jvectorMap format
 		var finalResult = {};
 		for (var i = recordsArray.length - 1; i >= 0; i--) {

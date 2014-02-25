@@ -8,12 +8,12 @@ Ext.define('moneyworld.controller.MapView', {
 		},
 		control: {
 			'mapView': {
-				activate: 'loadTitle'
+				initialize: 'renderView'
 			}
 		}
 	},
 
-	loadTitle: function() {
+	renderView: function() {
 		console.log("Loading MapView");
 
 		var settingsStore = Ext.getStore('Settings');
@@ -46,8 +46,8 @@ Ext.define('moneyworld.controller.MapView', {
 
 		function setData(records, operation, success) {
 			// Visualisation code starts here
-			myInj = this.getMapView();
-			this.getMapView().setTitle(currentRegion);
+			// myInj = this.getMapView();
+			moneyworld.utils.Functions.changeTitle(this.getMapView(), this.getMainView(), currentRegion);
 			console.log("Setting MapView title to " + currentRegion);
 			localStorage["moneyworld"] = JSON.stringify(moneyworld.utils.Functions.storeToJson(records));
 			console.log("Setting local storage");

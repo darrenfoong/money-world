@@ -47,6 +47,7 @@ Ext.application({
 		'DetailedViewMortality',
 		'DetailedViewLifeExpectancy',
 		'MapView',
+		'InfoView',
 		'Settings',
 		'SummaryView',
 		'SummaryViewUnemp',

@@ -25,18 +25,7 @@ Ext.define('moneyworld.controller.Overview', {
 
 		function setTitle(records, operation, success) {
 			var countryName = records[0].get('countryName');
-
-			var innerItems = this.getMainView().getInnerItems();
-			for ( var i = 0; i < innerItems.length; i++ ) {
-				if ( innerItems[i] === this.getOverView() ) {
-					break;
-				}
-			}
-
-			this.getOverView().setTitle(countryName);
-			this.getMainView().getNavigationBar().backButtonStack[i] = countryName;
-			this.getMainView().getNavigationBar().setTitle(countryName);
-			console.log("Setting Main title to " + countryName);
+			moneyworld.utils.Functions.changeTitle(this.getOverView(), this.getMainView(), countryName);
 		}
 	},
 

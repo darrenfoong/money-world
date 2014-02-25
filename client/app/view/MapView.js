@@ -5,7 +5,7 @@ Ext.define('moneyworld.view.MapView', {
 		'moneyworld.view.GeoMapView'
 	],
 	config: {
-		title: 'MapView',
+		title: null,
 
 		dataSet: null,
 

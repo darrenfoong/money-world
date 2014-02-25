@@ -9,6 +9,7 @@ Ext.define('moneyworld.view.Main', {
 		'moneyworld.view.DetailedViewMortality',
 		'moneyworld.view.DetailedViewLifeExpectancy',
 		'moneyworld.view.MapView',
+		'moneyworld.view.InfoView',
 		'moneyworld.view.Settings'
 	],
 	config: {
@@ -16,14 +17,14 @@ Ext.define('moneyworld.view.Main', {
 			docked: 'top',
 			items: [
 				{
-					iconCls: 'home',
-					action: 'countrymode',
+					iconCls: 'maps',
+					action: 'mapview',
 					align: 'left'
 				},
 				{
-					iconCls: 'browser',
-					action: 'regionmode',
-					align: 'left'
+					iconCls: 'info',
+					action: 'infoview',
+					align: 'right'
 				},
 				{
 					iconCls: 'settings',
