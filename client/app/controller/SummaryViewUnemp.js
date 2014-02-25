@@ -49,9 +49,15 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 				Ext.create('Ext.util.Filter', { property: 'countryCode', value: currentCountry }),
 				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: this.getSummaryViewUnemp().getDataSet() })
 			]);
-			var currentUnemp = dataPointsStore.last().get('value');
 
-			if ( currentUnemp == "" ) {
+			if ( dataPointsStore.last() ) {
+				var currentUnemp = dataPointsStore.last().get('value');
+				if ( currentUnemp == "" ) {
+					var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
+					this.getSummaryViewUnemp().setHtml(htmlString);
+					return;
+				}
+			} else {
 				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
 				this.getSummaryViewUnemp().setHtml(htmlString);
 				return;
@@ -102,7 +108,7 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 			this.getSummaryViewUnemp().setHtml(htmlString);
 
 			Ext.select('.summaryview_unemp-grid').setWidth(0.9 * viewWidth);
-			Ext.select('.summaryview_unemp-grid').setHeight(0.6 * viewHeight);
+			Ext.select('.summaryview_unemp-grid').setHeight(0.5 * viewHeight);
 
 			var fontSize = Ext.Array.min([Ext.select('.summaryview_unemp-cell').first().getWidth(), Ext.select('.summaryview_unemp-cell').first().getHeight()]) * 0.9;
 			Ext.select('.summaryview_unemp-grid').setStyle("font-size", fontSize + 	"px");
