@@ -17,12 +17,12 @@ Ext.define('moneyworld.view.SummaryViewGini', {
 				flex: 1,
 				html: '<center><span class="indicator-heading">Income Inequality</span></center>'
 			},
-			{
-				xtype: 'myOwnChart',
-				store: 'BarLabel',
-				flex: 4,
-				docked: 'bottom',
-			}
+			// {
+			// 	xtype: 'myOwnChart',
+			// 	store: 'BarLabel',
+			// 	flex: 4,
+			// 	docked: 'bottom',
+			// }
 		]
 	},
 });
