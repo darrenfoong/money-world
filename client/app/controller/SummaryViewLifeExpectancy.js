@@ -64,8 +64,6 @@ Ext.define('moneyworld.controller.SummaryViewLifeExpectancy', {
 		
 		var imageSource = "resources/images/cake.png";
 		
-		ctx.fillStyle = "#FF0000";
-		ctx.fillRect(0,0,150,300);
 		
 		var cake = new Image();
 		cake.src = imageSource;
