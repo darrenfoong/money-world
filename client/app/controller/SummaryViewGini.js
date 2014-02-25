@@ -14,7 +14,6 @@ Ext.define('moneyworld.controller.SummaryViewGini', {
 	},
 
 	renderView: function() {
-		console.log('summaryViewGini renderView');
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
 		var dataPointsStore;
@@ -52,26 +51,31 @@ Ext.define('moneyworld.controller.SummaryViewGini', {
 				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: dataSetID })
 			]);
 			var currentGini = dataPointsStore.last().get('value'); 
-			
-			console.log(currentGini);
-			
+						
 			if ( currentGini == "" ) {
 				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
 				this.getSummaryViewGini().setHtml(htmlString);
 				return;
 			}
 			
-			drawIncomeSplit(20,20);
-			
-			var htmlString = "<div class='summaryview_gini-rect'>This is a rectangle!</div>";
+			var top20 = 20;
+			var low20 = 20;
+			var topHeight = 10;
+			var lowHeight = 30;
+			var midHeight = 100 - topHeight - lowHeight;
+						
+			var htmlString = '';
+			htmlString += "<table class='summaryview_gini-table' border=1>";
+			htmlString += "<tr class='summaryview_gini-top' height=" + topHeight +"%><td>The top 10% hold " + topHeight + "% of the wealth</td></tr>";
+			htmlString += "<tr class='summaryview_gini-mid' height=" + midHeight +"%><td>" + midHeight + "%</td></tr>";
+			htmlString += "<tr class='summaryview_gini-low' height=" + lowHeight +"%><td>The bottom 10% hold " + lowHeight + "% of the wealth</td></tr>";
+			htmlString += "</table>";
 			this.getSummaryViewGini().setHtml(htmlString);
+			
+			console.log(htmlString);
 			
 			
 			// Visualisation code ends here
-		}
-		
-		function drawIncomeSplit(top20, low20) {
-			
 		}
 		
 	}

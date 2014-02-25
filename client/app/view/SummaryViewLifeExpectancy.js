@@ -6,7 +6,7 @@ Ext.define('moneyworld.view.SummaryViewLifeExpectancy', {
 	config: {
 		items: [{
 			xtype: 'label',
-			html: '<center>Life Expectancy</center><canvas id="testtesttest"  style="width:100%; height:100%; border:1px solid black" width="1260" height="600">[No canvas support]</canvas>'
+			html: '<span class="indicator-heading" style="font-size:+5">The average person lives up to</span>'
 		}],
 		listeners: {
 			// I had to do this because the controller cannot register this event

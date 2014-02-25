@@ -78,7 +78,7 @@
 
         pvalue = Number(pvalue).toFixed(precision);
 
-        output += pvalue + " " + units[counter] + " " + suffix;
+        output += pvalue + units[counter] + suffix;
 
         return output;
     }
