@@ -10,8 +10,8 @@ Ext.define('moneyworld.model.DataPoint', {
 		fields: [
 			{ name: 'dataSetCode', type: 'auto' },
 			{ name: 'countryCode', type: 'auto' },
-			{ name: 'year', type: 'auto' },
-			{ name: 'value', type: 'auto' }
+			{ name: 'year', type: 'int' },
+			{ name: 'value', type: 'float' }
 		]
 	}
 });

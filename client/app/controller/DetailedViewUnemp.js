@@ -5,7 +5,6 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 		refs: {
 			mainView: 'main',
 			detailedViewUnemp: 'detailedview_unemp',
-			detailedViewUnempChart: 'detailedview_unemp chart'
 		},
 		control: {
 			'detailedViewUnemp': {

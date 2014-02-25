@@ -8,6 +8,7 @@ Ext.define('moneyworld.controller.SummaryViewGini', {
 		},
 		control: {
 			'summaryViewGini': {
+				initialize: 'renderView'
 			}
 		}
 	},

@@ -4,6 +4,7 @@ Ext.define('moneyworld.view.Main', {
 	requires: [
 		'moneyworld.view.Overview',
 		'moneyworld.view.DetailedView',
+		'moneyworld.view.DetailedViewInflation',
 		'moneyworld.view.DetailedViewUnemp',
 		'moneyworld.view.DetailedViewGini',
 		'moneyworld.view.DetailedViewMortality',
