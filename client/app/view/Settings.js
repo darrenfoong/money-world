@@ -32,7 +32,7 @@ Ext.define('moneyworld.view.Settings', {
 					}
 				],
 
-				instructions: "Instructions here."
+				instructions: "Please choose your home country."
 			}
 		]
 	}

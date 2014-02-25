@@ -79,6 +79,7 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 						{
 							type: 'numeric',
 							position: 'left',
+							title: dataSetsStore.findRecord('id', this.getDetailedViewUnemp().getDataSet()).get('name'),
 							grid: true,
 							style: {
 								estStepSize: 20
@@ -94,6 +95,7 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 							style: {
 								estStepSize: 20
 							},
+							visibleRange: [0.66, 1],
 							minimum: Math.floor(Number(dataPointsStore.min('year'))-1),
 							maximum: Math.ceil(Number(dataPointsStore.max('year'))+1),
 							renderer: function(v) { return v.toFixed(0); }
@@ -108,7 +110,8 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 									panel.setHtml(item.record.data.year + ": " + item.record.data.value);
 								}
 							}
-						}
+						},
+						'panzoom'
 					]
 			});
 
