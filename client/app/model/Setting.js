@@ -14,14 +14,6 @@ Ext.define('moneyworld.model.Setting', {
 			{ name: 'region', type: 'auto' }
 		],
 
-		validations: [
-			{
-				type: 'presence',
-				field: 'username',
-				message: "Please provide a username."
-			}
-		],
-
 		proxy: {
 			type: 'localstorage',
 			id: 'settings'
