@@ -19,7 +19,6 @@ Ext.define('moneyworld.controller.SummaryViewLifeExpectancy', {
 	myCanvasObj: null,
 	counter: 0,
 	renderView: function() {
-
 	},
 	// init: function() {
 	// 	containerObj = Ext.get("summaryview_lifeExpectancy");
@@ -63,9 +62,6 @@ Ext.define('moneyworld.controller.SummaryViewLifeExpectancy', {
 		var ctx = canvas.getContext("2d");
 		
 		var imageSource = "resources/images/cake.png";
-		
-		ctx.fillStyle = "#FF0000";
-		ctx.fillRect(0,0,150,300);
 		
 		var cake = new Image();
 		cake.src = imageSource;

@@ -42,6 +42,7 @@ Ext.application({
 		'Main',
 		'Overview',
 		'DetailedView',
+		'DetailedViewInflation',
 		'DetailedViewUnemp',
 		'DetailedViewGini',
 		'DetailedViewMortality',

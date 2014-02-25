@@ -15,7 +15,7 @@ Ext.define('moneyworld.view.SummaryViewLifeExpectancy', {
 				// Ext.Msg.alert('I was painted to the screen');
 			}
 		},
-		dataSet: 'SL.UEM.TOTL.ZS',
+		dataSet: 'SP.DYN.LE00.IN',
 		dataSetInternal: 'LifeExpectancy',
 	}
 });
