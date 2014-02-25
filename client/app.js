@@ -50,6 +50,7 @@ Ext.application({
 		'InfoView',
 		'Settings',
 		'SummaryView',
+		'SummaryViewInflation',
 		'SummaryViewUnemp',
 		'SummaryViewGini',
 		'SummaryViewMortality',

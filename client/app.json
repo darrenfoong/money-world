@@ -88,6 +88,9 @@
 	}, {
         "path": "resources/css/summaryview_inflation.css",
         "update": "delta"
+	}, {
+        "path": "resources/css/summaryview_gini.css",
+        "update": "delta"
 	}],
 
     /**
