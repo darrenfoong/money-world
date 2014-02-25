@@ -45,6 +45,7 @@ Ext.application({
 		'DetailedViewUnemp',
 		'DetailedViewGini',
 		'DetailedViewMortality',
+		'DetailedViewInflation',
 		'DetailedViewLifeExpectancy',
 		'MapView',
 		'InfoView',
@@ -53,6 +54,7 @@ Ext.application({
 		'SummaryViewUnemp',
 		'SummaryViewGini',
 		'SummaryViewMortality',
+		'SummaryViewInflation',
 		'SummaryViewLifeExpectancy',
 	],
 

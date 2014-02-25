@@ -25,12 +25,12 @@ Ext.define('moneyworld.controller.SummaryViewLifeExpectancy', {
 	counter: 0,
 	renderView: function() {
 		// testing if I can access the canvas I included in html instead of creating it here.
-		containerObj = document.getElementById("testtesttest");
-		console.log(containerObj);
-		ctx = containerObj.getContext('2d');
-		ctx.rect(0, 0, 1150, 1100);
-		ctx.fillStyle = "red";
-		ctx.fill();
+		// containerObj = document.getElementById("testtesttest");
+		// console.log(containerObj);
+		// ctx = containerObj.getContext('2d');
+		// ctx.rect(0, 0, 1150, 1100);
+		// ctx.fillStyle = "red";
+		// ctx.fill();
 	},
 	// init: function() {
 	// 	containerObj = Ext.get("summaryview_lifeExpectancy");

@@ -73,6 +73,7 @@ Ext.define('moneyworld.controller.Settings', {
 						var xtypes = summaryView.getXTypes().split('/');
 						var xtype = xtypes[xtypes.length-1].split('_')[1];
 						xtype = xtype.charAt(0).toUpperCase() + xtype.slice(1);
+						console.log('xtype loading', xtype);
 						this.getApplication().getController('moneyworld.controller.SummaryView' + xtype).renderView();
 						console.log("Refreshing SummaryView" + xtype);
 					}
