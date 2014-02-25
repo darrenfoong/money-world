@@ -4,55 +4,48 @@
 //<feature charts>
 Ext.define('moneyworld.view.ColumnChartStacked', {
     extend: 'Ext.Panel',
-    requires: ['Ext.chart.Chart', 'Ext.chart.interactions.PanZoom',
-        'Ext.chart.series.Bar', 'Ext.chart.axis.Numeric', 'Ext.chart.axis.Category'
-    ],
+    xtype: 'myOwnChart',
+    requires: ['Ext.chart.Chart', 'Ext.chart.series.Bar', 'Ext.chart.axis.Numeric', 'Ext.chart.axis.Category'],
     config: {
-        cls: 'card1',
+        height: '90%',
         layout: 'fit',
         items: [{
             xtype: 'chart',
+            legend: {
+                position: 'left'
+            },
             store: 'BarLabel',
             colors: ['#55C5FC', '#2E9A9C', '#FCD70D', '#B76E20', "#A13E27"],
-            // background: 'white',
             series: [{
+                label: {
+                    field: ["top20", "", "", "", ""],
+                    display: 'insideEnd',
+                    orientation: 'horizontal',
+                    color: '#FF0000',
+                    // contrast: true,
+                    renderer: function(value) {
+                        return value + "%";
+                    //     return "Top 20% earns " + value.toString() + "% of the total salary";
+                    }
+                },
                 type: 'bar',
                 xField: 'year',
-                yField: ["top100", "top80", "top60", "top40", "top20"],
-                title:["0-20th Percentile","20-40th Percentile","40-60th Percentile","60-80th Percentile","80-100th Percentile"],
+                yField: ["top20", "top40", "top60", "top80", "top100"],
+                title: ["Top 20%", "Top 20-40%", "Top 40-60%", "Top 60-80%", "Bottom 20%"],
                 stacked: true,
                 style: {
                     // stroke: 'rgb(40,40,40)'
                 },
-                // renderer: function(sprite, record, attr, index, store) {                       
-                //         // var color = selectedColor;
-                //             return Ext.apply(attr, {
-                //                 // fill: color,
-                //                 width: '50%',
-
-                //             });
-                //     },
             }],
-            axes: [
-            {
+            axes: [{
                 type: 'numeric',
                 hidden: true,
-                // position: 'left',
-                // label: {
-                //     rotate: {
-                //         degrees: -30
-                //     }
-                // }
-            }, 
-            {
+            }, {
                 type: 'category',
-                position: 'bottom',
+                // position: 'top',
+                // increment: 0,
                 hidden: true
-                // fields: 'year',
-                // title: 'test'
-                // visibleRange: [0, 0.5]
-            }
-            ]
+            }]
         }]
     }
 });

@@ -51,16 +51,16 @@
         "update": "delta"
     }, {
         "path": "resources/js/jquery-latest.js",
-        "x-bootstrap": true
+        "x-bootstrap": false
     }, {
         "path": "resources/js/RGraph.common.core.js",
-        "x-bootstrap": true
+        "x-bootstrap": false
     }, {
         "path": "resources/js/RGraph.common.key.js",
-        "x-bootstrap": true
+        "x-bootstrap": false
     }, {
         "path": "resources/js/RGraph.bar.js",
-        "x-bootstrap": true
+        "x-bootstrap": false
     }],
 
     /**
@@ -113,6 +113,7 @@
      * Extra resources to be copied along when build
      */
     "resources": [
+        "app/viz",
         "resources/images",
         "resources/js",
         "resources/icons",

@@ -18,7 +18,7 @@ Ext.define('moneyworld.view.Overview', {
 
 		items: [
 			{
-				xtype: 'summaryview_inflation'
+				xtype: 'summaryview_gini'
 			},
 			{
 				xtype: 'summaryview_unemp'
@@ -27,7 +27,7 @@ Ext.define('moneyworld.view.Overview', {
 				xtype: 'summaryview_lifeExpectancy'
 			},
 			{
-				xtype: 'summaryview_gini'
+				xtype: 'summaryview_inflation'
 			},
 			{
 				xtype: 'summaryview_mortality'

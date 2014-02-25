@@ -48,6 +48,7 @@ Ext.define('moneyworld.controller.Overview', {
 		function redirect(records, operations, success) {
 			var currentSummaryView = Ext.ComponentQuery.query('overview')[0].getActiveItem();
 			var currentDataSetInternal = currentSummaryView.getDataSetInternal();
+			console.log(dataSetsStore.findRecord('id', currentSummaryView.getDataSet()));
 			var currentDataSet = dataSetsStore.findRecord('id', currentSummaryView.getDataSet()).get('name');
 
 			var detailedView = Ext.create('moneyworld.view.DetailedView' + currentDataSetInternal);

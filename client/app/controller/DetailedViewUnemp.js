@@ -14,6 +14,7 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 		}
 	},
 
+
 	renderView: function() {
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
