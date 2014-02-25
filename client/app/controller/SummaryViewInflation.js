@@ -79,7 +79,6 @@ Ext.define('moneyworld.controller.SummaryViewInflation', {
 			
 			htmlString += "</div>";
 			htmlString += "</div>";
-			console.log(htmlString);
 			
 			this.getSummaryViewInflation().setHtml(htmlString);
 			// Visualisation code ends here

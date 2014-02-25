@@ -49,9 +49,15 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 				Ext.create('Ext.util.Filter', { property: 'countryCode', value: currentCountry }),
 				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: this.getSummaryViewUnemp().getDataSet() })
 			]);
-			var currentUnemp = dataPointsStore.last().get('value');
 
-			if ( currentUnemp == "" ) {
+			if ( dataPointsStore.last() ) {
+				var currentUnemp = dataPointsStore.last().get('value');
+				if ( currentUnemp == "" ) {
+					var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
+					this.getSummaryViewUnemp().setHtml(htmlString);
+					return;
+				}
+			} else {
 				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
 				this.getSummaryViewUnemp().setHtml(htmlString);
 				return;
@@ -84,10 +90,14 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 				htmlString += "<div class='summaryview_unemp-row'>";
 				for ( var j = 0; j < width; j++ ) {
 					if ( numerator > 0 ) {
-						htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-x'></span>";
+						htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-x'>";
+						htmlString += "<i class='fa fa-briefcase'></i>";
+						htmlString += "</span>";
 						numerator--;
 					} else {
-						htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-o'></span>";
+						htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-o'>";
+						htmlString += "<i class='fa fa-briefcase'></i>";
+						htmlString += "</span>";
 					}
 				}
 				htmlString += "</div>";
@@ -98,7 +108,10 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 			this.getSummaryViewUnemp().setHtml(htmlString);
 
 			Ext.select('.summaryview_unemp-grid').setWidth(0.9 * viewWidth);
-			Ext.select('.summaryview_unemp-grid').setHeight(0.6 * viewHeight);
+			Ext.select('.summaryview_unemp-grid').setHeight(0.5 * viewHeight);
+
+			var fontSize = Ext.Array.min([Ext.select('.summaryview_unemp-cell').first().getWidth(), Ext.select('.summaryview_unemp-cell').first().getHeight()]) * 0.9;
+			Ext.select('.summaryview_unemp-grid').setStyle("font-size", fontSize + 	"px");
 			// Visualisation code ends here
 		}
 	}

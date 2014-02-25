@@ -27,14 +27,15 @@
 }
 
 .summaryview_unemp-cell {
-	padding: 5px;
+	padding: 2px;
 	display: table-cell;
+	vertical-align: middle;
 }
 
 .summaryview_unemp-cell-x {
-	border: 1px solid #f00;
+	color: #f00;
 }
 
 .summaryview_unemp-cell-o {
-	border: 1px solid #0f0;
+	color: #0f0;
 }

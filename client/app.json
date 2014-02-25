@@ -82,16 +82,19 @@
     "css": [{
         "path": "resources/css/app.css",
         "update": "delta"
-    }, {
+        }, {
+        "path": "resources/font-awesome/css/font-awesome.min.css",
+        "update": "delta"
+        }, {
         "path": "resources/css/summaryview_unemp.css",
         "update": "delta"
-	}, {
+        }, {
         "path": "resources/css/summaryview_inflation.css",
         "update": "delta"
-	}, {
+        }, {
         "path": "resources/css/summaryview_gini.css",
         "update": "delta"
-	}],
+        }],
 
     /**
      * Used to automatically generate cache.manifest (HTML 5 application cache manifest) file when you build
