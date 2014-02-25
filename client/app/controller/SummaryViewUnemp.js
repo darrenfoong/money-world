@@ -63,6 +63,15 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 			var width = gridParameters.width;
 			var height = gridParameters.height;
 
+			var viewWidth = this.getSummaryViewUnemp().element.getWidth();
+			var viewHeight = this.getSummaryViewUnemp().element.getHeight();
+
+			if ( viewWidth > viewHeight ) {
+				var temp = width;
+				width = height;
+				height = temp;
+			}
+
 			var htmlString = "";
 
 			htmlString += "<div class='summaryview_unemp-container'>";
@@ -74,14 +83,12 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 			for ( var i = 0; i < height; i++ ) {
 				htmlString += "<div class='summaryview_unemp-row'>";
 				for ( var j = 0; j < width; j++ ) {
-					htmlString += "<span class='summaryview_unemp-cell'>";
 					if ( numerator > 0 ) {
-						htmlString += "X";
+						htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-x'></span>";
 						numerator--;
 					} else {
-						htmlString += "O";
+						htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-o'></span>";
 					}
-					htmlString += "</span>";
 				}
 				htmlString += "</div>";
 			}
@@ -89,6 +96,9 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 			htmlString += "</div>";
 
 			this.getSummaryViewUnemp().setHtml(htmlString);
+
+			Ext.select('.summaryview_unemp-grid').setWidth(0.9 * viewWidth);
+			Ext.select('.summaryview_unemp-grid').setHeight(0.6 * viewHeight);
 			// Visualisation code ends here
 		}
 	}
