@@ -36,6 +36,9 @@ Ext.define('moneyworld.controller.MapView', {
 		}
 
 		function loadDataPointsStore(records, operation, success) {
+			var myDataSet = this.getMapView().getDataSet();
+			var myDataSetRecord = dataSetsStore.findRecord('id', myDataSet).getData();
+			localStorage["dataSetRecords"] = JSON.stringify(myDataSetRecord);
 			dataSetsRecords = records;
 			dataPointsStore = moneyworld.utils.Functions.getServerStore(
 				this.getMapView().getDataSet(),
