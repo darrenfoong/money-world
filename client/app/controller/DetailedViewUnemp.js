@@ -14,7 +14,6 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 		}
 	},
 
-
 	renderView: function() {
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
@@ -46,27 +45,76 @@ Ext.define('moneyworld.controller.DetailedViewUnemp', {
 
 		function setData(records, operation, success) {
 			// Visualisation code starts here
-			this.getDetailedViewUnempChart().setStore(dataPointsStore);
+			var chart = Ext.create('Ext.chart.CartesianChart', {
+					flex: 1,
 
-			var yaxis = Ext.create('Ext.chart.axis.Axis', {
-					type: 'numeric',
-					position: 'left',
-					grid: true,
-					minimum: Number(dataPointsStore.min('value')),
-					maximum: Number(dataPointsStore.max('value'))
+					background: 'none',
+					store: {},
+					series: [
+						{
+							type: 'line',
+							xField: 'year',
+							yField: 'value',
+							style: {
+								stroke: '#115fa6',
+								lineWidth: 3,
+								shadowColor: 'rgba(0,0,0,0.7)',
+								shadowBlur: 10,
+								shadowOffsetX: 3,
+								shadowOffsetY: 3
+							},
+							marker: {
+								type: 'circle',
+								stroke: '#0d1f96',
+								fill: '#115fa6',
+								lineWidth: 2,
+								radius: 4,
+								shadowColor: 'rgba(0,0,0,0.7)',
+								shadowBlur: 10,
+								shadowOffsetX: 3,
+								shadowOffsetY: 3
+							}
+						}
+					],
+					axes: [
+						{
+							type: 'numeric',
+							position: 'left',
+							grid: true,
+							style: {
+								estStepSize: 20
+							},
+							minimum: Math.floor(Number(dataPointsStore.min('value'))-1),
+							maximum: Math.ceil(Number(dataPointsStore.max('value'))+1)
+						},
+						{
+							type: 'numeric',
+							position: 'bottom',
+							title: 'Year',
+							grid: true,
+							style: {
+								estStepSize: 20
+							},
+							minimum: Math.floor(Number(dataPointsStore.min('year'))-1),
+							maximum: Math.ceil(Number(dataPointsStore.max('year'))+1),
+							renderer: function(v) { return v.toFixed(0); }
+						}
+					],
+					interactions: [
+						{
+							type: 'iteminfo',
+							gesture: 'itemtap',
+							listeners: {
+								show: function (me, item, panel) {
+									panel.setHtml(item.record.data.year + ": " + item.record.data.value);
+								}
+							}
+						}
+					]
 			});
 
-			var xaxis = Ext.create('Ext.chart.axis.Axis', {
-					type: 'time',
-					position: 'bottom',
-					title: 'Year',
-					grid: true,
-					minimum: Number(dataPointsStore.min('year')),
-					maximum: Number(dataPointsStore.max('year')),
-					renderer: function(v) { return v.toFixed(0); }
-			});
-
-			this.getDetailedViewUnempChart().setAxes([yaxis, xaxis]);
+			chart.setStore(dataPointsStore);
+			this.getDetailedViewUnemp().add(chart);
 			// Visualisation code ends here
 		}
 	}
