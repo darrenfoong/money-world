@@ -40,15 +40,47 @@
                     $('#country-population-value').html("");
                     return
                 }
-                l.html("<img src='country_flag_png/" + c + ".png' alt='" + c + "' width='18' height='12'> " + l.html() + " GDP = " + dataset[c]);
-                // $('#country-population-value').empty();
                 $('#country-population-value').html(lazyround(population_2000_all[c]));
+                // $('#country-population-value').empty();
+                // create fallback
+                if (typeof dataSetRecords == undefined || localStorage['dataSetRecords'] == "{}"){
+                    l.html("<img src='country_flag_png/" + c + ".png' alt='" + c + "' width='18' height='12'> " + l.html() + dataset[c]);
+                    var valuePrinted = dataset[c];
+                    $('#value-box').html(valuePrinted);
+                }
+                else{
+                    var dataSetRecords = JSON.parse(localStorage['dataSetRecords']);
+                    // display the prettified value
+                    var valuePrinted = prettify(dataset[c], dataSetRecords['precision'], dataSetRecords['prefix'], dataSetRecords['suffix']);
+                    l.html("<img src='country_flag_png/" + c + ".png' alt='" + c + "' width='18' height='12'> " + l.html() + " " + valuePrinted);
+                    $('#value-box').html(dataSetRecords['name'] + ' is ' + valuePrinted);
+                }
             }
         });
 
         //update global var
         current_map_id = map_id;
         map = $('#map1').vectorMap('get', 'mapObject');
+    }
+
+    function prettify(value, precision, prefix, suffix) {
+        var output = prefix;
+        var counter = 0;
+
+        var units = ['', 'thousand', 'million', 'billion'];
+
+        var pvalue = parseFloat(value);
+
+        while ( pvalue >= 1000 && counter < 3 ) {
+            counter++;
+            pvalue /= 1000;
+        }
+
+        pvalue = Number(pvalue).toFixed(precision);
+
+        output += pvalue + " " + units[counter] + " " + suffix;
+
+        return output;
     }
 
     var lazyround = function(num) {
