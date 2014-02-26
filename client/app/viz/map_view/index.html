@@ -116,9 +116,9 @@
             if (i == 0) {
                 key.append('<div style="background-color:' + color + ';"> < ' + val.toFixed(2) + '</div>');
             } else if (i == steps) {
-                key.append('<div style="background-color:' + color + ';">' + val.toFixed(2) + ' - ' + (val+ jumps).toFixed(2) + '%</div>');
+                key.append('<div style="background-color:' + color + ';"> > ' + val.toFixed(2) + '</div>');
             } else {
-                key.append('<div style="background-color:' + color + ';"> < ' + val.toFixed(2) + '</div>');
+                key.append('<div style="background-color:' + color + ';">' + val.toFixed(2) + ' - ' + (val+ jumps).toFixed(2) + '%</div>');
             }
         }
     }

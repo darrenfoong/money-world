@@ -50,7 +50,7 @@
                 $('#country-population-value').html(lazyround(population_2000_all[c]));
                 // $('#country-population-value').empty();
                 // create fallback
-                if (dataSetRecords == undefined || localStorage['dataSetRecords'] == "{}") {
+                if (localStorage['dataSetRecords'] == undefined || localStorage['dataSetRecords'] == "{}") {
                     l.html("<img src='country_flag_png/" + c + ".png' alt='" + c + "' width='18' height='12'> " + l.html() + dataset[c]);
                     var valuePrinted = dataset[c];
                     $('#value-box').html(valuePrinted);
