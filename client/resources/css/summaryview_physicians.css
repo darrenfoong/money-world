@@ -1,0 +1,42 @@
+.summaryview_physicians-container {
+	margin: 20px;
+	text-align: center;
+}
+
+.summaryview_physicians-description {
+	margin: 20px;
+}
+
+.summaryview_physicians-big {
+	margin: 5px;
+	font-size: 2.0em;
+}
+
+.summaryview_physicians-small {
+	font-size: 1.0em;
+}
+
+.summaryview_physicians-grid {
+	margin: 0 auto;
+	display: table;
+	width: auto;
+	height: auto;
+}
+
+.summaryview_physicians-row {
+	display: table-row;
+}
+
+.summaryview_physicians-cell {
+	padding: 2px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.summaryview_physicians-cell-user-md {
+	color: #f00;
+}
+
+.summaryview_physicians-cell-user {
+	color: #0f0;
+}
