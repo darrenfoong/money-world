@@ -55,6 +55,7 @@ Ext.application({
 		'SummaryViewInflation',
 		'SummaryViewUnemp',
 		'SummaryViewGini',
+		'SummaryViewGDP',
 		'SummaryViewMortality',
 		'SummaryViewInflation',
 		'SummaryViewLifeExpectancy',
