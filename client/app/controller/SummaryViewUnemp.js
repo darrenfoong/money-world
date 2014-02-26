@@ -109,7 +109,6 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 
 			Ext.select('.summaryview_unemp-grid').setWidth(0.9 * viewWidth);
 			Ext.select('.summaryview_unemp-grid').setHeight(0.5 * viewHeight);
-			window.testMe = Ext.select('.summaryview_unemp-cell').first();
 			var fontSize = Ext.Array.min([Ext.select('.summaryview_unemp-cell').first().getWidth(), Ext.select('.summaryview_unemp-cell').first().getHeight()]) * 0.9;
 			Ext.select('.summaryview_unemp-grid').setStyle("font-size", fontSize + 	"px");
 			// Visualisation code ends here

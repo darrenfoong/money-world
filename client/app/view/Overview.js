@@ -22,10 +22,10 @@ Ext.define('moneyworld.view.Overview', {
 				xtype: 'summaryview_gdp'
 			},
 			{
-				xtype: 'summaryview_gini'
+				xtype: 'summaryview_unemp'
 			},
 			{
-				xtype: 'summaryview_unemp'
+				xtype: 'summaryview_gini'
 			},
 			{
 				xtype: 'summaryview_lifeExpectancy'
