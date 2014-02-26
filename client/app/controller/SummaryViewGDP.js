@@ -1,4 +1,4 @@
-Ext.define('moneyworld.controller.SummaryViewGDP', {
+Ext.define('moneyworld.controller.SummaryViewGdp', {
 	extend: 'moneyworld.controller.SummaryView',
 
 	config: {
@@ -14,7 +14,6 @@ Ext.define('moneyworld.controller.SummaryViewGDP', {
 	},
 	
 	renderView: function() {
-		console.log("initializing SummaryViewGDP");
 		
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
@@ -41,7 +40,7 @@ Ext.define('moneyworld.controller.SummaryViewGDP', {
 		function loadDataPointsStore(records, operation, success) {
 			dataSetsRecords = records;
 			dataPointsStore = moneyworld.utils.Functions.getServerStore(
-				this.getSummaryViewGDP().getDataSet(),
+				this.getSummaryViewGdp().getDataSet(),
 				"all",
 				currentCountry);
 			dataPointsStore.load({ callback: setData, scope: this });
@@ -50,7 +49,7 @@ Ext.define('moneyworld.controller.SummaryViewGDP', {
 		function setData(records, operation, success) {
 			// Visualisation code starts here
 			dataPointsStore.sort([{ property: 'year', direction: 'ASC'}]);
-			var dataSetID = this.getSummaryViewGDP().getDataSet();
+			var dataSetID = this.getSummaryViewGdp().getDataSet();
 			dataPointsStore.filter([Ext.create('Ext.util.Filter', { filterFn: function(dataPoint) {
 					var currentValue = parseInt(dataPoint.get('value'));
 					if (currentValue > maxGDP) maxGDP = currentValue;
@@ -59,7 +58,7 @@ Ext.define('moneyworld.controller.SummaryViewGDP', {
 			]);
 			dataPointsStore.filter([
 				Ext.create('Ext.util.Filter', { property: 'countryCode', value: currentCountry }),
-				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: this.getSummaryViewGDP().getDataSet() })
+				Ext.create('Ext.util.Filter', { property: 'dataSetCode', value: this.getSummaryViewGdp().getDataSet() })
 			]);
 			currentGDP = dataPointsStore.last().get('value');
 			console.log(currentGDP);
@@ -76,7 +75,7 @@ Ext.define('moneyworld.controller.SummaryViewGDP', {
 		
 			var colourString = '#79BB3F';			
 			
-			this.getSummaryViewGDP().add({
+			this.getSummaryViewGdp().add({
 				xtype: 'panel',
 				layout: 'card',
 				height: '90%',
@@ -97,7 +96,7 @@ Ext.define('moneyworld.controller.SummaryViewGDP', {
 				}
 			});
 		
-			this.getSummaryViewGDP().add({
+			this.getSummaryViewGdp().add({
 				xtype: 'panel',
 				layout: 'card',
 				height: '10%',

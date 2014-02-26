@@ -8,7 +8,7 @@ Ext.define('moneyworld.view.Overview', {
 		'moneyworld.view.SummaryViewMortality',
 		'moneyworld.view.SummaryViewLifeExpectancy',
 		'moneyworld.view.SummaryViewGini',
-		'moneyworld.view.SummaryViewGDP'
+		'moneyworld.view.SummaryViewGdp'
 	],
 	config: {
 		xtype: 'carousel',
