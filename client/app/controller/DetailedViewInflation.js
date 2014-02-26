@@ -81,10 +81,18 @@ Ext.define('moneyworld.controller.DetailedViewInflation', {
 						{
 							type: 'numeric',
 							position: 'left',
-							title: dataSetsStore.findRecord('id', this.getDetailedViewInflation().getDataSet()).get('name'),
+							title: {
+								text: dataSetsStore.findRecord('id', this.getDetailedViewInflation().getDataSet()).get('name'),
+								color: "#dddddd",
+								fontSize: "1.0em"
+							},
 							grid: true,
 							style: {
-								estStepSize: 20
+								estStepSize: 20,
+								stroke: "#dddddd"
+							},
+							label: {
+								color: "#dddddd"
 							},
 							minimum: Math.floor(Number(dataPointsStore.min('value'))-1),
 							maximum: Math.ceil(Number(dataPointsStore.max('value'))+1)
@@ -92,10 +100,18 @@ Ext.define('moneyworld.controller.DetailedViewInflation', {
 						{
 							type: 'numeric',
 							position: 'bottom',
-							title: 'Year',
+							title: {
+								text: 'Year',
+								color: "#dddddd",
+								fontSize: "1.0em"
+							},
 							grid: true,
 							style: {
-								estStepSize: 20
+								estStepSize: 20,
+								stroke: "#dddddd"
+							},
+							label: {
+								color: "#dddddd"
 							},
 							visibleRange: [0.66, 1],
 							minimum: Math.floor(Number(dataPointsStore.min('year'))-1),
