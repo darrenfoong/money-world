@@ -34,7 +34,7 @@
     <script src="lib/data-series.js"></script>
     <script src="lib/proj.js"></script>
     <script src="lib/world-map.js"></script>
-    
+
     <!-- Load map and data -->
     <!-- disabled 
 
@@ -59,7 +59,9 @@
     <div id="wrapper">
         <div id="map1"></div>
         <div id='slider-container'>
-            <div class="adjust-year-button left"><span>Prev</span></div>
+            <div class="adjust-year-button left">
+                <span>Prev</span>
+            </div>
             <div id='slider-with-label'>
                 <div id="slider" style="margin:10px;"></div>
                 <div id="yearLabel" style="width: 96%">
@@ -67,7 +69,9 @@
                     <span class="right-float-text"></span>
                 </div>
             </div>
-            <div class="adjust-year-button right"><span>Next</span></div>
+            <div class="adjust-year-button right">
+                <span>Next</span>
+            </div>
         </div>
     </div>
 
@@ -77,24 +81,18 @@
     var min_scroller = 2000;
     var max_scroller = 2013;
     var map;
-
-
-    // jQuery.noConflict();
-    // jQuery(function() {
-    //     var $ = jQuery;
-    // })
-
     var $ = jQuery;
+    var direction = 0; // default higher value is green
     jQuery(document).ready(function() {
         // get data from localstorage if available
-        // console.log("this is working",localStorage['moneyworld']);
         if (localStorage['moneyworld'] != undefined) {
             sample2 = JSON.parse(localStorage['moneyworld']);
         }
-        generateMap('africa_en');
+        if (localStorage['direction'] != undefined) {
+            direction = JSON.parse(localStorage['moneyworld']);
+        }
+        generateMap('africa_en', sample2['2000'], direction);
     });
-    // var mapObject = $('#map1').vectorMap('get', 'mapObject');
-
     var sliderObj = $("#slider").slider({
         value: min_scroller,
         min: min_scroller,
@@ -102,28 +100,21 @@
         step: 1,
         slide: function(event, ui) {
             val = ui.value;
-            // console.log(ui, event);
-            //TODO: change this hacker way
-            generateMap(current_map_id, sample2[ui.value]);
-            // map.series.regions[0].setValues(sample2[current_map_id]);
-            // map.series.markers[0].setValues(data.metro.unemployment[ui.value]);
-            // map.series.markers[1].setValues(data.metro.population[ui.value]);
+            generateMap(current_map_id, sample2[ui.value], direction);
         }
     });
 
     //bind left and right key to change slider
     $('.adjust-year-button.right').click(function() {
         sliderObj.slider('value', sliderObj.slider('value') + sliderObj.slider("option", "step"));
-
         //TODO: change this hacker way
-        generateMap(current_map_id, sample2[ sliderObj.slider('value') ]);
+        generateMap(current_map_id, sample2[sliderObj.slider('value')], direction);
 
     });
     $('.adjust-year-button.left').click(function() {
         sliderObj.slider('value', sliderObj.slider('value') - sliderObj.slider("option", "step"));
-
         //TODO: change this hacker way
-        generateMap(current_map_id, sample2[ sliderObj.slider('value') ]);
+        generateMap(current_map_id, sample2[sliderObj.slider('value')], direction);
 
     });
 
@@ -149,10 +140,16 @@
         var localMax = map.series.regions[0].scale.clearMaxValue;
         var steps = 4;
         for (var i = 0; i <= steps; i++) {
-            var val = (localMax - localMin) / steps * i;
-
+            var jumps = (localMax - localMin) / steps;
+            var val = localMin + jumps * i;
             var color = map.series.regions[0].scale.getValue(val);
-            key.append('<div style="background-color:' + color + ';">' + val.toFixed(2) + ' - ' + i * (100 / 4).toFixed(2) + '%</div>');
+            if (i == 0) {
+                key.append('<div style="background-color:' + color + ';"> < ' + val.toFixed(2) + '</div>');
+            } else if (i == steps) {
+                key.append('<div style="background-color:' + color + ';">' + val.toFixed(2) + ' - ' + (val+ jumps).toFixed(2) + '%</div>');
+            } else {
+                key.append('<div style="background-color:' + color + ';"> < ' + val.toFixed(2) + '</div>');
+            }
         }
     }
     </script>

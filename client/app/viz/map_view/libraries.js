@@ -1,7 +1,14 @@
-    function generateMap(map_id, dataset) {
+    function generateMap(map_id, dataset, direction) {
         //recreate another map
+        if (direction) {
+            // now we want lower value to mean green
+            var colourScale = ['#33FF00', '#FF9900', '#FF0033']; //green amber red
+
+        } else {
+            var colourScale = ['#FF0033', '#FF9900', '#33FF00']; //red amber green
+        }
+
         if (typeof dataset == "undefined") dataset = sample2[2000];
-        console.log(dataset);
         jQuery('.jvectormap-container').remove();
         jQuery('#map1').vectorMap({
             map: map_id,
@@ -13,7 +20,7 @@
             series: {
                 regions: [{
                     // scale: ['#C8EEFF', '#0071A4'],
-                    scale: ['#FF0033', '#FF9900', '#33FF00'], //red amber green
+                    scale: colourScale,
                     normalizeFunction: 'linear',
                     values: dataset
                 }]
@@ -43,12 +50,11 @@
                 $('#country-population-value').html(lazyround(population_2000_all[c]));
                 // $('#country-population-value').empty();
                 // create fallback
-                if (typeof dataSetRecords == undefined || localStorage['dataSetRecords'] == "{}"){
+                if (dataSetRecords == undefined || localStorage['dataSetRecords'] == "{}") {
                     l.html("<img src='country_flag_png/" + c + ".png' alt='" + c + "' width='18' height='12'> " + l.html() + dataset[c]);
                     var valuePrinted = dataset[c];
                     $('#value-box').html(valuePrinted);
-                }
-                else{
+                } else {
                     var dataSetRecords = JSON.parse(localStorage['dataSetRecords']);
                     // display the prettified value
                     var valuePrinted = prettify(dataset[c], dataSetRecords['precision'], dataSetRecords['prefix'], dataSetRecords['suffix']);
@@ -71,7 +77,7 @@
 
         var pvalue = parseFloat(value);
 
-        while ( pvalue >= 1000 && counter < 3 ) {
+        while (pvalue >= 1000 && counter < 3) {
             counter++;
             pvalue /= 1000;
         }
@@ -91,7 +97,6 @@
             num = num.toString();
             var parts = [];
             var counter = 0;
-            // console.log(num.length);
             while (num.length > 3) {
                 parts[counter++] = (num.substr(0, 3));
                 num = num.substr(3);

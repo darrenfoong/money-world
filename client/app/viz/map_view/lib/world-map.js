@@ -244,16 +244,6 @@ jvm.WorldMap.prototype = {
       maxTransY = 0;
       minTransY = (this.height - this.defaultHeight * this.scale) / this.scale;
     }
-
-    // console.log ("min Y = " + minTransY);
-    // console.log ("max Y = " + maxTransY);
-    // console.log ("min X = " + minTransX);
-    // console.log ("max X = " + maxTransX);
-    // console.log ("this scale = " + this.scale);
-    // console.log ("this width = " + this.width);
-    // console.log ("this height = " + this.height);
-    // console.log ("this default width = " + this.defaultWidth);
-    // console.log ("this default height = " + this.defaultHeight);
     if (this.transY > maxTransY) {
       this.transY = maxTransY;
     } else if (this.transY < minTransY) {
@@ -264,11 +254,6 @@ jvm.WorldMap.prototype = {
     } else if (this.transX < minTransX) {
       this.transX = minTransX;
     }
-    // console.log (this.transX);
-    // console.log (this.transY);
-
-    // this.transX = 0;
-    // this.transY = 0;
     this.canvas.applyTransformParams(this.scale, this.transX, this.transY);
 
     if (this.markers) {
