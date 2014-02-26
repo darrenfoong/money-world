@@ -8,7 +8,8 @@ Ext.define('moneyworld.view.Overview', {
 		'moneyworld.view.SummaryViewMortality',
 		'moneyworld.view.SummaryViewLifeExpectancy',
 		'moneyworld.view.SummaryViewGini',
-		'moneyworld.view.SummaryViewGdp'
+		'moneyworld.view.SummaryViewGdp',
+		'moneyworld.view.SummaryViewPhysicians'
 	],
 	config: {
 		xtype: 'carousel',
@@ -19,10 +20,13 @@ Ext.define('moneyworld.view.Overview', {
 
 		items: [
 			{
-				xtype: 'summaryview_gdp'
+				xtype: 'summaryview_unemp'
 			},
 			{
-				xtype: 'summaryview_unemp'
+				xtype: 'summaryview_physicians'
+			},
+			{
+				xtype: 'summaryview_gdp'
 			},
 			{
 				xtype: 'summaryview_gini'

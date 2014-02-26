@@ -1,4 +1,4 @@
-Ext.define('moneyworld.controller.DetailedViewLifeExpectancy', {
+Ext.define('moneyworld.controller.DetailedViewPhysicians', {
 	extend: 'moneyworld.controller.DetailedView',
 	requires: [
 		'Ext.chart.interactions.PanZoom'
@@ -6,10 +6,10 @@ Ext.define('moneyworld.controller.DetailedViewLifeExpectancy', {
 	config: {
 		refs: {
 			mainView: 'main',
-			detailedViewLifeExpectancy: 'detailedview_lifeExpectancy',
+			detailedViewPhysicians: 'detailedview_physicians',
 		},
 		control: {
-			'detailedViewLifeExpectancy': {
+			'detailedViewPhysicians': {
 				initialize: 'renderView'
 			}
 		}
@@ -38,7 +38,7 @@ Ext.define('moneyworld.controller.DetailedViewLifeExpectancy', {
 		function loadDataPointsStore(records, operation, success) {
 			dataSetsRecords = records;
 			dataPointsStore = moneyworld.utils.Functions.getServerStore(
-				this.getDetailedViewLifeExpectancy().getDataSet(),
+				this.getDetailedViewPhysicians().getDataSet(),
 				"all",
 				currentCountry);
 			dataPointsStore.load({ callback: setData, scope: this });
@@ -82,7 +82,7 @@ Ext.define('moneyworld.controller.DetailedViewLifeExpectancy', {
 							type: 'numeric',
 							position: 'left',
 							title: {
-								text: dataSetsStore.findRecord('id', this.getDetailedViewLifeExpectancy().getDataSet()).get('name'),
+								text: dataSetsStore.findRecord('id', this.getDetailedViewPhysicians().getDataSet()).get('name'),
 								color: "#dddddd",
 								fontSize: "1.0em"
 							},
@@ -134,7 +134,7 @@ Ext.define('moneyworld.controller.DetailedViewLifeExpectancy', {
 			});
 
 			chart.setStore(dataPointsStore);
-			this.getDetailedViewLifeExpectancy().add(chart);
+			this.getDetailedViewPhysicians().add(chart);
 			// Visualisation code ends here
 		}
 	}

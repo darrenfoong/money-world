@@ -1,5 +1,6 @@
 Ext.define('moneyworld.controller.SummaryViewGdp', {
 	extend: 'moneyworld.controller.SummaryView',
+	requires: 'moneyworld.utils.Functions',
 
 	config: {
 		refs: {
@@ -14,6 +15,8 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 	},
 
 	renderView: function() {
+		this.getSummaryViewGdp().removeAll(true, true);
+		console.log('refreshing');
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
 		var dataPointsStore;
@@ -79,9 +82,8 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				})
 			]);
 			currentGDP = dataPointsStore.last().get('value');
-			console.log(currentGDP);
-			console.log(maxGDP);
-			console.log(currentGDP / maxGDP);
+			if (currentGDP > maxGDP) maxGDP = currentGDP;
+			maxGDP = 9000;
 
 			var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
@@ -92,8 +94,10 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 			var centrex = width / 2,
 				centrey = (height - 46 - 28) / 2,
 				circler = ((centrex < centrey) ? centrex : centrey) * (currentGDP / maxGDP) * 0.9;
-
+							
 			var colourString = '#79BB3F';
+			
+			colourString = moneyworld.utils.Functions.getRangedColour(currentGDP / maxGDP);
 
 			var circlePanel = Ext.create('Ext.draw.Component', {
 				xtype: 'panel',
@@ -101,7 +105,6 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				height: '90%',
 				width: '100%',
 				initialize: function() {
-					console.log("ok");
 				}
 			});
 
@@ -114,13 +117,16 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				y: centrey
 			}, {
 				type: 'text',
-				text: 'SLEEP',
-				x: centrex-60,
-				y: centrey,
+				text: "$" + parseFloat(currentGDP).toFixed(2),
+				x: centrex,
+				y: centrey+20,
 				fillStyle: '#FFFFFF',
-				fontSize: 40
+				fontSize: 60,
+				fontFamily: 'serif',
+				fontVariant: 'thin',
+				textAlign: 'center'
 			});
-			// console.log(this);
+			
 			circlePanel.add(drawComponent1);
 			this.getSummaryViewGdp().add(circlePanel);
 
@@ -130,7 +136,7 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				height: '10%',
 				width: '100%',
 				style: 'text-align: center',
-				html: "<div>GDP per capita is $" + parseFloat(currentGDP).toFixed(2) + "</div>"
+				html: "<div>GDP per capita</div>"
 			});
 		}
 	}

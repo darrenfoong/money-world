@@ -63,7 +63,7 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 				return;
 			}
 
-			var gridParameters = moneyworld.utils.Functions.floatToGrid(currentUnemp/100);
+			var gridParameters = moneyworld.utils.Functions.floatToGrid(currentUnemp/100, 100);
 			var numerator = gridParameters.numerator;
 			var denominator = gridParameters.denominator;
 			var width = gridParameters.width;

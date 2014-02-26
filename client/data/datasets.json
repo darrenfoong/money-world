@@ -125,6 +125,12 @@
 		"precision": "1",
 		"prefix": "",
 		"suffix": "%"
-	}
-	]
+	}, {
+		"name": "Physicians (per 1,000 people)",
+		"id": "SH.MED.PHYS.ZS",
+		"description": "Physicians include generalist and specialist medical practitioners.",
+		"precision" : "1",
+		"prefix": "",
+		"suffix": ""
+	}]
 }

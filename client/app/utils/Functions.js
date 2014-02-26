@@ -32,6 +32,37 @@ Ext.define('moneyworld.utils.Functions', {
 		});
 		return dataPointsStore;
 	},
+	
+	getRangedColour: function(pct) {
+		var percentColors = [
+		    { pct: 0.0, color: { r: 0xff, g: 0x00, b: 0 } },
+		    { pct: 0.5, color: { r: 0xff, g: 0xff, b: 0 } },
+		    { pct: 1.0, color: { r: 0x00, g: 0xff, b: 0 } } ];
+
+	    for (var i = 1; i < percentColors.length - 1; i++) {
+	        if (pct < percentColors[i].pct) {
+	            break;
+	        }
+	    }
+	    var lower = percentColors[i - 1];
+	    var upper = percentColors[i];
+	    var range = upper.pct - lower.pct;
+	    var rangePct = (pct - lower.pct) / range;
+	    var pctLower = 1 - rangePct;
+	    var pctUpper = rangePct;
+	    var color = {
+	        r: Math.floor(lower.color.r * pctLower + upper.color.r * pctUpper),
+	        g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
+	        b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper)
+	    };
+		
+		var rgbPercentage = "#" + ((color.r.toString(16) < 16) ? "0" : "") + color.r.toString(16) 
+			+ ((color.g.toString(16) < 16) ? "0" : "") + color.g.toString(16) 
+			+ ((color.b.toString(16) < 16) ? "0" : "") + color.b.toString(16);
+		console.log(rgbPercentage);
+	    return rgbPercentage;
+	    
+	},
 
 	prettify: function(value, precision, prefix, suffix) {
 		var output = prefix;
@@ -53,10 +84,9 @@ Ext.define('moneyworld.utils.Functions', {
 		return output;
 	},
 
-	floatToRatio: function(value) {
+	floatToRatio: function(value, denominator) {
 		// Input: a floating point number between 0 and 1
 		// Output: an object with numerator and denominator fields
-		var denominator = 100;
 		var numerator = Math.ceil(value * denominator);
 		
 		function gcd(a, b) {
@@ -71,34 +101,34 @@ Ext.define('moneyworld.utils.Functions', {
 		return { numerator: numerator/factor, denominator: denominator/factor }
 	},
 
-	floatToGrid: function(value) {
+	findClosestFactors: function(value) {
+		var currentDelta = 0;
+		var minDelta = value;
+		var minFactor1 = 1;
+		var minFactor2 = value;
+		for ( var i = 1; i <= Math.sqrt(value); i++ ) {
+			if ( value % i == 0 ) {
+				currentDelta = value/i - i;
+				if ( currentDelta < minDelta ) {
+					minDelta = currentDelta;
+					minFactor1 = i;
+					minFactor2 = value/i;
+				}
+			}
+		}
+
+		return { factor1: minFactor1, factor2: minFactor2 };
+	},
+
+	floatToGrid: function(value, factor) {
 		// Input: a floating point number between 0 and 1
 		// Output: an object with numerator, denominator, width of grid, and height of grid fields
 		// Algorithm tries to create a grid that is as square as possible.
-		var ratio = moneyworld.utils.Functions.floatToRatio(value);
+		var ratio = moneyworld.utils.Functions.floatToRatio(value, factor);
 		var numerator = ratio.numerator;
 		var denominator = ratio.denominator;
 
-		function findClosestFactors(value) {
-			var currentDelta = 0;
-			var minDelta = value;
-			var minFactor1 = 1;
-			var minFactor2 = value;
-			for ( var i = 1; i <= Math.sqrt(value); i++ ) {
-				if ( value % i == 0 ) {
-					currentDelta = value/i - i;
-					if ( currentDelta < minDelta ) {
-						minDelta = currentDelta;
-						minFactor1 = i;
-						minFactor2 = value/i;
-					}
-				}
-			}
-
-			return { factor1: minFactor1, factor2: minFactor2 };
-		}
-
-		var factors = findClosestFactors(denominator);
+		var factors = moneyworld.utils.Functions.findClosestFactors(denominator);
 
 		ratio.width = factors.factor1;
 		ratio.height = factors.factor2;
