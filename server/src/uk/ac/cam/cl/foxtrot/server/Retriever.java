@@ -47,9 +47,29 @@ public class Retriever {
 
 		Connection connection = DriverManager.getConnection(url);
 
+		String agg = "";
+		String[] countryArray = country.split("_");
+		if ( countryArray.length > 1 ) {
+			country = countryArray[0];
+			agg = countryArray[1];
+		}
+
 		String dataSetCondition = "DataSetCode = '" + dataset + "'";
 		String yearCondition = "Year = '" + year + "'";
 		String countryCondition = "CountryCode2 = '" + country + "'";
+		String dataCondition = " DataSetCode, Year, CountryCode2, Value ";
+
+		if ( agg.equals("avg") ) {
+			dataCondition = "AVG(Value)";
+		}
+
+		if ( agg.equals("max") ) {
+			dataCondition = "MAX(Value)";
+		}
+
+		if ( agg.equals("min") ) {
+			dataCondition = "MIN(Value)";
+		}
 
 		if ( dataset.equals("all") ) {
 			dataSetCondition = "DataSetCode LIKE '%'";
@@ -63,8 +83,16 @@ public class Retriever {
 			countryCondition = "CountryCode2 LIKE '%'";
 		}
 
-		String selectStmtString = "SELECT DataSetCode, Year, CountryCode2, Value " +
-				"FROM DataPoint " +
+		if ( country.equals("wafrica") ) {
+			countryCondition = "CountryCode2 IN ('AO', 'BW', 'BI', 'CD', 'KE', 'LS', 'MG', 'MW', 'MZ', 'NA', 'RW', 'ZA', 'SZ', 'TZ', 'UG', 'ZM', 'ZW')";
+		}
+
+		if ( country.equals("safrica") ) {
+			countryCondition = "CountryCode2 IN ('DZ', 'BJ', 'BF', 'CI', 'GM', 'GH', 'GN', 'GW', 'LR', 'ML', 'MR', 'MA', 'NE', 'NG', 'SN', 'SL', 'TG', 'TN')";
+		}
+
+		String selectStmtString = "SELECT " + dataCondition +
+				" FROM DataPoint " +
 				"JOIN CountryCode ON DataPoint.CountryCode = CountryCode.CountryCode3 " +
 				"WHERE " + dataSetCondition + " AND " + yearCondition + " AND " + countryCondition;
 		PreparedStatement selectStmt = null;
@@ -73,55 +101,35 @@ public class Retriever {
 		ResultSet rs = null;
 		Visualisation viz = new Visualisation();
 
-		/*
-		viz.setDataSet(dataset);
-		viz.setYear(year);
-		viz.setCountry(country);
-		 */
-
 		String currentDataSetCode = "";
 		String currentYear = "";
 		String currentCountryCode = "";
 		String currentValue = "";
 
-		/*
-		YearMap currentYearMap = null;
-		CountryMap currentCountryMap = null;
-		String currentStoredValue = null;
-		 */
-
 		try {
 			rs = selectStmt.executeQuery();
-			while ( rs.next() ) {
-				currentDataSetCode = rs.getString(1);
-				currentYear = rs.getString(2);
-				currentCountryCode = rs.getString(3);
-				currentValue = rs.getString(4);
+			if ( agg.equals("") ) {
+				while ( rs.next() ) {
+					currentDataSetCode = rs.getString(1);
+					currentYear = rs.getString(2);
+					currentCountryCode = rs.getString(3);
+					currentValue = rs.getString(4);
 
+					FullDataPoint currentDataPoint = new FullDataPoint();
+					currentDataPoint.setDataSetCode(currentDataSetCode);
+					currentDataPoint.setYear(currentYear);
+					currentDataPoint.setCountryCode(currentCountryCode);
+					currentDataPoint.setValue(currentValue);
+					viz.getDataPointList().add(currentDataPoint);
+				}
+			} else {
+				rs.next();
 				FullDataPoint currentDataPoint = new FullDataPoint();
-				currentDataPoint.setDataSetCode(currentDataSetCode);
-				currentDataPoint.setYear(currentYear);
-				currentDataPoint.setCountryCode(currentCountryCode);
-				currentDataPoint.setValue(currentValue);
+				currentDataPoint.setDataSetCode(dataset);
+				currentDataPoint.setYear(year);
+				currentDataPoint.setCountryCode(country);
+				currentDataPoint.setValue(rs.getString(1));
 				viz.getDataPointList().add(currentDataPoint);
-
-				/* currentYearMap = viz.getDataSetMap().get(currentDataSetCode);
-				if ( currentYearMap == null ) {
-					currentYearMap = new YearMap();
-					viz.getDataSetMap().put(currentDataSetCode, currentYearMap);
-				}
-
-				currentCountryMap = currentYearMap.getYearMap().get(currentYear);
-				if ( currentCountryMap == null ) {
-					currentCountryMap = new CountryMap();
-					currentYearMap.getYearMap().put(currentYear, currentCountryMap);
-				}
-
-				currentStoredValue = currentCountryMap.getDataPointMap().get(currentCountryCode);
-				if ( currentStoredValue == null ) {
-					currentStoredValue = currentValue;
-					currentCountryMap.getDataPointMap().put(currentCountryCode, currentStoredValue);
-				} */
 			}
 		} finally {
 			selectStmt.close();
