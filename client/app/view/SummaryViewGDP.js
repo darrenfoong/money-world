@@ -1,4 +1,4 @@
-Ext.define('moneyworld.view.SummaryViewGDP', {
+Ext.define('moneyworld.view.SummaryViewGdp', {
 	extend: 'moneyworld.view.SummaryView',
 	xtype: 'summaryview_gdp',
 	requires: [
