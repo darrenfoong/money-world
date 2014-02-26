@@ -8,7 +8,7 @@ Ext.define('moneyworld.view.SummaryViewGdp', {
 	config: {
 		dataSet: "NY.GDP.PCAP.PP.CD", //find GDP stuff
 
-		dataSetInternal: "GDP",
+		dataSetInternal: "Gdp",
 
 		height: '95%',
 

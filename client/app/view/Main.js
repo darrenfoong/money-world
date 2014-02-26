@@ -9,6 +9,7 @@ Ext.define('moneyworld.view.Main', {
 		'moneyworld.view.DetailedViewGini',
 		'moneyworld.view.DetailedViewMortality',
 		'moneyworld.view.DetailedViewLifeExpectancy',
+		'moneyworld.view.DetailedViewGdp',
 		'moneyworld.view.MapView',
 		'moneyworld.view.InfoView',
 		'moneyworld.view.Settings'

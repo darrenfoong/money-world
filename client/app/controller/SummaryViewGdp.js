@@ -14,7 +14,6 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 	},
 
 	renderView: function() {
-
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
 		var dataPointsStore;
