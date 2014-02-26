@@ -6,11 +6,9 @@ Ext.define('moneyworld.view.SummaryViewGDP', {
 		'moneyworld.view.SampleDraw'
 	],
 	config: {
-		dataSet: null, //find GDP stuff
-		country: null,
-		year: null,
+		dataSet: "NY.GDP.PCAP.PP.CD", //find GDP stuff
 
-		dataSetInternal: null,
+		dataSetInternal: "GDP",
 
 		height: '95%',
 

@@ -50,6 +50,7 @@ Ext.define('moneyworld.controller.SummaryViewGDP', {
 		function setData(records, operation, success) {
 			// Visualisation code starts here
 			dataPointsStore.sort([{ property: 'year', direction: 'ASC'}]);
+			var dataSetID = this.getSummaryViewGDP().getDataSet();
 			dataPointsStore.filter([Ext.create('Ext.util.Filter', { filterFn: function(dataPoint) {
 					var currentValue = parseInt(dataPoint.get('value'));
 					if (currentValue > maxGDP) maxGDP = currentValue;
@@ -63,47 +64,47 @@ Ext.define('moneyworld.controller.SummaryViewGDP', {
 			currentGDP = dataPointsStore.last().get('value');
 			console.log(currentGDP);
 			console.log(maxGDP);
+			console.log(currentGDP/maxGDP);
+		
+			var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+		
+			var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+		
+			height = height*0.9;
+		
+			var centrex = width/2, centrey = (height-46-28)/2, circler = ((centrex < centrey) ? centrex : centrey) * (currentGDP/maxGDP) * 0.9;
+		
+			var colourString = '#79BB3F';			
+			
+			this.getSummaryViewGDP().add({
+				xtype: 'panel',
+				layout: 'card',
+				height: '90%',
+				width: '100%',
+				style: {
+					background: 'red'
+				},
+				initialize: function() {
+					var drawComponent1 = Ext.create('Ext.draw.Component', {});
+					drawComponent1.getSurface('main').add({
+						type: 'circle',
+						fill: colourString,
+						radius: circler,
+						x: centrex,
+						y: centrey
+					});
+					this.add(drawComponent1);
+				}
+			});
+		
+			this.getSummaryViewGDP().add({
+				xtype: 'panel',
+				layout: 'card',
+				height: '10%',
+				width: '100%',
+				style: 'text-align: center',
+				html: "<div>GDP per capita is $" + parseFloat(currentGDP).toFixed(2) +"</div>"
+			});
 		}
-		
-		var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-		
-		var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-		
-		height = height*0.9;
-		
-		var centrex = width/2, centrey = (height-46-28)/2, circler = ((centrex < centrey) ? centrex : centrey) * (currentGDP/maxGDP);
-		
-		var colourString = '#79BB3F';
-		
-		this.getSummaryViewGDP().add({
-			xtype: 'panel',
-			layout: 'card',
-			height: '90%',
-			width: '100%',
-			style: {
-				background: 'red'
-			},
-			initialize: function() {
-				var drawComponent1 = Ext.create('Ext.draw.Component', {});
-				drawComponent1.getSurface('main').add({
-					type: 'circle',
-					fill: colourString,
-					radius: centrey,
-					x: centrex,
-					y: centrey
-				});
-				this.add(drawComponent1);
-			}
-		});
-		
-		this.getSummaryViewGDP().add({
-			xtype: 'panel',
-			layout: 'card',
-			height: '10%',
-			width: '100%',
-			style: 'text-align: center',
-			html: "<div>GDP is n</div>"
-		});
-		
 	}
 });

@@ -71,9 +71,7 @@ Ext.define('moneyworld.controller.SummaryViewGini', {
 			htmlString += "<tr class='summaryview_gini-low' height=" + lowHeight +"%><td>The bottom 10% hold " + lowHeight + "% of the wealth</td></tr>";
 			htmlString += "</table>";
 			this.getSummaryViewGini().setHtml(htmlString);
-			
-			console.log(htmlString);
-			
+						
 			
 			// Visualisation code ends here
 		}
