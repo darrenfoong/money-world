@@ -1,5 +1,6 @@
 Ext.define('moneyworld.controller.SummaryViewGdp', {
 	extend: 'moneyworld.controller.SummaryView',
+	requires: 'moneyworld.utils.Functions',
 
 	config: {
 		refs: {
@@ -14,6 +15,8 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 	},
 
 	renderView: function() {
+		this.getSummaryViewGdp().removeAll(true, true);
+		console.log('refreshing');
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
 		var dataPointsStore;
@@ -79,6 +82,8 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				})
 			]);
 			currentGDP = dataPointsStore.last().get('value');
+			if (currentGDP > maxGDP) maxGDP = currentGDP;
+			maxGDP = 9000;
 
 			var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
@@ -91,6 +96,8 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				circler = ((centrex < centrey) ? centrex : centrey) * (currentGDP / maxGDP) * 0.9;
 							
 			var colourString = '#79BB3F';
+			
+			colourString = moneyworld.utils.Functions.getRangedColour(currentGDP / maxGDP);
 
 			var circlePanel = Ext.create('Ext.draw.Component', {
 				xtype: 'panel',
