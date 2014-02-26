@@ -1,6 +1,8 @@
 Ext.define('moneyworld.controller.DetailedViewInflation', {
 	extend: 'moneyworld.controller.DetailedView',
-	
+	requires: [
+		'Ext.chart.interactions.PanZoom'
+	],
 	config: {
 		refs: {
 			mainView: 'main',

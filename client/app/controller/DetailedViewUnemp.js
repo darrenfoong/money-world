@@ -1,6 +1,8 @@
 Ext.define('moneyworld.controller.DetailedViewUnemp', {
 	extend: 'moneyworld.controller.DetailedView',
-	
+	requires: [
+		'Ext.chart.interactions.PanZoom'
+	],
 	config: {
 		refs: {
 			mainView: 'main',
