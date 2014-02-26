@@ -89,6 +89,9 @@
         "path": "resources/css/summaryview_unemp.css",
         "update": "delta"
         }, {
+        "path": "resources/css/summaryview_physicians.css",
+        "update": "delta"
+        }, {
         "path": "resources/css/summaryview_inflation.css",
         "update": "delta"
         }, {

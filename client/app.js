@@ -49,6 +49,7 @@ Ext.application({
 		'DetailedViewMortality',
 		'DetailedViewInflation',
 		'DetailedViewLifeExpectancy',
+		'DetailedViewPhysicians',
 		'MapView',
 		'InfoView',
 		'Settings',
@@ -60,6 +61,7 @@ Ext.application({
 		'SummaryViewMortality',
 		'SummaryViewInflation',
 		'SummaryViewLifeExpectancy',
+		'SummaryViewPhysicians'
 	],
 
 	stores: [
