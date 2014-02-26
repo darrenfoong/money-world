@@ -112,13 +112,14 @@
         for (var i = 0; i <= steps; i++) {
             var jumps = (localMax - localMin) / steps;
             var val = localMin + jumps * i;
+            console.log(val);
             var color = map.series.regions[0].scale.getValue(val);
             if (i == 0) {
                 key.append('<div style="background-color:' + color + ';"> < ' + val.toFixed(2) + '</div>');
             } else if (i == steps) {
                 key.append('<div style="background-color:' + color + ';"> > ' + val.toFixed(2) + '</div>');
             } else {
-                key.append('<div style="background-color:' + color + ';">' + val.toFixed(2) + ' - ' + (val+ jumps).toFixed(2) + '%</div>');
+                key.append('<div style="background-color:' + color + ';">' + val.toFixed(2) + ' - ' + (val+ jumps).toFixed(2) + '</div>');
             }
         }
     }
