@@ -113,6 +113,13 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				radius: circler,
 				x: centrex,
 				y: centrey
+			}, {
+				type: 'text',
+				text: 'SLEEP',
+				x: centrex-60,
+				y: centrey,
+				fillStyle: '#FFFFFF',
+				fontSize: 40
 			});
 			// console.log(this);
 			circlePanel.add(drawComponent1);
