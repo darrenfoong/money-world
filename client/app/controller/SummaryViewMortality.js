@@ -15,6 +15,8 @@ Ext.define('moneyworld.controller.SummaryViewMortality', {
     myCanvasObj: null,
     counter: 0,
     renderView: function() {
+        
+        localStorage["direction"] = 1; // higher value means worse
         containerObj = Ext.get("summaryview_mortality");
         if (containerObj !== null) {
             containerH = containerObj.getHeight();

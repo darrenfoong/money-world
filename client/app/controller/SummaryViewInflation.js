@@ -17,6 +17,8 @@ Ext.define('moneyworld.controller.SummaryViewInflation', {
 	postHtmlString : 'in ',
 
 	renderView: function() {
+		
+		localStorage["direction"] = 1; // higher value means worse
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
 		var dataPointsStore;

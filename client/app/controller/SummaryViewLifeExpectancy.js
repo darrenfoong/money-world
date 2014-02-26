@@ -15,6 +15,8 @@ Ext.define('moneyworld.controller.SummaryViewLifeExpectancy', {
 	myCanvasObj: null,
 	currentLifeExpectancy: null,
 	renderView: function() {
+
+		localStorage["direction"] = 0; // higher value means good
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
 		var dataPointsStore;

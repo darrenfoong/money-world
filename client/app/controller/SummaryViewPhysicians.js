@@ -14,6 +14,8 @@ Ext.define('moneyworld.controller.SummaryViewPhysicians', {
 	},
 
 	renderView: function() {
+
+		localStorage["direction"] = 1; // higher value means good
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
 		var dataPointsStore;
