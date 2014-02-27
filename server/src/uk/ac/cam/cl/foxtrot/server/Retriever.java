@@ -83,11 +83,11 @@ public class Retriever {
 			countryCondition = "CountryCode2 LIKE '%'";
 		}
 
-		if ( country.equals("wafrica") ) {
+		if ( country.equals("safrica") ) {
 			countryCondition = "CountryCode2 IN ('AO', 'BW', 'BI', 'CD', 'KE', 'LS', 'MG', 'MW', 'MZ', 'NA', 'RW', 'ZA', 'SZ', 'TZ', 'UG', 'ZM', 'ZW')";
 		}
 
-		if ( country.equals("safrica") ) {
+		if ( country.equals("wafrica") ) {
 			countryCondition = "CountryCode2 IN ('DZ', 'BJ', 'BF', 'CI', 'GM', 'GH', 'GN', 'GW', 'LR', 'ML', 'MR', 'MA', 'NE', 'NG', 'SN', 'SL', 'TG', 'TN')";
 		}
 
