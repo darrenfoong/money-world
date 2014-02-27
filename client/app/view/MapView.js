@@ -1,5 +1,5 @@
 Ext.define('moneyworld.view.MapView', {
-	extend: 'Ext.TabPanel',
+	extend: 'Ext.Panel',
 	xtype: 'mapview',
 	requires: [
 		'moneyworld.view.GeoMapView'
@@ -10,16 +10,13 @@ Ext.define('moneyworld.view.MapView', {
 		dataSet: null,
 
 		fullscreen: true,
-		tabBarPosition: 'top',
+		layout: 'vbox',
 
 		items: [
 			{
 				title: 'GeoMap',
-				xtype: 'geomapview'
-			},
-			{
-				title: 'TreeMap',
-				html: 'TreeMap'
+				xtype: 'geomapview',
+				flex: 1
 			}
 		]
 	}
