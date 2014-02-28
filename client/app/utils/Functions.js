@@ -16,7 +16,21 @@ Ext.define('moneyworld.utils.Functions', {
 		navigationView.getNavigationBar().backButtonStack[i] = name;
 		navigationView.getNavigationBar().setTitle(name);
 	},
-
+	
+	getRegionForCountry: function(countriesStore,code2) {
+		var region = '';
+		
+		countriesStore.filter([Ext.create('Ext.util.Filter', {
+			filterFn: function(country) {
+				if (country.get('code2') == code2) {
+					region = country.get('region');
+				} 
+				return true;
+			}
+		})]);
+		return region;
+	},
+	
 	getServerStore: function(dataSet, year, country) {
 		var url = "http://money-world.appspot.com/api/" + dataSet + "/" + year + "/" + country;
 		var dataPointsStore = Ext.create('Ext.data.Store', {
