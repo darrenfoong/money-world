@@ -67,7 +67,7 @@ Ext.define('moneyworld.controller.SummaryViewPhysicians', {
 
 			currentPhysicians = parseInt(currentPhysicians * 100);
 
-			var factors = moneyworld.utils.Functions.findClosestFactors(currentPhysicians);
+			var factors = moneyworld.utils.Functions.findApproxFactors(currentPhysicians);
 			var width = factors.factor1;
 			var height = factors.factor2;
 
@@ -100,7 +100,10 @@ Ext.define('moneyworld.controller.SummaryViewPhysicians', {
 				htmlString += "<div class='summaryview_physicians-row'>";
 				for ( var j = 0; j < width; j++ ) {
 					htmlString += "<span class='summaryview_physicians-cell summaryview_physicians-cell-user-md'>";
-					htmlString += "<i class='fa fa-user-md'></i>";
+					if ( currentPhysicians > 0 ) {
+						htmlString += "<i class='fa fa-user-md'></i>";
+						currentPhysicians--;
+					}
 					htmlString += "</span>";
 				}
 				htmlString += "</div>";

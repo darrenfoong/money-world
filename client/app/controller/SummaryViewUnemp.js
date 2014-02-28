@@ -91,15 +91,18 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 			for ( var i = 0; i < height; i++ ) {
 				htmlString += "<div class='summaryview_unemp-row'>";
 				for ( var j = 0; j < width; j++ ) {
-					if ( numerator > 0 ) {
-						htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-x'>";
-						htmlString += "<i class='fa fa-briefcase'></i>";
-						htmlString += "</span>";
-						numerator--;
-					} else {
-						htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-o'>";
-						htmlString += "<i class='fa fa-briefcase'></i>";
-						htmlString += "</span>";
+					if ( denominator > 0 ) {
+						if ( numerator > 0 ) {
+							htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-x'>";
+							htmlString += "<i class='fa fa-briefcase'></i>";
+							htmlString += "</span>";
+							numerator--;
+						} else {
+							htmlString += "<span class='summaryview_unemp-cell summaryview_unemp-cell-o'>";
+							htmlString += "<i class='fa fa-briefcase'></i>";
+							htmlString += "</span>";
+						}
+						denominator--;
 					}
 				}
 				htmlString += "</div>";

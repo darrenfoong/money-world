@@ -120,6 +120,13 @@ Ext.define('moneyworld.utils.Functions', {
 		return { factor1: minFactor1, factor2: minFactor2 };
 	},
 
+	findApproxFactors: function(value) {
+		var width = Math.floor(Math.sqrt(value));
+		var height = Math.ceil(value/width);
+
+		return { factor1: width, factor2: height };
+	},
+
 	floatToGrid: function(value, factor) {
 		// Input: a floating point number between 0 and 1
 		// Output: an object with numerator, denominator, width of grid, and height of grid fields
@@ -128,7 +135,7 @@ Ext.define('moneyworld.utils.Functions', {
 		var numerator = ratio.numerator;
 		var denominator = ratio.denominator;
 
-		var factors = moneyworld.utils.Functions.findClosestFactors(denominator);
+		var factors = moneyworld.utils.Functions.findApproxFactors(denominator);
 
 		ratio.width = factors.factor1;
 		ratio.height = factors.factor2;
