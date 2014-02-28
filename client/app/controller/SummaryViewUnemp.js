@@ -55,12 +55,12 @@ Ext.define('moneyworld.controller.SummaryViewUnemp', {
 			if ( dataPointsStore.last() ) {
 				var currentUnemp = dataPointsStore.last().get('value');
 				if ( currentUnemp == "" ) {
-					var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
+					var htmlString = moneyworld.utils.Functions.printErrorMessage();
 					this.getSummaryViewUnemp().setHtml(htmlString);
 					return;
 				}
 			} else {
-				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
+				var htmlString = moneyworld.utils.Functions.printErrorMessage();
 				this.getSummaryViewUnemp().setHtml(htmlString);
 				return;
 			}

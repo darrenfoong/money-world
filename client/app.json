@@ -86,6 +86,9 @@
         "path": "resources/font-awesome/css/font-awesome.min.css",
         "update": "delta"
         }, {
+        "path": "resources/css/summaryview.css",
+        "update": "delta"
+        }, {
         "path": "resources/css/summaryview_unemp.css",
         "update": "delta"
         }, {

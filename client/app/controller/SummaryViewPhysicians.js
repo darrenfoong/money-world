@@ -14,8 +14,8 @@ Ext.define('moneyworld.controller.SummaryViewPhysicians', {
 	},
 
 	renderView: function() {
-
 		localStorage["direction"] = 1; // higher value means good
+
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
 		var dataPointsStore;
@@ -55,12 +55,12 @@ Ext.define('moneyworld.controller.SummaryViewPhysicians', {
 			if ( dataPointsStore.last() ) {
 				var currentPhysicians = dataPointsStore.last().get('value');
 				if ( currentPhysicians == "" ) {
-					var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
+					var htmlString = moneyworld.utils.Functions.printErrorMessage();
 					this.getSummaryViewPhysicians().setHtml(htmlString);
 					return;
 				}
 			} else {
-				var htmlString = "<h1 class='summaryview-nodata'>No data available.</h1>";
+				var htmlString = moneyworld.utils.Functions.printErrorMessage();
 				this.getSummaryViewPhysicians().setHtml(htmlString);
 				return;
 			}

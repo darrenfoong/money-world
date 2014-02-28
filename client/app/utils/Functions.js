@@ -165,5 +165,9 @@ Ext.define('moneyworld.utils.Functions', {
 			}
 		};
 		return finalResult;
+	},
+
+	printErrorMessage: function() {
+		return "<h1 class='summaryview-nodata'>No data available.</h1>";
 	}
 });
