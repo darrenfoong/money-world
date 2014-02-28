@@ -25,7 +25,9 @@ Ext.define('moneyworld.controller.InfoView', {
 			var currentDataSetDescription = currentDataSet.get('description');
 
 			moneyworld.utils.Functions.changeTitle(this.getInfoView(), this.getMainView(), currentDataSetName);
-			this.getInfoView().setHtml("<h1>" + currentDataSetName + "</h1><p>" + currentDataSetDescription + "</p>");
+			var htmlString = "<h1 class='infoview-title'>" + currentDataSetName + "</h1><p class='infoview-text'>" + currentDataSetDescription + "</p>";
+			console.log(htmlString);
+			this.getInfoView().setHtml(htmlString);
 		}
 	}
 });
