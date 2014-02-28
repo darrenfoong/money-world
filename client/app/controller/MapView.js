@@ -26,12 +26,20 @@ Ext.define('moneyworld.controller.MapView', {
 		var settingsRecords = [];
 		var dataPointsRecords = [];
 
+		var currentRegionCode;
 		settingsStore.load({ callback: loadDataSetsStore, scope: this });
 
 		function loadDataSetsStore(records, operations, success) {
 			settingsRecords = records;
 			currentCountry = records[0].get('countryCode');
 			currentRegion = records[0].get('region');
+			console.log(currentRegion);
+			if (currentRegion == "Western Africa"){
+				currentRegionCode = "wafrica";
+			}
+			else {
+				currentRegionCode = "safrica";
+			}
 			dataSetsStore.load({ callback: loadDataPointsStore, scope: this });
 		}
 
@@ -43,7 +51,7 @@ Ext.define('moneyworld.controller.MapView', {
 			dataPointsStore = moneyworld.utils.Functions.getServerStore(
 				this.getMapView().getDataSet(),
 				"all",
-				"all");
+				currentRegionCode);
 			dataPointsStore.load({ callback: setData, scope: this });
 		}
 

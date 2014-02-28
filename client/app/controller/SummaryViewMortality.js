@@ -46,7 +46,8 @@ Ext.define('moneyworld.controller.SummaryViewMortality', {
     },
     initHack: function() {
         var canvasObj = new Ext.draw.engine.Canvas({
-            region: [0, 0, screen.availWidth, screen.availHeight] // this is the whole region of the canvas.
+            region: [0, 0, document.body.clientWidth, Math.min(document.body.clientWidth * 1.3, document.body.clientHeight - 76)] // this is the whole region of the canvas.
+            // region: [0, 0, screen.availWidth, screen.availHeight] // this is the whole region of the canvas.
             // region: [0, 0, parseInt(myViewObj.getWidth())/10*screen.availHeight, 1000]
         });
         this.getSummaryViewMortality().add(canvasObj);

@@ -126,6 +126,7 @@
      */
     "resources": [
         "app/viz",
+        "resources/font-awesome",
         "resources/images",
         "resources/js",
         "resources/icons",
