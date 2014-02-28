@@ -23,6 +23,7 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 
 		var currentCountry;
 		var currentRegion;
+		var regionForRequest;
 
 		var settingsRecords = [];
 		var dataPointsRecords = [];
@@ -39,6 +40,7 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 			settingsRecords = records;
 			currentCountry = records[0].get('countryCode');
 			currentRegion = records[0].get('region');
+			regionForRequest = (currentRegion == 'Southern Africa') ? 'safrica' : 'wafrica';
 			dataSetsStore.load({
 				callback: loadDataPointsStore,
 				scope: this
@@ -50,7 +52,7 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 			dataPointsStore = moneyworld.utils.Functions.getServerStore(
 				this.getSummaryViewGdp().getDataSet(),
 				"all",
-				currentCountry);
+				regionForRequest);
 			dataPointsStore.load({
 				callback: setData,
 				scope: this
@@ -83,7 +85,8 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 			]);
 			currentGDP = dataPointsStore.last().get('value');
 			if (currentGDP > maxGDP) maxGDP = currentGDP;
-			maxGDP = 9000;
+			console.log(maxGDP);
+			//maxGDP = 9000;
 
 			var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
@@ -122,7 +125,7 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				y: centrey+20,
 				fillStyle: '#FFFFFF',
 				fontSize: 60,
-				fontFamily: 'serif',
+				fontFamily: 'georgia',
 				fontVariant: 'thin',
 				textAlign: 'center'
 			});
