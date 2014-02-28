@@ -19,7 +19,6 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 		console.log('refreshing');
 		var settingsStore = Ext.getStore('Settings');
 		var dataSetsStore = Ext.getStore('DataSets');
-		var countriesStore = Ext.getStore('Countries');
 		var dataPointsStore;
 
 		var currentCountry;
@@ -30,18 +29,11 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 
 		var maxGDP = 0;
 		var currentGDP;
-		
-		countriesStore.load({
-			callback: loadCountriesStore,
+
+		settingsStore.load({
+			callback: loadDataSetsStore,
 			scope: this
 		});
-		
-		function loadCountriesStore(records, operations, success) {
-			settingsStore.load({
-				callback: loadDataSetsStore,
-				scope: this
-			});
-		}
 
 		function loadDataSetsStore(records, operations, success) {
 			settingsRecords = records;
@@ -58,7 +50,7 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 			dataPointsStore = moneyworld.utils.Functions.getServerStore(
 				this.getSummaryViewGdp().getDataSet(),
 				"all",
-				"all");
+				currentCountry);
 			dataPointsStore.load({
 				callback: setData,
 				scope: this
@@ -72,20 +64,13 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 				direction: 'ASC'
 			}]);
 			var dataSetID = this.getSummaryViewGdp().getDataSet();
-			dataPointsStore.filter([
-				// Ext.create('Ext.util.Filter', {
-// 				filterFn: function(dataPoint) {
-// 					pointRegion = moneyworld.utils.Functions.getRegionForCountry(countriesStore,dataPoint.get('countryCode'));
-// 					console.log(pointRegion);
-// 					return (pointRegion == currentRegion);
-// 				}}),
-				Ext.create('Ext.util.Filter', {
+			dataPointsStore.filter([Ext.create('Ext.util.Filter', {
 				filterFn: function(dataPoint) {
 					var currentValue = parseInt(dataPoint.get('value'));
 					if (currentValue > maxGDP) maxGDP = currentValue;
 					return true;
-				}})
-			]);
+				}
+			})]);
 			dataPointsStore.filter([
 				Ext.create('Ext.util.Filter', {
 					property: 'countryCode',
@@ -98,7 +83,7 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 			]);
 			currentGDP = dataPointsStore.last().get('value');
 			if (currentGDP > maxGDP) maxGDP = currentGDP;
-			//maxGDP = 9000;
+			maxGDP = 9000;
 
 			var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
