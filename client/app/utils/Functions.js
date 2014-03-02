@@ -56,9 +56,11 @@ Ext.define('moneyworld.utils.Functions', {
 	        b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper)
 	    };
 		
-		var rgbPercentage = "#" + ((color.r.toString(16) < 16) ? "0" : "") + color.r.toString(16) 
-			+ ((color.g.toString(16) < 16) ? "0" : "") + color.g.toString(16) 
-			+ ((color.b.toString(16) < 16) ? "0" : "") + color.b.toString(16);
+		var stringR = (color.r < 1) ? '00' : (((color.r < 16) ? "0" : "") + color.r.toString(16));
+		var stringG = (color.g < 1) ? '00' : (((color.g < 16) ? "0" : "") + color.g.toString(16));
+		var stringB = (color.b < 1) ? '00' : (((color.b < 16) ? "0" : "") + color.b.toString(16));
+		
+		var rgbPercentage = "#" + stringR + stringG + stringB;
 		console.log(rgbPercentage);
 	    return rgbPercentage;
 	    
