@@ -19,6 +19,7 @@ Ext.define('moneyworld.utils.Functions', {
 
 	getServerStore: function(dataSet, year, country) {
 		var url = "http://money-world.appspot.com/api/" + dataSet + "/" + year + "/" + country;
+		// console.log(url);
 		var dataPointsStore = Ext.create('Ext.data.Store', {
 			model: 'moneyworld.model.DataPoint',
 			proxy: {

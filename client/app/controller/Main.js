@@ -77,11 +77,13 @@ Ext.define('moneyworld.controller.Main', {
 
 		var currentSummaryView = this.getOverView().getActiveItem();
 		var currentDataSet = currentSummaryView.getDataSet();
+		var currentDirection = currentSummaryView.getDirection();
 
 		var mapView = Ext.create('moneyworld.view.MapView');
 		mapView.setDataSet(currentDataSet);
+		mapView.setDirection(currentDirection);
 		
-		Ext.ComponentQuery.query('geomapview')[0].setHtml('<iframe style="position: absolute; width: 100%; height: 100%;" src="app/viz/map_view/index.html"/>');
+		// Ext.ComponentQuery.query('geomapview')[0].setHtml('<iframe style="position: absolute; width: 100%; height: 100%;" src="app/viz/map_view/index.html"/>');
 		console.log("Pushing MapView[" + currentDataSet + "] to Main");
 		this.getMainView().push(mapView);
 	}

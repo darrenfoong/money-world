@@ -6,6 +6,8 @@ Ext.define('moneyworld.view.SummaryViewInflation', {
 	config: {
 		dataSet: 'FP.CPI.TOTL.ZG',
 		dataSetInternal: 'Inflation',
+		direction: 1,
+		
 		// items: [{
 // 			xtype: 'label',
 // 			html: '<center><span class="indicator-heading">Inflation</span></center><canvas id="testtesttest"  style="width:100%; height:100%; border:1px solid black" width="1260" height="600">[No canvas support]</canvas>'

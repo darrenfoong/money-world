@@ -1,9 +1,8 @@
 Ext.define('moneyworld.view.GeoMapView', {
 	extend: 'Ext.Panel',
 	xtype: 'geomapview',
-	requires: [
-	],
+	requires: [],
 	config: {
-		html: ''
+		html: '<div id="map1"></div>'
 	}
 });

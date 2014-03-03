@@ -8,11 +8,15 @@ Ext.define('moneyworld.controller.MapView', {
 		},
 		control: {
 			'mapView': {
-				initialize: 'renderView'
+				initialize: 'renderView',
+				drawMap: 'drawMap'
 			}
 		}
 	},
-
+	sample2: null,
+	currentCountry: null,
+	direction: 0, //default green for high
+	dataSetRecord:null, //to pass to map so it formats things properly
 	renderView: function() {
 		console.log("Loading MapView");
 
@@ -27,42 +31,55 @@ Ext.define('moneyworld.controller.MapView', {
 		var dataPointsRecords = [];
 
 		var currentRegionCode;
-		settingsStore.load({ callback: loadDataSetsStore, scope: this });
+		settingsStore.load({
+			callback: loadDataSetsStore,
+			scope: this
+		});
+
 
 		function loadDataSetsStore(records, operations, success) {
 			settingsRecords = records;
-			currentCountry = records[0].get('countryCode');
-			currentRegion = records[0].get('region');
-			console.log(currentRegion);
-			if (currentRegion == "Western Africa"){
-				currentRegionCode = "wafrica";
-			}
-			else {
-				currentRegionCode = "safrica";
-			}
-			dataSetsStore.load({ callback: loadDataPointsStore, scope: this });
+			this.currentCountry = records[0].get('countryCode');
+			// currentRegion = records[0].get('region');
+			// console.log(currentRegion);
+			// if (currentRegion == "Western Africa"){
+			// 	currentRegionCode = "wafrica";
+			// }
+			// else {
+			// 	currentRegionCode = "safrica";
+			// }
+			dataSetsStore.load({
+				callback: loadDataPointsStore,
+				scope: this
+			});
 		}
 
 		function loadDataPointsStore(records, operation, success) {
 			var myDataSet = this.getMapView().getDataSet();
 			var myDataSetRecord = dataSetsStore.findRecord('id', myDataSet).getData();
-			localStorage["dataSetRecords"] = JSON.stringify(myDataSetRecord);
+			this.dataSetRecord = myDataSetRecord;
 			dataSetsRecords = records;
 			dataPointsStore = moneyworld.utils.Functions.getServerStore(
-				this.getMapView().getDataSet(),
+				myDataSet,
 				"all",
-				currentRegionCode);
-			dataPointsStore.load({ callback: setData, scope: this });
+				"all");
+			// currentRegionCode);
+			dataPointsStore.load({
+				callback: setData,
+				scope: this
+			});
 		}
 
 		function setData(records, operation, success) {
-			// Visualisation code starts here
-			// myInj = this.getMapView();
-			moneyworld.utils.Functions.changeTitle(this.getMapView(), this.getMainView(), currentRegion);
-			console.log("Setting MapView title to " + currentRegion);
-			localStorage["moneyworld"] = JSON.stringify(moneyworld.utils.Functions.storeToJson(records));
-			console.log("Setting local storage");
-			// Visualisation code ends here
+			this.sample2 = moneyworld.utils.Functions.storeToJson(records);
+			var map = generateMap('africa_en', this.sample2['2010'], this.dataSetRecord, 1);
+			map.setFocus(this.currentCountry);
 		}
+	},
+	drawMap: function(a) {
+
+		this.direction = this.getMapView().getDirection();
+		var map = generateMap('africa_en', this.sample2[a], this.dataSetRecord, this.direction);
+		// map.setFocus(this.currentCountry);
 	}
 });

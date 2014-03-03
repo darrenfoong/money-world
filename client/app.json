@@ -53,6 +53,9 @@
         "path": "resources/js/jquery-latest.js",
         "x-bootstrap": false
     }, {
+        "path": "resources/js/libraries.js",
+        "x-bootstrap": false
+    }, {
         "path": "resources/js/RGraph.common.core.js",
         "x-bootstrap": false
     }, {
@@ -61,6 +64,21 @@
     }, {
         "path": "resources/js/RGraph.bar.js",
         "x-bootstrap": false
+    }, {
+        "path": "resources/js/jquery.jvectormap.min.js",
+        "x-bootstrap": false
+    }, {
+        "path": "resources/js/jquery-jvectormap.js",
+        "x-bootstrap": false
+    }, {        
+        "path": "resources/js/jquery-mousewheel.js",
+        "x-bootstrap": false
+    }, {        
+        "path": "resources/js/jquery.vmap.africa.js",
+        "x-bootstrap": false
+    }, {
+        "path": "resources/js/population_2000_all.js",
+        "x-bootstrap": false                
     }],
 
     /**
@@ -82,28 +100,34 @@
     "css": [{
         "path": "resources/css/app.css",
         "update": "delta"
-        }, {
+    }, {
         "path": "resources/font-awesome/css/font-awesome.min.css",
         "update": "delta"
-        }, {
+    }, {
         "path": "resources/css/infoview.css",
         "update": "delta"
-        }, {
+    }, {
         "path": "resources/css/summaryview.css",
         "update": "delta"
-        }, {
+    }, {
         "path": "resources/css/summaryview_unemp.css",
         "update": "delta"
-        }, {
+    }, {
         "path": "resources/css/summaryview_physicians.css",
         "update": "delta"
-        }, {
+    }, {
         "path": "resources/css/summaryview_inflation.css",
         "update": "delta"
-        }, {
+    }, {
         "path": "resources/css/summaryview_gini.css",
         "update": "delta"
-        }],
+    }, {
+        "path": "resources/css/jquery-jvectormap.css",
+        "update": "delta"
+    }, {
+        "path": "resources/css/montserrat/font.css",
+        "update": "delta"
+    }],
 
     /**
      * Used to automatically generate cache.manifest (HTML 5 application cache manifest) file when you build
@@ -131,13 +155,15 @@
      * Extra resources to be copied along when build
      */
     "resources": [
-        "app/viz",
         "resources/font-awesome",
         "resources/images",
         "resources/js",
         "resources/icons",
         "resources/startup",
-        "data"
+        "data", 
+        "resources/css/montserrat",
+        "images",
+        "country_flag_png"
     ],
 
     /**

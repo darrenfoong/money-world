@@ -86,7 +86,7 @@ Ext.define('moneyworld.controller.DetailedViewMortality', {
 								color: "#dddddd",
 								fontSize: "1.0em"
 							},
-							grid: true,
+							grid: false,
 							style: {
 								estStepSize: 20,
 								stroke: "#dddddd"
@@ -105,7 +105,7 @@ Ext.define('moneyworld.controller.DetailedViewMortality', {
 								color: "#dddddd",
 								fontSize: "1.0em"
 							},
-							grid: true,
+							grid: false,
 							style: {
 								estStepSize: 20,
 								stroke: "#dddddd"
@@ -113,7 +113,7 @@ Ext.define('moneyworld.controller.DetailedViewMortality', {
 							label: {
 								color: "#dddddd"
 							},
-							visibleRange: [0.66, 1],
+							visibleRange: [0, 1],
 							minimum: Math.floor(Number(dataPointsStore.min('year'))-1),
 							maximum: Math.ceil(Number(dataPointsStore.max('year'))+1),
 							renderer: function(v) { return v.toFixed(0); }

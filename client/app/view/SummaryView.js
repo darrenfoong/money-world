@@ -9,6 +9,7 @@ Ext.define('moneyworld.view.SummaryView', {
 		year: null,
 
 		dataSetInternal: null,
+		direction: null,
 
 		height: '95%',
 
