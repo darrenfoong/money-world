@@ -1,24 +1,29 @@
-.summaryview_gini-table {
-	width: 300px;
+.summaryview_gini-container {
+	width: 1000px;
 	text-align: center;
 	position:absolute; 
-	top:5%; 
+	top:50%; 
 	left:50%;
-	height:90%; 
-	margin-top:0%;
-	margin-left: -150px;
-	border-style:solid;
-	border-width:1px;
+	height:10em; 
+	margin-top:-5em;
+	margin-left: -500px;
 }
 
-.summaryview_gini-top {
-	background-color:#FFCF00;
+.summaryview_gini-description {
+	margin: -1em;
+	text-align: center;
+	font-size: 2em;
 }
 
-.summaryview_gini-mid {
-	background-color:#98F100;
+.summaryview_gini-line {
+	margin: 8em;
 }
 
-.summaryview_gini-low {
-	background-color:#FF5C00;
+.summaryview_gini-big {
+	font-size: 7.0em;
+	text-align: center;
+}
+
+.summaryview_gini-small {
+	font-size: 0.5em;
 }

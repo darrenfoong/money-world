@@ -6,7 +6,7 @@ Ext.define('moneyworld.view.SummaryViewLifeExpectancy', {
 	config: {
 		items: [{
 			xtype: 'label',
-			html: '<span class="indicator-heading" style="font-size:+5">The average person lives up to</span>'
+			html: '<div style="margin:15px 0;font-size:1.6em;text-align:center">The average person lives for</span>'
 		}],
 		// listeners: {
 		// 	// I had to do this because the controller cannot register this event

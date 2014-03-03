@@ -92,10 +92,11 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 
 			var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
 
-			height = height * 0.9;
+			height = height - 46 - 28;
+			height = height * 0.88;
 
 			var centrex = width / 2,
-				centrey = (height - 46 - 28) / 2,
+				centrey = height / 2 - 20,
 				circler = ((centrex < centrey) ? centrex : centrey) * (currentGDP / maxGDP) * 0.9;
 							
 			var colourString = '#79BB3F';
@@ -105,7 +106,7 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 			var circlePanel = Ext.create('Ext.draw.Component', {
 				xtype: 'panel',
 				layout: 'card',
-				height: '90%',
+				height: '88%',
 				width: '100%',
 				initialize: function() {
 				}
@@ -131,16 +132,21 @@ Ext.define('moneyworld.controller.SummaryViewGdp', {
 			});
 			
 			circlePanel.add(drawComponent1);
-			this.getSummaryViewGdp().add(circlePanel);
+			
 
 			this.getSummaryViewGdp().add({
 				xtype: 'panel',
 				layout: 'card',
-				height: '10%',
+				height: '12%',
 				width: '100%',
-				style: 'text-align: center',
-				html: "<div>GDP per capita</div>"
+				style: {
+					'text-align': 'center',
+					'margin-top': '30px'
+				},
+				html: "<div style='font-size:3.5em; margin:0.25em'>GDP</div><div style='font-size:1.2em'>per capita</div>"
 			});
+			
+			this.getSummaryViewGdp().add(circlePanel);
 		}
 	}
 });

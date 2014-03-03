@@ -89,7 +89,7 @@ Ext.define('moneyworld.controller.SummaryViewLifeExpectancy', {
 		var containerObj = Ext.get("summaryview_lifeExpectancy");
 		var canvasObj = new Ext.draw.engine.Canvas({
 			id: 'myCanvasLifeExpectancy',
-			region: [0, 0, document.body.clientWidth, Math.min(document.body.clientWidth * 1.3, document.body.clientHeight - 76)] // this is the whole region of the canvas.
+			region: [0, 50, document.body.clientWidth, Math.min(document.body.clientWidth * 1.3, document.body.clientHeight - 76)] // this is the whole region of the canvas.
 			// region: [0, 0, parseInt(myViewObj.getWidth())/10*screen.availHeight, 1000]
 		});
 		this.getSummaryViewLifeExpectancy().add(canvasObj);

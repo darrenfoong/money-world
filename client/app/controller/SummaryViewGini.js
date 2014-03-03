@@ -60,18 +60,34 @@ Ext.define('moneyworld.controller.SummaryViewGini', {
 				return;
 			}
 			
-			var top20 = 20;
-			var low20 = 20;
-			var topHeight = 10;
-			var lowHeight = 30;
-			var midHeight = 100 - topHeight - lowHeight;
-						
+			var preHtmlString = "Income inequality is";
+			var postHtmlString = "<text class='summaryview_gini-small'><font color=red>/100</font></text>"; 
+			var colourString = moneyworld.utils.Functions.getRangedColour(1-(currentGini/100));
+			
 			var htmlString = '';
-			htmlString += "<table class='summaryview_gini-table' border=1>";
-			htmlString += "<tr class='summaryview_gini-top' height=" + topHeight +"%><td>The top 10% hold " + topHeight + "% of the wealth</td></tr>";
-			htmlString += "<tr class='summaryview_gini-mid' height=" + midHeight +"%><td>" + midHeight + "%</td></tr>";
-			htmlString += "<tr class='summaryview_gini-low' height=" + lowHeight +"%><td>The bottom 10% hold " + lowHeight + "% of the wealth</td></tr>";
-			htmlString += "</table>";
+			htmlString += "<div class='summaryview_gini-container'>";
+			htmlString += "<div class='summaryview_gini-description'>";
+			htmlString += preHtmlString;
+			htmlString += "</div>";
+			htmlString += "<div class='summaryview_gini-line'><text class='summaryview_gini-big'><font color = '" + colourString + "'>" + currentGini + "</font>";
+			htmlString += postHtmlString + "</div>";
+			
+			htmlString += "</div>";
+			
+			console.log(htmlString);
+			
+			// var top20 = 20;
+// 			var low20 = 20;
+// 			var topHeight = 10;
+// 			var lowHeight = 30;
+// 			var midHeight = 100 - topHeight - lowHeight;
+// 						
+// 			var htmlString = '';
+// 			htmlString += "<table class='summaryview_gini-table' border=1>";
+// 			htmlString += "<tr class='summaryview_gini-top' height=" + topHeight +"%><td>The top 10% hold " + topHeight + "% of the wealth</td></tr>";
+// 			htmlString += "<tr class='summaryview_gini-mid' height=" + midHeight +"%><td>" + midHeight + "%</td></tr>";
+// 			htmlString += "<tr class='summaryview_gini-low' height=" + lowHeight +"%><td>The bottom 10% hold " + lowHeight + "% of the wealth</td></tr>";
+// 			htmlString += "</table>";
 			this.getSummaryViewGini().setHtml(htmlString);
 						
 			
