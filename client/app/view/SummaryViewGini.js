@@ -12,17 +12,6 @@ Ext.define('moneyworld.view.SummaryViewGini', {
 		},
 		dataSet: 'SI.POV.GINI',
 		dataSetInternal: 'Gini',
-		// items: [{
-// 				xtype: 'panel',
-// 				flex: 1,
-// 				html: '<center><span class="indicator-heading">Income Inequality</span></center>'
-// 			},
-// 			// {
-// 			// 	xtype: 'myOwnChart',
-// 			// 	store: 'BarLabel',
-// 			// 	flex: 4,
-// 			// 	docked: 'bottom',
-// 			// }
-// 		]
+		direction: 1
 	},
 });

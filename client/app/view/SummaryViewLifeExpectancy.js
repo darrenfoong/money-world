@@ -17,5 +17,6 @@ Ext.define('moneyworld.view.SummaryViewLifeExpectancy', {
 		// },
 		dataSet: 'SP.DYN.LE00.IN',
 		dataSetInternal: 'LifeExpectancy',
+		direction: 0
 	}
 });

@@ -97,6 +97,7 @@ function generateMap2(map_id, dataset, dataSetRecords, direction) {
     }
     jQuery('.jvectormap-container').remove();
     jQuery('#map2').vectorMap({
+        enablePan: false,
         map: map_id,
         focusOn: {
             x: 0,

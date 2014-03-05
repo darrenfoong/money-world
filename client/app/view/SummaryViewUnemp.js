@@ -6,8 +6,6 @@ Ext.define('moneyworld.view.SummaryViewUnemp', {
 	config: {
 		dataSet: 'SL.UEM.TOTL.ZS',
 		dataSetInternal: 'Unemp',
-		direction: 1,
-
-		html: ''
+		direction: 1
 	}
 });

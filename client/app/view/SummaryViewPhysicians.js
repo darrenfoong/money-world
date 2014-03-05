@@ -6,7 +6,6 @@ Ext.define('moneyworld.view.SummaryViewPhysicians', {
 	config: {
 		dataSet: 'SH.MED.PHYS.ZS',
 		dataSetInternal: 'Physicians',
-
-		html: ''
+		direction: 0
 	}
 });

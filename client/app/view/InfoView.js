@@ -5,7 +5,7 @@ Ext.define('moneyworld.view.InfoView', {
 	],
 	config: {
 		title: null,
-
+scrollable: true,
 		dataSet: null,
 		country: null,
 

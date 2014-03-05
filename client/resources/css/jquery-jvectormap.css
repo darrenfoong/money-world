@@ -28,11 +28,11 @@
 }
 .jvectormap-zoomin {
     top:10px;
-    display:none;
+    /*display:none;*/
 }
 .jvectormap-zoomout {
     top:30px;
-    display:none;
+    /*display:none;*/
 }
 .left-float-text {
     float:left
